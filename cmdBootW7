@@ -9,4 +9,4 @@ diskpart
   assign
   exit
 
-xcopy d:\*.* /s/e/f e:\
+xcopy e:\*.* /s/e/f e:\
