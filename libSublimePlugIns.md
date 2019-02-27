@@ -1,7 +1,8 @@
 
 ## Origen --> [Sublime Text (3) for PHP Developers](https://mattstauffer.com/blog/sublime-text-3-for-php-developers/)
 
-### [Go install Package Control now.](https://packagecontrol.io/installation)
+### [Install Package Control](https://packagecontrol.io/installation)
+### [Alignment](https://packagecontrol.io/packages/Alignment)
 ### [AllAutocomplete](https://github.com/alienhard/SublimeAllAutocomplete)
 ### [SublimeLinter](http://sublimelinter.readthedocs.org/en/latest/installation.html)
 ### [DocBlockr](https://github.com/spadgos/sublime-jsdocs)
