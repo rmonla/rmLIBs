@@ -8,6 +8,6 @@
 ### Sublime Text Git https://github.com/kemayo/sublime-text-git
 ### GitGutter https://github.com/jisaacks/GitGutter
 ### SublimeCodeIntel https://github.com/SublimeCodeIntel/SublimeCodeIntel
-### SublimePrettyJSON https://github.com/dzhibas/SublimePrettyJson
+### Pretty JSON https://github.com/dzhibas/SublimePrettyJson
 
 
