@@ -2,17 +2,14 @@
 	
 	include_once 'rmMyURL.php';
 
-
-	$dats = array(
-		'tit' => 'UTNLR DMS', 
-		'des' => 'Systema de administración de documentos UTNLaRioja - DTIC.',
-		'dst' => 'http://192.168.7.88/',
-		'ima' => rmMyURL() . 'miniatura.jpeg',
-		'tpo' => 5
-	);
+	$tit = 'UTNLR DMS'; 
+	$des = 'Systema de administración de documentos UTNLaRioja - DTIC.';
+	$dst = 'http://192.168.7.88/';
+	$ima = rmMyURL() . 'miniatura.jpeg';
+	$tpo = 3;
 
 	/**
-	 * rmRedir: Redirecciona a una URL diferentes.
+	 * rmRedir: Redirecciona a una URL diferente.
 	 * @param  string  $tit Título del link de destino.
 	 * @param  string  $des Descripción del contenido de destino.
 	 * @param  string  $dst Url de destino donde se redirecciona.
@@ -25,10 +22,9 @@
 		$des = '',
 		$dst = '',
 		$ima = '',
-		$tpo = 0	//tiempo expresado en segundos.
+		$tpo = 2  //tiempo expresado en segundos.
 		){
 		
-
 		$pag = <<<HTML
 
 	<html>
@@ -49,6 +45,9 @@ HTML;
 
 	}
 
-	rmRedir( list($dats) );
+	// var_dump( list($dats) );
+	// rmRedir( $dats );
+	// rmRedir( (list($dats)) );
+	rmRedir( $tit, $des, $dst, $ima, $tpo);
 
 ?>
