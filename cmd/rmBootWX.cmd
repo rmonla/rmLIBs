@@ -1,3 +1,4 @@
+rem rmBootWX.cmd: Lista de comandos para generar un pendrive booteable de windows 10.
 diskpart 
   list disk
   select disk 1
