@@ -1,6 +1,6 @@
 <?php 
 	/**
-	 * Analiza ubicación actual de la uri actual y la retorna completa con su protocolo correspondiente.
+	 * rmMyUrl: Retorna URL completa con su protocolo.
 	 * @return [string] [URL completa con su protocolo correspondiente.]
 	 * @author Ricardo MONLA <rmonla@gmail.com>
 	 */
