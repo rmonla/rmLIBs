@@ -11,5 +11,14 @@ https://docs.google.com/spreadsheets/d/1JcuakhD7yE1XXZtgCiBEyj-mKa-C6aSgpq0-fWvE
 https://docs.google.com/spreadsheets/d/1M3ltmdUsyhCNbKLWLLNCrXTg6O5YGPdCh3AwrwHHkAk/pubhtml#
 https://docs.google.com/spreadsheets/d/1M3ltmdUsyhCNbKLWLLNCrXTg6O5YGPdCh3AwrwHHkAk/pubhtml?widget=true&headers=true
 
+The new Google spreadsheets use a different URL (just copy your <KEY>):
+
+    New sheet : https://docs.google.com/spreadsheets/d/<KEY>/pubhtml
+    CSV file : https://docs.google.com/spreadsheets/d/<KEY>/export?gid=<GUID>&format=csv
+
+The GUID of your spreadsheet relates to the tab number.
+
+/!\ You have to share your document using the Anyone with the link setting.
+
 
 
