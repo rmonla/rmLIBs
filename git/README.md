@@ -1,5 +1,21 @@
-### Markdown
-[Mastering Markdown](https://guides.github.com/features/mastering-markdown)
+# Markdown --->[Mastering Markdown](https://guides.github.com/features/mastering-markdown)
+## Enlace
+    [Mastering Markdown](https://guides.github.com/features/mastering-markdown)
+## Código
+### Normal (4 espacios)
+    function fancyAlert(arg) {
+      if(arg) {
+        $.facebox({div:'#foo'})
+      }
+    }
+### De Lenguaje
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 
 ### Submódulos
 [6.6. Submódulos](https://uniwebsidad.com/libros/pro-git/capitulo-6/submodulos)
