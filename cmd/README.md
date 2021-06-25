@@ -7,6 +7,10 @@
 ### Segmentar Video Desde un punto en adelante.
 
     ffmpeg -i input.mp4 -ss 01:32:38 -c copy b-output1.mp4
+    
+### Segmentar Video Desde y Hasda.
+
+    ffmpeg -i 2021-06-25T01_02_05Z.mp4 -ss 00:17:55 -to 00:26:30 -c copy PSS_Pedro-1.mp4
 
 ### Segmentar Video en partes de 20 minutos.
 
