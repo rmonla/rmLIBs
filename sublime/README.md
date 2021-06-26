@@ -5,6 +5,8 @@
 ### SideBarEnhancements https://packagecontrol.io/packages/SideBarEnhancements
 ### Alignment https://packagecontrol.io/packages/Alignment
 ### Auto​File​Name https://packagecontrol.io/packages/AutoFileName
+### Sublime-HTMLPrettify https://github.com/victorporof/Sublime-HTMLPrettify
+
 ### SublimeLinter http://sublimelinter.readthedocs.org/en/latest/installation.html
 ### DocBlockr https://github.com/spadgos/sublime-jsdocs
 ### Sublime Text Git https://github.com/kemayo/sublime-text-git
