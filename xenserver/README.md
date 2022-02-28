@@ -1,17 +1,13 @@
-## REPOSITORIOS
-### sssss.
+## rmLIBs - XenServer
+### [Almacenamiento en Citrix XenServer: cómo funciona y qué puede fallar](https://www.computerweekly.com/es/consejo/Almacenamiento-en-Citrix-XenServer-como-funciona-y-que-puede-fallar)
+    xe sr-list
+        Este comando muestra los UUID actualmente en uso junto a los demás parámetros que nos permiten identificar el tipo de almacenamiento.
+    xe sr-rescan
+        Para escanear de nuevo los identificadores de los dispositivos físicos y volver a construir la base de datos.
 
-    vBusc='IEM_1ro_7Sep_2105'
-    (find . -type f -name $vBusc'*' -printf "file '$PWD/%p'\n" | sort) | ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -vcodec copy -acodec copy $vBusc'.mp4'
+### [¿Cómo añadir un disco nuevo a XenServer y crear el SR local?](https://www.josemariagonzalez.es/citrix/como-anadir-disco-nuevo-xenserver-crear-sr-local.html)
+#### 1.- Localizamos el ID del disco:
+    ll /dev/disk/by-id
 
-### Segmentar Video Desde un punto en adelante.
-
-    ffmpeg -i input.mp4 -ss 01:32:38 -c copy b-output1.mp4
-    
-### Segmentar Video Desde y Hasda.
-
-    ffmpeg -i 2021-06-25T01_02_05Z.mp4 -ss 00:17:55 -to 00:26:30 -c copy PSS_Pedro-1.mp4
-
-### Segmentar Video en partes de 20 minutos.
-
-    ffmpeg -i source.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment -reset_timestamps 1 output%03d.mp4
+#### 2.- Una vez Localizado el id, creamos el SR Local:
+    xe sr-create content-type=user device-config:device=/dev/disk/by-id/ host-uuid= name-label=”Disco Local 2” shared=false type=lvm 
