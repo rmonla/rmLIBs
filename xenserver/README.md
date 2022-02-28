@@ -14,3 +14,15 @@
 ## [How to download the XenServer XenCenter client](https://electrictoolbox.com/download-xencenter-client/)
 ### ...if your server’s IP address is 10.1.1.1, the link will be to:
     http://10.1.1.1/
+
+## [How to add ISO image storage repository on XenServer Linux](https://linuxconfig.org/how-to-add-iso-image-storage-repository-on-xenserver-7-linux)
+### Create a store directory
+#### Crear Directorio
+    # mkdir /var/opt/ISO_IMAGES
+#### Copiar o descargar ISO
+    # cd /var/opt/ISO_IMAGES
+    # wget http://debian.uberglobalmirror.com/debian-cd/8.5.0/amd64/iso-cd/debian-8.5.0-amd64-CD-1.iso
+
+### Create storage repository
+#### create/register our new storage repository with XenServer:
+    # xe sr-create name-label=ISO_IMAGES_LOCAL type=iso device-config:location=/var/opt/ISO_IMAGES device-config:legacy_mode=true content-type=iso
