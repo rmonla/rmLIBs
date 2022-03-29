@@ -1,4 +1,7 @@
-# rmLIBs - Linux - Actu-Distro
+# rmLIBs - Linux - Distro
+
+## Ver la distro instalada.
+    cat /etc/*release
 
 ## Una opción de ejecutar la actualización de toda la Distro.
     su
