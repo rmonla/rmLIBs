@@ -50,3 +50,16 @@ NOTA: La VM debe estar en modo apagada o suspendida.
 ## [How to download the XenServer XenCenter client](https://electrictoolbox.com/download-xencenter-client/)
 ### ...if your server’s IP address is 10.1.1.1, the link will be to:
     http://10.1.1.1/
+
+# INICIO PROGRAMADO
+
+## [Inicio automático de máquinas virtuales con XenServer](https://pornohardware.com/2014/12/24/inicio-automatico-de-maquinas-virtuales-con-xenserver/)
+
+### 1 Crear una vApp. 
+    Ver Enlace.
+### 2 Identificador (UUID) de vApp. 
+    $ sudo xe appliance-list
+### 3 Editar el archivo /etc/rc.local
+# Start the main vApp to boot the VMs
+    xe appliance-start uuid=6373fb13-520b-aafb-eae3-ea0cb47ca64a
+
