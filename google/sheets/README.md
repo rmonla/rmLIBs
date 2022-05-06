@@ -1,3 +1,6 @@
+### Google Apps Script desde Sheets – Introducción --> [Google Apps Script desde Sheets – Introducción](https://juansguzman.com/blog/google-apps-script-desde-sheets-introduccion/)
+
+
 ### Edit embedded spreadsheets --> [Make Google Docs, Sheets, Slides & Forms public](https://support.google.com/docs/answer/183965)
 
     gid=: The sheet ID.
