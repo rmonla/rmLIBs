@@ -6,3 +6,4 @@
 
 ### Mostrar los 10 directorios mas cargados.
     # du -a | sort -nr | head -n 10
+    # du -ahx . | sort -rh | head -10
