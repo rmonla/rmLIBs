@@ -1,3 +1,8 @@
+# BASICOS
+## [Haciendo uso de CLI mediante SHH en XenServer](https://www.josemariagonzalez.es/citrix/haciendo-uso-cli-mediante-shh-xenserver.html)
+    xsconsole
+
+
 # ALMACENAMIENTO
 ## [Almacenamiento en Citrix XenServer: cómo funciona y qué puede fallar](https://www.computerweekly.com/es/consejo/Almacenamiento-en-Citrix-XenServer-como-funciona-y-que-puede-fallar)
     xe sr-list
