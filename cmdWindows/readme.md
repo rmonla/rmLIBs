@@ -1,5 +1,5 @@
 # Crear un Pendrive booteable de Windows 10
-```Batchfile    
+```bat    
 rem rmBootWX.cmd: Lista de comandos para generar un pendrive booteable de windows 10.
 diskpart 
   list disk
@@ -16,7 +16,7 @@ xcopy e:\*.* /s/e/f f:\
 ```
 
 # Ejemplo de un instalador
-```Batchfile 
+```bat 
 REM extracting the cab file to current directory
 extrac32.exe /Y /A /E files.cab
 REM changing the directory to "Files"
