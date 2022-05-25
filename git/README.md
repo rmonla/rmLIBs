@@ -9,6 +9,12 @@
       }
     }
 ### De Lenguaje
+Palabras clave válidas en el [archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)
+````
+```javascript
+    ...
+```
+````
 ```javascript
 function fancyAlert(arg) {
   if(arg) {
@@ -19,9 +25,11 @@ function fancyAlert(arg) {
 
 ## Submódulos
 ### Clonar --->[6.6. Submódulos](https://uniwebsidad.com/libros/pro-git/capitulo-6/submodulos)
-    git submodule add https://github.com/rmonla/dticAulaVirtual.git aulavirtual
-    git submodule init
-    git submodule update
+```git
+git submodule add https://github.com/rmonla/dticAulaVirtual.git aulavirtual
+git submodule init
+git submodule update
+```
 
 ### Clonar --->[Eliminar un Submódulo](https://metadrop.net/articulos/eliminar-submodulo-git-submodule-deinit)
     git submodule deinit <ruta_submodulo> 
