@@ -1,17 +1,27 @@
-# Crear un Pendrive booteable de Windows 10
-    rem rmBootWX.cmd: Lista de comandos para generar un pendrive booteable de windows 10.
-    diskpart 
-      list disk
-      select disk 1
-      clean
-      create partition primary
-      select partition 1
-      active
-      format fs=ntfs label=RM-WX quick
-      assign
-      exit
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 
-    xcopy e:\*.* /s/e/f f:\
+# Crear un Pendrive booteable de Windows 10
+```Batchfile    
+rem rmBootWX.cmd: Lista de comandos para generar un pendrive booteable de windows 10.
+diskpart 
+  list disk
+  select disk 1
+  clean
+  create partition primary
+  select partition 1
+  active
+  format fs=ntfs label=RM-WX quick
+  assign
+  exit
+
+xcopy e:\*.* /s/e/f f:\
+```
 
 # Ejemplo de un instalador
     REM extracting the cab file to current directory
