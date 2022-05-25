@@ -1,11 +1,3 @@
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
-
 # Crear un Pendrive booteable de Windows 10
 ```Batchfile    
 rem rmBootWX.cmd: Lista de comandos para generar un pendrive booteable de windows 10.
@@ -24,11 +16,11 @@ xcopy e:\*.* /s/e/f f:\
 ```
 
 # Ejemplo de un instalador
-    REM extracting the cab file to current directory
-    extrac32.exe /Y /A /E files.cab
-    REM changing the directory to "Files"
-    CD Files
-    REM executing setup.exe in Files folder.
-    START /WAIT %~dp0\Files\setup.exe
-    
- 
+```Batchfile 
+REM extracting the cab file to current directory
+extrac32.exe /Y /A /E files.cab
+REM changing the directory to "Files"
+CD Files
+REM executing setup.exe in Files folder.
+START /WAIT %~dp0\Files\setup.exe
+```
