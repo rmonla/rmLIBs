@@ -1,3 +1,5 @@
+# Módulo para convertir Números a Letras
+```vb
 Attribute VB_Name = "Módulo1"
 Function CONVERTIRNUM(Numero As Double, Optional CentimosEnLetra As Boolean) As String
 
@@ -105,3 +107,4 @@ End Select
 NUMERORECURSIVO = Resultado
 
 End Function
+```
