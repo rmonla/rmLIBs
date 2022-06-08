@@ -1,4 +1,4 @@
-# Crear un Pendrive booteable de Windows 10
+# Crear un Pendrive booteable de Windows 7 o 10
 ```bat    
 rem rmBootWX.cmd: Lista de comandos para generar un pendrive booteable de windows 10.
 diskpart 
