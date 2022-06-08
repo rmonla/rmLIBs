@@ -37,3 +37,39 @@ INNER JOIN facus    f   ON f.id   = o.idfacu
 ORDER BY ca.carr, cu.anio, cu.cod, dsf.orden 
 LIMIT 0,10
 ```
+
+# Bibliteca sobre USUARIOS.
+rmUSUARIOS.sql:
+/**
+ * Commando para acceder a mysql desde consola en linux.
+ */
+```bat
+sudo mysql -u root -p
+```
+
+/**
+ * Crear usuario desde consola.
+ */
+```sql
+CREATE USER 'rmonla'@'localhost' IDENTIFIED BY 'password';
+```
+
+/**
+ * Conceder todos los privilegios en todas las tablas.
+ */
+```sql
+GRANT ALL PRIVILEGES ON * . * TO 'rmonla'@'localhost';
+```
+
+/**
+ * Conceder pribilegios a usuario en tabla específica.
+ */
+```sql
+GRANT ALL PRIVILEGES ON rmUTNSaa . * TO 'rmUTNSaa'@'localhost';
+```
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
