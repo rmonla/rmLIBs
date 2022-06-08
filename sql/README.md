@@ -1,4 +1,6 @@
--- rmINNER-JOIN.sql: Consulta SQL con varios conceptos INNER JOIN, CONCAT_WS, DATE_FORMAT.
+# Consulta SQL con varios conceptos INNER JOIN, CONCAT_WS, DATE_FORMAT.
+rmINNER-JOIN.sql:
+```sql
 SELECT 
 	ds.id, 
 	ca.cod carr, 
@@ -34,3 +36,4 @@ INNER JOIN oris     o   ON o.id   = doc.idori
 INNER JOIN facus    f   ON f.id   = o.idfacu 
 ORDER BY ca.carr, cu.anio, cu.cod, dsf.orden 
 LIMIT 0,10
+```
