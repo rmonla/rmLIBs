@@ -24,7 +24,20 @@ CD Files
 REM executing setup.exe in Files folder.
 START /WAIT %~dp0\Files\setup.exe
 ```
-# Ejecutar comandos muti hilos
+# Renombra archivos por lotes con parametros.
+```bat 
+@echo off
+rem Recive por parametros la subcarpeta y el inicio del nombre para renombrar.
+
+set DIR=%1
+set PRE=%2
+cd %DIR%
+for %%i in (*.*) do ren %%i %PRE%_%%i
+cd ..
+```
+
+
+# Ejecutar comandos multi hilos
 ```bat 
 @echo off
 for /l %%i in (1,2,200) do call :test %%i
