@@ -48,7 +48,7 @@ NOTA: La VM debe estar en modo apagada o suspendida.
     ssh root@<XenServer_IP> "xe vm-export vm=<VM-UUID> filename=" > <ARCHIVO_DESTINO>.xva
 
 ### Copiar VM desde un server a otro.
-    xe vm-export uuid=<VM_UUID> filename= | ssh root@<XS7_IP> 'xe vm-import filename=/dev/stdin sr-uuid=<XS7_LOCAL_STORAGE_UUID>'
+    # xe vm-export uuid=<VM_UUID_ORIGEN_SRV_LOCAL> filename= | ssh root@<IP_SRV_DESTINO> 'xe vm-import filename=/dev/stdin sr-uuid=<UUID_DISCO_SRV_DESTINO>'
 
 # XENCENTER
 
