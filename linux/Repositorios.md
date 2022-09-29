@@ -29,7 +29,7 @@ Automáticamente nos busca el repositorio más rápido entre la lista oficial de
 
 
 # Config ATP de Forma Manual
-#BRAVE
+## BRAVE
     
     sudo apt install apt-transport-https curl
 
@@ -41,7 +41,7 @@ Automáticamente nos busca el repositorio más rápido entre la lista oficial de
 
     sudo apt install brave-browser
 
-# WebMin
+## WebMin
 Using the Webmin APT repository
 If you like to install and update Webmin via APT, edit the /etc/apt/sources.list file on your system and add the line :
     
