@@ -28,7 +28,8 @@ Automáticamente nos busca el repositorio más rápido entre la lista oficial de
     $ sudo netselect-apt
 
 
-## Config ATP de Forma Manual
+# Config ATP de Forma Manual
+#BRAVE
 sudo apt install apt-transport-https curl
 
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -38,3 +39,33 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 sudo apt update
 
 sudo apt install brave-browser
+
+# WebMin
+Using the Webmin APT repository
+If you like to install and update Webmin via APT, edit the /etc/apt/sources.list file on your system and add the line :
+    
+    deb https://download.webmin.com/download/repository sarge contrib
+
+If that file does not exist, instead create /etc/apt/sources.list.d/webmin.list containing :
+    
+    deb [signed-by=/usr/share/keyrings/jcameron-key.gpg] https://download.webmin.com/download/repository sarge contrib
+
+You should also fetch and install my GPG key with which the repository is signed, with the commands :
+cd /root
+
+    wget https://download.webmin.com/jcameron-key.asc
+    apt-key add jcameron-key.asc
+
+On Debian 11 and Ubuntu 22.04 or higher, the commands are :
+
+    cd /root
+    wget https://download.webmin.com/jcameron-key.asc
+    cat jcameron-key.asc | gpg --dearmor >/usr/share/keyrings/jcameron-key.gpg
+
+You will now be able to install with the commands :
+
+    apt-get install apt-transport-https
+    apt-get update
+    apt-get install webmin
+
+All dependencies should be resolved automatically.
