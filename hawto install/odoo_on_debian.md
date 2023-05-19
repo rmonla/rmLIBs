@@ -1,11 +1,15 @@
-sudo apt update -y && sudo apt upgrade -q -y
-
-
-** [How To Install Odoo 15 on Ubuntu 20.04|18.04](https://computingforgeeks.com/how-to-install-odoo-on-ubuntu-linux/)
+# Como instalar Odoo en Debian 11.
+## Fuente: [How To Install Odoo 15 on Ubuntu 20.04|18.04](https://computingforgeeks.com/how-to-install-odoo-on-ubuntu-linux/)
 
 * Actu sistema
 
+```bash
 sudo apt update && sudo apt -y full-upgrade && [ -f /var/run/reboot-required ] && sudo reboot -f
+
+```
+
+
+
 
 * Install PostgreSQL Database (https://computingforgeeks.com/how-to-install-postgresql-13-on-ubuntu/)
 -- Add PostgreSQL 13 repository to Ubuntu 22.04|20.04|18.04
