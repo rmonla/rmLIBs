@@ -1,3 +1,4 @@
+# Almacenamiento.md
 ## Consultar espacio de los discos.
 ### Ver espacio en discos.
 - Ejecutar el siguiente comando:
