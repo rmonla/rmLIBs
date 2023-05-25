@@ -1,13 +1,10 @@
 # FFMPEG
 FFMPEG es una herramienta de línea de comandos utilizada para procesar y manipular archivos multimedia, como videos y audios. Permite realizar diversas operaciones, como la unión de archivos de video, la segmentación de videos en partes más pequeñas y la extracción de fragmentos específicos de un video. Es una herramienta muy potente y ampliamente utilizada en la edición y conversión de archivos multimedia.
 
-## Unir varios archivos de video en uno.
+## Concatenar varios archivos de video en un solo archivo MP4 utilizando FFmpeg.
 ```sh
-vBusc='IEM_1ro_7Sep_2105'
-(find . -type f -name $vBusc'*' -printf "file '$PWD/%p'\n" | sort) | ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -vcodec copy -acodec copy $vBusc.mp4
-
-vBusc='IEM_1ro_7Sep_2105'
-find . -type f -name "$vBusc"* -exec ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i {} -vcodec copy -acodec copy "$vBusc.mp4" \;
+video_folder='IEM_1ro_7Sep_2105/' && \
+(find . -type f -iname '$video_folder*' -printf "file '$PWD/%p'\n" | sort) | ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -c copy "${video_folder}.mp4"
 ```
 
 ## Segmentar video desde un punto en adelante.
