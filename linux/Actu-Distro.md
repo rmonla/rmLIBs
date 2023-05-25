@@ -1,8 +1,9 @@
-# rmLIBs - Linux - Distro
+# Actu-Distro.md
 
-## Ver la distro instalada.
+## Ver la distribución instalada.
     $ cat /etc/*release
 
-## Una opción de ejecutar la actualización de toda la Distro.
+## Una opción para ejecutar la actualización de toda la distribución.
     $ sudo su
     # apt-get update && apt-get upgrade && apt-get dist-upgrade && apt-get autoremove
+
