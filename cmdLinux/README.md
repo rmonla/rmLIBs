@@ -47,25 +47,3 @@ cd /media/MULTIBOOT #(si el Pendrive está aún montado allí)
 ```
 Seguí las instrucciones para cada distro, cambiando el nombre de la ISO al que por defecto se usa en el grub.cfg que descargaste, por ejemplo, para xubuntu.iso renombrar a ubuntu.iso
 
-
-## FFMPEG
-### Unir varios archivos de video en uno.
-```sh
-vBusc='IEM_1ro_7Sep_2105'
-(find . -type f -name $vBusc'*' -printf "file '$PWD/%p'\n" | sort) | ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -vcodec copy -acodec copy $vBusc'.mp4'
-```
-
-### Segmentar Video Desde un punto en adelante.
-```sh
-ffmpeg -i input.mp4 -ss 01:32:38 -c copy b-output1.mp4
-```
-    
-### Segmentar Video Desde y Hasda.
-```sh
-ffmpeg -i 2021-06-25T01_02_05Z.mp4 -ss 00:17:55 -to 00:26:30 -c copy PSS_Pedro-1.mp4
-```
-
-### Segmentar Video en partes de 20 minutos.
-```sh
-ffmpeg -i source.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment -reset_timestamps 1 output%03d.mp4
-```
