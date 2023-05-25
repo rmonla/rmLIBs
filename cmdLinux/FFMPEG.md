@@ -7,7 +7,7 @@ video_folder='IEM_1ro_7Sep_2105/' && \
 (find . -type f -iname '$video_folder*' -printf "file '$PWD/%p'\n" | sort) | ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -c copy "${video_folder}.mp4"
 ```
 
-## Segmentar video desde un punto en adelante.
+## Guardar la parte del video que sigue después de una marca de tiempo especificada.
 ```sh
 ffmpeg -i input.mp4 -ss 01:32:38 -c copy b-output1.mp4
 ```
