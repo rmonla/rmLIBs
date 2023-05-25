@@ -3,18 +3,24 @@ FFMPEG es una herramienta de línea de comandos utilizada para procesar y manipu
 
 ## Concatenar varios archivos de video en un solo archivo MP4 utilizando FFmpeg.
 ```sh
-video_folder='IEM_1ro_7Sep_2105/' && \
-(find . -type f -iname '$video_folder*' -printf "file '$PWD/%p'\n" | sort) | ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -c copy "${video_folder}.mp4"
+video_folder='IEM_1ro_7Sep_2105/' \
+(find . -type f -iname '$video_folder*' -printf "file '$PWD/%p'\n" | sort) |  \
+ffmpeg -protocol_whitelist file,pipe -f concat -safe 0 -i pipe: -c copy "${video_folder}.mp4"
 ```
-
 ## Guardar la parte del video que sigue después de una marca de tiempo especificada.
 ```sh
-ffmpeg -i input.mp4 -ss 01:32:38 -c copy b-output1.mp4
-```
-    
-## Segmentar video desde y hasta.
+tiempo_desde='01:32:38' \
+nom_arch_origen='origen' \
+nom_arch_destino='destino' \
+ffmpeg -ss "$tiempo_desde" -i "${nom_arch_origen}.mp4" -c copy "${nom_arch_destino}.mp4"
+```    
+## Recorta un archivo de video desde un punto de inicio hasta un punto de finalización especificado, y guarda el resultado en un nuevo archivo de video..
 ```sh
-ffmpeg -i 2021-06-25T01_02_05Z.mp4 -ss 00:17:55 -to 00:26:30 -c copy PSS_Pedro-1.mp4
+archivo_origen="2021-06-25T01_02_05Z.mp4"
+tiempo_inicio="00:17:55"
+tiempo_fin="00:26:30"
+archivo_destino="PSS_Pedro-1.mp4"
+ffmpeg -i "$archivo_origen" -ss "$tiempo_inicio" -to "$tiempo_fin" -c copy "$archivo_destino"
 ```
 
 ## Segmentar video en partes de 20 minutos.
