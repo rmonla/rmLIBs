@@ -29,7 +29,7 @@ echo "Tiempo total de ejecución: $hours horas, $minutes minutos, $seconds segun
 1. Actualización del sistema
 
 ```bash
-sudo apt update && sudo apt -y full-upgrade && [ -f /var/run/reboot-required ] && sudo reboot -f
+sudo apt update -y && sudo apt full-upgrade  -y && [ -f /var/run/reboot-required ] && sudo reboot -f
 ```
 
 2. Instalar PostgreSQL Database ([Cómo instalar PostgreSQL 13 en Ubuntu](https://computingforgeeks.com/how-to-install-postgresql-13-on-ubuntu/))
