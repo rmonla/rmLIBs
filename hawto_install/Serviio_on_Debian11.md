@@ -1,7 +1,6 @@
 # Cómo instalar Serviio en Debian 11 "bullseye"
 Fuente: [How to install serviio dlna server on linux debian with ffmpeg and default-jre java howto](https://www.youtube.com/watch?v=99XzSTYO_Mw)
 
-
 Serviio es un servidor de medios de comunicación gratuito que permite transmitir contenido multimedia (como videos, música y fotos) a dispositivos compatibles con DLNA (Digital Living Network Alliance), como televisores inteligentes, consolas de videojuegos y reproductores de medios. Facilita la transmisión de archivos multimedia desde una computadora a otros dispositivos en la red local.
 
 1. Actualizar el nombre del host.
