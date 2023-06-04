@@ -1,31 +1,6 @@
 # Cómo instalar Odoo 16 en Debian 11
 ## Fuente: [How To Install Odoo 15 on Ubuntu 20.04|18.04](https://computingforgeeks.com/how-to-install-odoo-on-ubuntu-linux/)
 
-0. En un solo comando.
-```bash
-start_time=$(date +%s) && \
-sudo apt update && \
-sudo apt -y full-upgrade && \
-sudo apt install -y curl gpg gnupg2 software-properties-common apt-transport-https lsb-release ca-certificates && \
-curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg && \
-echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list && \
-sudo apt update && \
-sudo apt -y full-upgrade && \
-sudo apt install -y postgresql postgresql-client && \
-wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb && \
-sudo apt install -f -y ./wkhtmltox_0.12.6.1-2.bullseye_amd64.deb && \
-wget https://nightly.odoo.com/16.0/nightly/deb/odoo_16.0.latest_all.deb && \
-sudo apt install -f -y ./odoo_16.0.latest_all.deb && \
-sudo systemctl enable --now odoo && \
-end_time=$(date +%s) && \
-duration=$((end_time-start_time)) && \
-hours=$((duration / 3600)) && \
-minutes=$(( (duration % 3600) / 60 )) && \
-seconds=$((duration % 60)) && \
-echo "Tiempo total de ejecución: $hours horas, $minutes minutos, $seconds segundos"
-
-```
-
 1. Actualización del sistema
 
 ```bash
@@ -104,6 +79,34 @@ sudo apt update -y && sudo apt full-upgrade  -y && [ -f /var/run/reboot-required
    País:                         Argentina
 
    Datos de demostración:        Activados
+
+
+# Comandos combinados.
+
+```bash
+start_time=$(date +%s) && \
+sudo apt update && \
+sudo apt -y full-upgrade && \
+sudo apt install -y curl gpg gnupg2 software-properties-common apt-transport-https lsb-release ca-certificates && \
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg && \
+echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list && \
+sudo apt update && \
+sudo apt -y full-upgrade && \
+sudo apt install -y postgresql postgresql-client && \
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb && \
+sudo apt install -f -y ./wkhtmltox_0.12.6.1-2.bullseye_amd64.deb && \
+wget https://nightly.odoo.com/16.0/nightly/deb/odoo_16.0.latest_all.deb && \
+sudo apt install -f -y ./odoo_16.0.latest_all.deb && \
+sudo systemctl enable --now odoo && \
+end_time=$(date +%s) && \
+duration=$((end_time-start_time)) && \
+hours=$((duration / 3600)) && \
+minutes=$(( (duration % 3600) / 60 )) && \
+seconds=$((duration % 60)) && \
+echo "Tiempo total de ejecución: $hours horas, $minutes minutos, $seconds segundos"
+
+```
+
 
 
 7. Configurar el Proxy Nginx para Odoo
