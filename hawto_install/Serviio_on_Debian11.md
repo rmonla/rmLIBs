@@ -7,19 +7,16 @@ Serviio es un servidor de medios de comunicación gratuito que permite transmiti
 1. Actualizar el nombre del host.
 
 ```bash
-antiguo_nombre=$(hostname) && read -p "Ingresa el nuevo nombre de host: " nuevo_nombre \
-&& sudo sed -i "s/$antiguo_nombre/$nuevo_nombre/g" /etc/hosts \
-&& sudo hostnamectl set-hostname "$nuevo_nombre" \
-&& sudo reboot 
+clear && antiguo_nombre=$(hostname) && read -p "Ingresa el nuevo nombre de host: " nuevo_nombre \
+&& sudo sed -i "s/$antiguo_nombre/$nuevo_nombre/g" /etc/hosts /etc/hostname \
+&& sudo reboot
 ```
 
 2. Actualizar el sistema.
 
 ```bash
-sudo apt update -y \
-&& sudo apt full-upgrade -y \
-&& [ -f /var/run/reboot-required ] \
-&& sudo reboot
+clear && sudo apt update -y && sudo apt full-upgrade -y \
+&& [ -f /var/run/reboot-required ] && sudo reboot
 ```
 
 3. Instalar complementos.
@@ -31,15 +28,14 @@ sudo apt install ffmpeg default-jre screen -y
 4. Crear el usuario serviio.
 
 ```bash
-sudo adduser serviio
+sudo adduser serviio && exit 
 ```
 
 5. Conectarse por SSH con el usuario serviio.
 
 ```bash
 read -p "Ingresa la IP del servidor Serviio: " IP_SERVIIO \
-&& read -s -p "Ingresa la contraseña del usuario serviio: " PASS_serviio \
-&& ssh serviio@IP_SERVIIO -> PASS_serviio
+&& ssh serviio@$IP_SERVIIO -> PASS_serviio
 ```
 
 6. Descargar y descomprimir Serviio.
@@ -49,10 +45,10 @@ wget https://download.serviio.org/releases/serviio-2.3-linux.tar.gz \
 && tar zxvf serviio-2.3-linux.tar.gz
 ```
 
-7. Ingresar y ejecutar.
+7. Ejecutar Serviio en segundo plano.
 
 ```bash
-screen /home/serviio/serviio-2.3/bin/serviio.sh -> 'Ctrl + A' seguido de la tecla 'd' para salir
+screen -dmS serviio_run /home/serviio/serviio-2.3/bin/serviio.sh
 ```
 
 8. Acceder por web.
@@ -61,29 +57,25 @@ screen /home/serviio/serviio-2.3/bin/serviio.sh -> 'Ctrl + A' seguido de la tecl
 http://IP_SERVIIO:23423/console/
 ```
 
-9. Comandos combinados.
+# Comandos combinados.
 
 ```bash
-antiguo_nombre=$(hostname) && read -p "Ingresa el nuevo nombre de host: " nuevo_nombre \
-&& sudo sed -i "s/$antiguo_nombre/$nuevo_nombre/g" /etc/hosts \
-&& sudo hostnamectl set-hostname "$nuevo_nombre" \
-&& sudo reboot 
-
-sudo apt update -y \
-&& sudo apt full-upgrade -y \
-&& [ -f /var/run/reboot-required ] \
+clear && antiguo_nombre=$(hostname) && read -p "Ingresa el nuevo nombre de host: " nuevo_nombre \
+&& sudo sed -i "s/$antiguo_nombre/$nuevo_nombre/g" /etc/hosts /etc/hostname \
 && sudo reboot
 
+clear && sudo apt update -y && sudo apt full-upgrade -y \
+&& [ -f /var/run/reboot-required ] && sudo reboot
+
 sudo apt install ffmpeg default-jre screen -y \
-&& sudo adduser serviio 
+&& sudo adduser serviio && exit 
 
 read -p "Ingresa la IP del servidor Serviio: " IP_SERVIIO \
-&& read -s -p "Ingresa la contraseña del usuario serviio: " PASS_serviio \
-&& ssh serviio@IP_SERVIIO -> PASS_serviio
+&& ssh serviio@$IP_SERVIIO
 
 wget https://download.serviio.org/releases/serviio-2.3-linux.tar.gz \
 && tar zxvf serviio-2.3-linux.tar.gz \
-&& screen /home/serviio/serviio-2.3/bin/serviio.sh -> 'Ctrl + A' seguido de la tecla 'd' para salir \
+&& screen -dmS serviio_run /home/serviio/serviio-2.3/bin/serviio.sh \
 && echo "Accede a: http://$IP_SERVIIO:23423/console/"
 ```
 
