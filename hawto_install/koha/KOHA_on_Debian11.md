@@ -1,5 +1,7 @@
 # Cómo instalar KOHA en Debian 11 "bullseye"
 
+Fuente: [Instalacion_Rapida_de_KOHA.pdf](./Instalacion_Rapida_de_KOHA.pdf)
+
 Koha es una plataforma de gestión de bibliotecas de código abierto que se utiliza en todo el mundo. Fue desarrollada originalmente en Nueva Zelanda y se ha convertido en una de las soluciones más populares para bibliotecas de todos los tamaños.
 
 1. Actualizar el nombre del host.
