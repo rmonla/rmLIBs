@@ -37,7 +37,9 @@ sudo adduser serviio
 5. Conectarse por SSH con el usuario serviio.
 
 ```bash
-ssh serviio@IP_SERVIIO -> PASS_serviio
+read -p "Ingresa la IP del servidor Serviio: " IP_SERVIIO \
+&& read -s -p "Ingresa la contraseña del usuario serviio: " PASS_serviio \
+&& ssh serviio@IP_SERVIIO -> PASS_serviio
 ```
 
 6. Descargar y descomprimir Serviio.
@@ -75,12 +77,14 @@ sudo apt update -y \
 sudo apt install ffmpeg default-jre screen -y \
 && sudo adduser serviio 
 
-ssh serviio@IP_SERVIIO -> PASS_serviio
+read -p "Ingresa la IP del servidor Serviio: " IP_SERVIIO \
+&& read -s -p "Ingresa la contraseña del usuario serviio: " PASS_serviio \
+&& ssh serviio@IP_SERVIIO -> PASS_serviio
 
 wget https://download.serviio.org/releases/serviio-2.3-linux.tar.gz \
 && tar zxvf serviio-2.3-linux.tar.gz \
 && screen /home/serviio/serviio-2.3/bin/serviio.sh -> 'Ctrl + A' seguido de la tecla 'd' para salir \
-&& echo "Accede a: http://IP_SERVIIO:23423/console/"
+&& echo "Accede a: http://$IP_SERVIIO:23423/console/"
 ```
 
 # Sería necesario consultar [Linux Daemon scripts](https://forum.serviio.org/viewtopic.php?f=4&t=71) para configurarlo como un servicio.
