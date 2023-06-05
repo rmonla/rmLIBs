@@ -53,8 +53,15 @@ clear && \
 echo "Nueva contraseña para el usuario 'root' del servidor MariaDB." && \
 sudo mysqladmin -u root password 
 ```
+7. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr').
 
-7. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '8080').
+```bash
+clear && \
+read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
+sudo koha-create --create-db "$NOM_BIBLIOTECA"
+```
+
+8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '8080').
 
 ```bash
 clear && \
@@ -68,13 +75,6 @@ sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
 
-8. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr').
-
-```bash
-clear && \
-read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
-sudo koha-create --create-db "$NOM_BIBLIOTECA"
-```
 
 9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '8080').
 
@@ -97,8 +97,14 @@ sudo a2ensite $NOM_BIBLIOTECA && sudo service apache2 restart
 sudo service memcached restart 
 ```
 
+11. Desactivar el sitio por defecto de apache, agregar el nuevo koha y reiniciar apache.
 
-11. Continuar instalación por Web.
+```bash
+clear && \
+sudo koha-translate --install es-ES 
+```
+
+12. Continuar instalación por Web.
 
 ```bash
 clear && \
