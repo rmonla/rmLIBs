@@ -22,6 +22,5 @@ clear && \
 ID_VM_ORI='a03388fd-a335-373c-7437-a88b2ac9a341' && \
 IP_SRV_DST='10.0.10.23' && \
 ID_DISCO_DST='7be246e2-fd58-24d3-e8d4-26084f9fb2df' && \
-xe vm-export uuid="$ID_VM_ORI" | ssh root@"$IP_SRV_DST" "xe vm-import filename=/dev/stdin sr-uuid=$ID_DISCO_DST"
-
+xe vm-export uuid="$ID_VM_ORI" filename= | ssh root@"$IP_SRV_DST" "xe vm-import filename=/dev/stdin sr-uuid=$ID_DISCO_DST"
 ```
