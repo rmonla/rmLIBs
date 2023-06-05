@@ -43,15 +43,15 @@ sudo apt update -y && sudo apt full-upgrade -y && \
 
 ```bash
 clear && \
-sudo apt install apache2 mariadb-server koha-common nano -y
+sudo apt install apache2 mariadb-server koha-common -y
 ```
 
 6. Establecer contraseña para el usuario 'root' del servidor MariaDB.
 
 ```bash
 clear && \
-read -s -p 'Ingrese la nueva contraseña de root: ' newpass && \
-echo $newpass | sudo mysqladmin -u root password --stdin
+echo "Nueva contraseña para el usuario 'root' del servidor MariaDB." && \
+sudo mysqladmin -u root password 
 ```
 
 7. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '8080').
@@ -68,7 +68,7 @@ sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
 
-8. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr-koha').
+8. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr').
 
 ```bash
 clear && \
@@ -98,80 +98,18 @@ sudo service memcached restart
 ```
 
 
-***FALTAAAA 
-cat /etc/koha/sites/$NOM_BIBLIOTECA/koha-conf.xml
-
-grep -oP '<config>\s*<user>\K[^<]+' /etc/koha/sites/$NOM_BIBLIOTECA/koha-conf.xml && \
-grep -oP '<config>\s*<pass>\K[^<]+' /etc/koha/sites/$NOM_BIBLIOTECA/koha-conf.xml
-
-
-<config>
- <db_scheme>mysql</db_scheme>
- <database>koha_utnlr-koha</database>
- <hostname>localhost</hostname>
- <port>3306</port>
- <user>koha_utnlr-koha</user>
- <pass>79plY0*111#</pass>
-</config>
-<config2>
- <db_scheme>mysql</db_scheme>
- <database>koha_222</database>
- <hostname>localhost</hostname>
- <port>3306</port>
- <user>koha_222</user>
- <pass>79plY0*222#</pass>
-<config2>
-
-
-
-
-
-5. Conectarse por SSH con el usuario serviio.
+11. Continuar instalación por Web.
 
 ```bash
-read -p "Ingresa la IP del servidor Serviio: " IP_SERVIIO && \
-ssh serviio@$IP_SERVIIO -> PASS_serviio
-```
-
-6. Descargar y descomprimir Serviio.
-
-```bash
-wget https://download.serviio.org/releases/serviio-2.3-linux.tar.gz && \
-tar zxvf serviio-2.3-linux.tar.gz
-```
-
-7. Ejecutar Serviio en segundo plano.
-
-```bash
-screen -dmS serviio_run /home/serviio/serviio-2.3/bin/serviio.sh
-```
-
-8. Acceder por web.
-
-```
-http://IP_SERVIIO:23423/console/
+clear && \
+K_IP=$(hostname -I | awk '{for(i=1; i<=NF; i++) if($i ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/) printf "%s#", $i}' | sed 's/#$//') && \
+K_USER=$(sudo xmlstarlet sel -t -v "//config/user" /etc/koha/sites/utnlr/koha-conf.xml) && \
+K_PASS=$(sudo xmlstarlet sel -t -v "//config/pass" /etc/koha/sites/utnlr/koha-conf.xml) && \
+echo -e "Ahora debes continuar instalando desde la web.\nIngresa a http://$K_IP:8080\ncon el Usuario >> $K_USER << y contraseña >> $K_PASS <<"
 ```
 
 # Comandos combinados.
 
 ```bash
-clear && antiguo_nombre=$(hostname) && read -p "Ingresa el nuevo nombre de host: " nuevo_nombre && \
-sudo sed -i "s/$antiguo_nombre/$nuevo_nombre/g" /etc/hosts /etc/hostname && \
-sudo reboot
-
-clear && sudo apt update -y && sudo apt full-upgrade -y && \
-[ -f /var/run/reboot-required ] && sudo reboot
-
-sudo apt install ffmpeg default-jre screen -y && \
-sudo adduser serviio && exit 
-
-read -p "Ingresa la IP del servidor Serviio: " IP_SERVIIO && \
-ssh serviio@$IP_SERVIIO
-
-wget https://download.serviio.org/releases/serviio-2.3-linux.tar.gz && \
-tar zxvf serviio-2.3-linux.tar.gz && \
-screen -dmS serviio_run /home/serviio/serviio-2.3/bin/serviio.sh && \
-echo "Accede a: http://$IP_SERVIIO:23423/console/"
+clear 
 ```
-
-# Sería necesario consultar [Linux Daemon scripts](https://forum.serviio.org/viewtopic.php?f=4&t=71) para configurarlo como un servicio.
