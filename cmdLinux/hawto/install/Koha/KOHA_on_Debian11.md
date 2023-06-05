@@ -4,7 +4,7 @@ Fuente: [Instalacion_Rapida_de_KOHA.pdf](./Instalacion_Rapida_de_KOHA.pdf)
 
 Koha es una plataforma de gestión de bibliotecas de código abierto que se utiliza en todo el mundo. Fue desarrollada originalmente en Nueva Zelanda y se ha convertido en una de las soluciones más populares para bibliotecas de todos los tamaños.
 
-1. Actualizar el nombre del host.
+1. Actualizar el nombre del host. (Opcional)
 
 ```bash
 clear && \
@@ -30,7 +30,7 @@ sudo apt install gnupg -y && \
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C9356BBA2E41F10
 ```
 
-4. Configurar repositorio de KOHA y Actualizar el sistema.
+4. Configurar repositorio de KOHA y actualizar el sistema.
 
 ```bash
 clear && \
@@ -43,7 +43,7 @@ sudo apt update -y && sudo apt full-upgrade -y && \
 
 ```bash
 clear && \
-sudo apt install apache2 mariadb-server koha-common -y
+sudo apt install apache2 mariadb-server koha-common xmlstarlet -y
 ```
 
 6. Establecer contraseña para el usuario 'root' del servidor MariaDB.
@@ -53,7 +53,8 @@ clear && \
 echo "Nueva contraseña para el usuario 'root' del servidor MariaDB." && \
 sudo mysqladmin -u root password 
 ```
-7. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr').
+
+7. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr')
 
 ```bash
 clear && \
@@ -61,7 +62,7 @@ read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
 sudo koha-create --create-db "$NOM_BIBLIOTECA"
 ```
 
-8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80').
+8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80')
 
 ```bash
 clear && \
@@ -76,7 +77,7 @@ sudo systemctl restart apache2
 ```
 
 
-9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80').
+9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80')
 
 ```bash
 clear && \
