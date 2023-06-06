@@ -27,7 +27,20 @@ clear && \
 sudo apt install gnupg -y && \
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C9356BBA2E41F10
 ```
-4. Configurar repositorio de KOHA y actualizar el sistema.
+4. Instalar los paquetes iniciales de software.
+
+```bash
+clear && \
+sudo apt install apache2 mariadb-server xmlstarlet -y
+```
+5. Establecer contraseña para el usuario 'root' del servidor MariaDB.
+
+```bash
+clear && \
+echo "Nueva contraseña para el usuario 'root' del servidor MariaDB." && \
+sudo mysqladmin -u root password 
+```
+6. Configurar repositorio de KOHA y actualizar el sistema.
 
 ```bash
 clear && \
@@ -35,27 +48,20 @@ echo "deb http://debian.koha-community.org/koha oldstable main" | sudo tee /etc/
 sudo apt update -y && sudo apt full-upgrade -y && \
 [ -f /var/run/reboot-required ] && sudo reboot
 ```
-5. Instalar los paquetes de software.
+7. Instalar los paquetes del software KOHA.
 
 ```bash
 clear && \
-sudo apt install apache2 mariadb-server koha-common xmlstarlet -y
+sudo apt koha-common -y
 ```
-6. Establecer contraseña para el usuario 'root' del servidor MariaDB.
-
-```bash
-clear && \
-echo "Nueva contraseña para el usuario 'root' del servidor MariaDB." && \
-sudo mysqladmin -u root password 
-```
-7. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr')
+8. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr')
 
 ```bash
 clear && \
 read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
 sudo koha-create --create-db "$NOM_BIBLIOTECA"
 ```
-8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80')
+9. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80')
 
 ```bash
 clear && \
@@ -68,7 +74,7 @@ sudo a2enmod cgi && \
 sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
-9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80')
+10. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80')
 
 ```bash
 clear && \
@@ -79,7 +85,7 @@ sudo sed -i "s/Listen $OLD_PORT/Listen $S_PORT/" "$CFG_ARCH" && \
 sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
-10. Desactivar el sitio por defecto de apache, agregar el nuevo koha y reiniciar apache.
+11. Desactivar el sitio por defecto de apache, agregar el nuevo koha y reiniciar apache.
 
 ```bash
 clear && \
@@ -87,13 +93,13 @@ sudo a2dissite 000-default && sudo a2enmod deflate && \
 sudo a2ensite $NOM_BIBLIOTECA && sudo service apache2 restart
 sudo service memcached restart 
 ```
-11. Instalar la traduccion al español.
+12. Instalar la traduccion al español.
 
 ```bash
 clear && \
 sudo koha-translate --install es-ES 
 ```
-12. Continuar instalación por Web.
+13. Continuar instalación por Web.
 
 ```bash
 clear && \
