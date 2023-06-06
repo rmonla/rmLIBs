@@ -4,21 +4,21 @@ Fuente: [Instalacion_Rapida_de_KOHA.pdf](./Instalacion_Rapida_de_KOHA.pdf)
 
 Koha es una plataforma de gestión de bibliotecas de código abierto que se utiliza en todo el mundo. Fue desarrollada originalmente en Nueva Zelanda y se ha convertido en una de las soluciones más populares para bibliotecas de todos los tamaños.
 
-1. Actualizar el nombre del host. (Opcional)
-
-```bash
-clear && \
-antiguo_nombre=$(hostname) && \
-read -p "Ingresa el nuevo nombre de host: " nuevo_nombre && \
-sudo sed -i "s/$antiguo_nombre/$nuevo_nombre/g" /etc/hosts /etc/hostname && \
-sudo reboot
-```
-2. Actualizar el sistema.
+1. Actualizar el sistema.
 
 ```bash
 clear && \
 sudo apt update -y && sudo apt full-upgrade -y && \
 [ -f /var/run/reboot-required ] && sudo reboot
+```
+2. Actualizar el nombre del host. (Opcional)
+
+```bash
+clear && \
+H_ACTUAL=$(hostname) && \
+read -p "Ingresa el nuevo nombre de host: " H_NUEVO && \
+sudo sed -i "s/$H_ACTUAL/$H_NUEVO/g" /etc/hosts /etc/hostname && \
+sudo reboot
 ```
 3. Importar una clave pública desde un servidor de claves de Ubuntu/Debian.
 
