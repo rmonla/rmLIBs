@@ -54,14 +54,7 @@ sudo apt update -y && sudo apt full-upgrade -y && \
 clear && \
 sudo apt install koha -y
 ```
-8. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr')
-
-```bash
-clear && \
-read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
-sudo koha-create --create-db "$NOM_BIBLIOTECA"
-```
-9. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80')
+8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80')
 
 ```bash
 clear && \
@@ -74,7 +67,7 @@ sudo a2enmod cgi && \
 sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
-10. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80')
+9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80')
 
 ```bash
 clear && \
@@ -84,6 +77,13 @@ read -p 'Ingrese el nuevo puerto: ' S_PORT && \
 sudo sed -i "s/Listen $OLD_PORT/Listen $S_PORT/" "$CFG_ARCH" && \
 sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
+```
+10. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr')
+
+```bash
+clear && \
+read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
+sudo koha-create --create-db "$NOM_BIBLIOTECA"
 ```
 11. Desactivar el sitio por defecto de apache, agregar el nuevo koha y reiniciar apache.
 
