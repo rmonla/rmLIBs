@@ -11,7 +11,14 @@ clear && \
 sudo apt update -y && sudo apt full-upgrade -y && \
 [ -f /var/run/reboot-required ] && sudo reboot
 ```
-2. Actualizar el nombre del host. (Opcional)
+2. Importar una clave pública desde un servidor de claves de Ubuntu/Debian.
+
+```bash
+clear && \
+sudo apt install gnupg -y && \
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C9356BBA2E41F10
+```
+3. Actualizar el nombre del host. (Opcional)
 
 ```bash
 clear && \
@@ -19,13 +26,6 @@ H_ACTUAL=$(hostname) && \
 read -p "Ingresa el nuevo nombre de host: " H_NUEVO && \
 sudo sed -i "s/$H_ACTUAL/$H_NUEVO/g" /etc/hosts /etc/hostname && \
 sudo reboot
-```
-3. Importar una clave pública desde un servidor de claves de Ubuntu/Debian.
-
-```bash
-clear && \
-sudo apt install gnupg -y && \
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C9356BBA2E41F10
 ```
 4. Instalar los paquetes iniciales de software.
 
