@@ -1,6 +1,6 @@
 # Cómo instalar KOHA en Debian 11 "bullseye"
 Autor: Ricardo MONLA - rmonla@gmail.com
-Versión: v1.3
+Versión: v1.4
 
 
 Fuente: [Instalacion_Rapida_de_KOHA.pdf](./Instalacion_Rapida_de_KOHA.pdf)
@@ -38,7 +38,7 @@ echo "deb http://debian.koha-community.org/koha oldstable main" | sudo tee /etc/
 sudo apt update -y && \
 sudo apt install koha -y
 ```
-5. Establecer el puerto de Apache y Koha. (Se recomienda '8080')
+5. Establecer el PUERTO de Apache y Koha. (Se recomienda '8080')
 
 ```bash
 clear && \
