@@ -52,7 +52,7 @@ sudo apt update -y && sudo apt full-upgrade -y && \
 
 ```bash
 clear && \
-sudo apt koha-common -y
+sudo apt install koha -y
 ```
 8. Crear la base de datos de la Bibliota de la Facultad. (Ejemplo 'utnlr')
 
