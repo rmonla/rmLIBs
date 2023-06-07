@@ -54,7 +54,7 @@ sudo apt update -y && sudo apt full-upgrade -y && \
 clear && \
 sudo apt install koha -y
 ```
-8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '80')
+8. Establecer el nuevo puerto de la configuracion de Koha y reiniciar el servidor apache. (Se recomienda '8080')
 
 ```bash
 clear && \
@@ -67,7 +67,7 @@ sudo a2enmod cgi && \
 sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
-9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '80')
+9. Establecer el nuevo puerto de la configuracion de Apache y reiniciar el servidor apache. (Se recomienda '8080')
 
 ```bash
 clear && \
