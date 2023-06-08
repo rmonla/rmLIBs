@@ -6,16 +6,15 @@ Koha es una plataforma de gestión de bibliotecas de código abierto ampliamente
 
 ## Introducción y recomendaciones:
 
-Este script ha sido creado para estandarizar un modelo de instalación para el ámbito de la Universidad Tecnológica Nacional en Argentina. 
-Se asume que los usuarios tienen un conocimiento básico de comandos de Linux. 
-El objetivo es instalar el sistema Koha en un servidor Debian 11 "bullseye" con una instalación limpia y con los paquetes SSH y sudo como requisitos mínimos. 
-Se recomienda disponer de al menos 2 GB de memoria y 32 GB de espacio en disco. 
-Agradecemos cualquier aporte o sugerencia.
+Este script ha sido creado para estandarizar un modelo de instalación para el ámbito de la Universidad Tecnológica Nacional en Argentina.Se asume que los usuarios tienen un conocimiento básico de comandos de Linux.  
+El objetivo es instalar el sistema Koha en un servidor Debian 11 "bullseye" con una instalación limpia y con los paquetes SSH y sudo como requisitos mínimos.  
+Se recomienda disponer de al menos 2 GB de memoria y 32 GB de espacio en disco.
+Agradecemos cualquier aporte o sugerencia.  
 
-Atte.
-Lic. Ricardo MONLA
-rmonla@frlr.utn.edu.ar
-TIC - UTN FR La Rioja
+Atte.  
+Lic. Ricardo MONLA  
+rmonla@frlr.utn.edu.ar  
+TIC - UTN FR La Rioja  
 
 - Versión del script: 1.5
 - GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/master/cmdLinux/howto/install/Koha/KOHA_on_Debian11.md)
