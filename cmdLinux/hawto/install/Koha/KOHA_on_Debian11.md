@@ -17,7 +17,7 @@ rmonla@frlr.utn.edu.ar
 TIC - UTN FR La Rioja  
 
 - Versión: 1.5
-- GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/master/cmdLinux/howto/install/Koha/KOHA_on_Debian11.md)
+- GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/7cb54ead07c3ee07d79f47fdf9ed7d53b139a8e2/cmdLinux/hawto/install/Koha/KOHA_on_Debian11.md)
 
 
 ## Paso a Paso.
