@@ -29,14 +29,14 @@ clear && \
 sudo apt update -y && sudo apt full-upgrade -y && \
 [ -f /var/run/reboot-required ] && sudo reboot
 ```
-2. Importar una clave pública desde un servidor de claves de Ubuntu/Debian.
+2. Importar una clave GPG (GnuPG) desde el servidor de claves de Ubuntu/Debian.
 
 ```bash
 clear && \
 sudo apt install gnupg -y && \
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3C9356BBA2E41F10
 ```
-3. Actualizar el nombre del host. (Opcional)
+3. Actualizar el nombre del host (opcional).
 
 ```bash
 clear && \
@@ -45,7 +45,7 @@ read -p "Ingresa el nuevo nombre de host: " H_NUEVO && \
 sudo sed -i "s/$H_ACTUAL/$H_NUEVO/g" /etc/hosts /etc/hostname && \
 sudo reboot
 ```
-4. Configurar repositorio e instalar KOHA.
+4. Configurar el repositorio e instalar KOHA.
 
 ```bash
 clear && \
@@ -53,7 +53,7 @@ echo "deb http://debian.koha-community.org/koha oldstable main" | sudo tee /etc/
 sudo apt update -y && \
 sudo apt install koha -y
 ```
-5. Establecer el PUERTO de Apache y Koha. (Se recomienda '8080')
+5. Establecer el puerto de Apache y Koha (se recomienda '8080').
 
 ```bash
 clear && \
@@ -69,14 +69,14 @@ sudo a2enmod cgi && \
 sudo systemctl reload apache2 && \
 sudo systemctl restart apache2
 ```
-6. Crear la base de datos de la Bibliota. (Ejemplo 'utnlr')
+6. Crear la base de datos de la biblioteca (por ejemplo, 'utnlr').
 
 ```bash
 clear && \
 read -p 'Ingrese el nombre de la Biblioteca: ' NOM_BIBLIOTECA && \
 sudo koha-create --create-db "$NOM_BIBLIOTECA"
 ```
-7. Desactivar el sitio por defecto de apache, agregar el nuevo koha y reiniciar apache.
+7. Desactivar el sitio por defecto de Apache, agregar el nuevo de Koha y luego reiniciar Apache.
 
 ```bash
 clear && \
@@ -84,13 +84,13 @@ sudo a2dissite 000-default && sudo a2enmod deflate && \
 sudo a2ensite $NOM_BIBLIOTECA && sudo service apache2 restart
 sudo service memcached restart 
 ```
-8. Instalar la traduccion al español.
+8. Instalar o actualizar el idioma español en Koha.
 
 ```bash
 clear && \
 sudo koha-translate --install es-ES 
 ```
-9. Continuar instalación por Web.
+9. Obtener los datos de la configuración inicial.
 
 ```bash
 clear && \
@@ -98,5 +98,6 @@ K_IP=$(hostname -I | awk '{for(i=1; i<=NF; i++) if($i ~ /^[0-9]+\.[0-9]+\.[0-9]+
 K_PORT=$(grep -oP 'INTRAPORT="\K[^"]+' /etc/koha/koha-sites.conf) && \
 K_USER=$(sudo xmlstarlet sel -t -v "//config/user" /etc/koha/sites/utnlr/koha-conf.xml) && \
 K_PASS=$(sudo xmlstarlet sel -t -v "//config/pass" /etc/koha/sites/utnlr/koha-conf.xml) && \
-echo -e "Ahora debes continuar instalando desde la web.\nIngresa a http://$K_IP:$K_PORT\ncon el Usuario >> $K_USER << y contraseña >> $K_PASS <<"
+echo -e "Ahora debes continuar la instalación a través de la interfaz web.\n\nIngresa a http://$K_IP:$K_PORT\ncon el Usuario >> $K_USER << y contraseña >> $K_PASS <<"
 ```
+10. Continuar la instalación a través de la interfaz web.
