@@ -16,7 +16,7 @@ Lic. Ricardo MONLA
 rmonla@frlr.utn.edu.ar  
 TIC - UTN FR La Rioja  
 
-- Versión del script: 1.5
+- Versión: 1.5
 - GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/master/cmdLinux/howto/install/Koha/KOHA_on_Debian11.md)
 
 
