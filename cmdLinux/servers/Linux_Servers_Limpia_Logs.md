@@ -1,6 +1,8 @@
-- Versión: 1.1
-- GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/7cb54ead07c3ee07d79f47fdf9ed7d53b139a8e2/cmdLinux/hawto/install/Koha/KOHA_on_Debian11.md)
-- Lic. Ricardo MONLA - rmonla@frlr.utn.edu.ar
+![Estado: En Desarrollo](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow)
+![Versión: 1.1](https://img.shields.io/badge/Versión-Versión%201.1-blue)
+[![GitHub](https://img.shields.io/badge/GitHub-KOHA_on_Debian11-black)](https://github.com/rmonla/rmLIBs/blob/af6d12d8d541d8d58578511213d7a03915c42586/cmdLinux/servers/LimpiaLogs.md)
+ 
+- Lic. Ricardo MONLA - Correo electrónico: rmonla@frlr.utn.edu.ar
 
 
 - Actualizar el sistema operativo.
