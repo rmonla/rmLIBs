@@ -1,5 +1,5 @@
 ![Estado: En Desarrollo](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow)
-![Versión: 1.1](https://img.shields.io/badge/Versión-Versión%201.1-blue)
+![Versión: 1.2](https://img.shields.io/badge/Versión-Versión%201.2-blue)
 [![GitHub](https://img.shields.io/badge/GitHub-KOHA_on_Debian11-black)](https://github.com/rmonla/rmLIBs/blob/af6d12d8d541d8d58578511213d7a03915c42586/cmdLinux/servers/LimpiaLogs.md)
  
 - Lic. Ricardo MONLA - Correo electrónico: rmonla@frlr.utn.edu.ar
@@ -9,9 +9,37 @@
 
 ```bash
 clear && \
-sudo apt update -y && sudo apt full-upgrade -y && \
-[ -f /var/run/reboot-required ] && sudo reboot
+ORI_DIR="/var/log" && \
+DST_NOM="$(hostname)_$(date +"%Y%m%d_%H%M%S")" && \
+DST_USR=$(whoami) && \
+read -p "Ingresa el USUARIO para conectar en el pc destino[$DST_USR]: " new_input && \
+DST_USR=${new_input:-$DST_USR} && \
+DST_IP="10.0.10.17" && \
+clear && \
+read -p "Ingresa la IP destino[$DST_IP]: " new_input && \
+DST_IP=${new_input:-$DST_IP} && \
+DST_DIR="/home/rmonla/bkp/" && \
+clear && \
+read -p "Ingresa el DIRECTORIO en el pc destino[$DST_DIR]: " new_input && \
+DST_DIR=${new_input:-$DST_DIR} && \
+DST_HOST="$DST_USR@$DST_IP" && \
+DST_DIR="$DST_DIR$DST_NOM" && \
+DESTINO="$DST_USR@$DST_IP:$DST_DIR$DST_NOM" && \
+clear && \
+echo "Verificando carpeta $ORI_DIR a $DESTINO..." && \
+ssh $DST_HOST "mkdir -p \"$DST_DIR\""
+rsync -av "$ORI_DIR" "$DST_DIR" && \
+
+
+
+
+ && \
+
+echo "Copiando archivos de $ORI_DIR a $DESTINO..." && \
+
+
 ```
+
 
 - Archivo rmLimpiaLogs.sh
 
