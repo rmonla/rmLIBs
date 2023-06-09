@@ -22,7 +22,7 @@ TIC - UTN FR La Rioja
 
 ## Paso a Paso.
 
-1. Actualizar el sistema.
+1. Actualizar el sistema operativo.
 
 ```bash
 clear && \
@@ -101,3 +101,4 @@ K_PASS=$(sudo xmlstarlet sel -t -v "//config/pass" /etc/koha/sites/utnlr/koha-co
 echo -e "Ahora debes continuar la instalación a través de la interfaz web.\n\nIngresa a http://$K_IP:$K_PORT\ncon el Usuario >> $K_USER << y contraseña >> $K_PASS <<"
 ```
 10. Continuar la instalación a través de la interfaz web.
+
