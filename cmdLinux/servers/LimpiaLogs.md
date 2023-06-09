@@ -1,3 +1,19 @@
+- Versión: 1.1
+- GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/7cb54ead07c3ee07d79f47fdf9ed7d53b139a8e2/cmdLinux/hawto/install/Koha/KOHA_on_Debian11.md)
+- Lic. Ricardo MONLA -rmonla@frlr.utn.edu.ar
+
+
+- Actualizar el sistema operativo.
+
+```bash
+clear && \
+sudo apt update -y && sudo apt full-upgrade -y && \
+[ -f /var/run/reboot-required ] && sudo reboot
+```
+
+- Archivo rmLimpiaLogs.sh
+
+```bash
 #!/bin/bash
 
 # Carpeta de origen
@@ -28,3 +44,4 @@ echo "" > /var/log/messages
 echo "" > /var/log/syslog
 
 echo "Proceso finalizado."
+```
