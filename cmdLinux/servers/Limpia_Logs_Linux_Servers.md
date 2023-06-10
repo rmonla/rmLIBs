@@ -1,6 +1,6 @@
-![Estado: Estable](https://img.shields.io/badge/Estado-En%20Desarrollo-green)
-![Versión: 1.3](https://img.shields.io/badge/Versión-Versión%201.3-blue)
-[![GitHub](https://img.shields.io/badge/GitHub-KOHA_on_Debian11-black)](https://github.com/rmonla/rmLIBs/blob/af6d12d8d541d8d58578511213d7a03915c42586/cmdLinux/servers/LimpiaLogs.md)
+![Estado: Estable](https://img.shields.io/badge/Estado-Estable-green)
+![Versión: 2.1](https://img.shields.io/badge/Versión-Versión%202.1-blue)
+[![GitHub](https://img.shields.io/badge/Limpia_Logs_Linux_Servers-black)](https://github.com/rmonla/rmLIBs/blob/3f756a43b60dd80b40274b981fdd3fae4bc8678f/cmdLinux/servers/Limpia_Logs_Linux_Servers.md)
  
 - Lic. Ricardo MONLA - Correo electrónico: rmonla@frlr.utn.edu.ar
 
