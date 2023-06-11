@@ -4,6 +4,7 @@
 ![Versión: 2.3](https://img.shields.io/badge/Versión-2.3-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
+
 ## Descripción
 Este script realiza una serie de tareas relacionadas con la sincronización, respaldo y compresión de archivos de log, junto con limpiar los archivos .log de más de 100MB.
  
