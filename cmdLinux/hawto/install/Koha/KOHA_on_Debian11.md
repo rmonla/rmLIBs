@@ -1,5 +1,8 @@
-
 # Cómo instalar KOHA en Debian 11
+![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
+![Versión: 1.6](https://img.shields.io/badge/Versión-1.6-blue)
+[![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
+[![GitHub: KOHA_on_Debian11](https://img.shields.io/badge/GitHub-KOHA__on__Debian11-lightgrey)](https://github.com/rmonla/rmLIBs/blob/7cb54ead07c3ee07d79f47fdf9ed7d53b139a8e2/cmdLinux/hawto/install/Koha/KOHA_on_Debian11.md)
 
 ## ¿Qué es Koha? 
 Koha es una plataforma de gestión de bibliotecas de código abierto ampliamente utilizada en todo el mundo. Fue originalmente desarrollada en Nueva Zelanda y se ha convertido en una de las soluciones más populares para bibliotecas de cualquier tamaño.
@@ -15,10 +18,6 @@ Atte.
 Lic. Ricardo MONLA  
 rmonla@frlr.utn.edu.ar  
 TIC - UTN FR La Rioja  
-
-- Versión: 1.5
-- GitHub: [KOHA_on_Debian11](https://github.com/rmonla/rmLIBs/blob/7cb54ead07c3ee07d79f47fdf9ed7d53b139a8e2/cmdLinux/hawto/install/Koha/KOHA_on_Debian11.md)
-
 
 ## Paso a Paso.
 
