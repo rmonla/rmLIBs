@@ -1,8 +1,8 @@
 # Limpia_Logs_Linux_Servers
-![Estado: Estable](https://img.shields.io/badge/Estado-Estable-green)
-![Versión: 2.3](https://img.shields.io/badge/Versión-Versión%202.3-blue)
-[![GitHub](https://img.shields.io/badge/Limpia_Logs_Linux_Servers-black)](https://github.com/rmonla/rmLIBs/blob/3f756a43b60dd80b40274b981fdd3fae4bc8678f/cmdLinux/servers/Limpia_Logs_Linux_Servers.md)
-- Lic. Ricardo MONLA - rmonla@frlr.utn.edu.ar
+
+![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
+![Versión: 2.3](https://img.shields.io/badge/Versión-2.3-blue)
+[![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 ## Descripción
 Este script realiza una serie de tareas relacionadas con la sincronización, respaldo y compresión de archivos de log, junto con limpiar los archivos .log de más de 100MB.
