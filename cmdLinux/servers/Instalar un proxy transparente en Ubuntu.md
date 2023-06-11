@@ -1,3 +1,10 @@
+# Instalar un proxy transparente en Ubuntu
+
+![Estado: Inestable](https://img.shields.io/badge/Estado-Inestable-red)
+![Versión: 0.1](https://img.shields.io/badge/Versión-0.1-blue)
+[![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
+
+
 Para instalar un proxy transparente en Ubuntu, puedes utilizar Squid, que es un servidor proxy muy popular y ampliamente utilizado. Aquí tienes los pasos para instalarlo:
 
 ** Paso 1: Actualiza el sistema
