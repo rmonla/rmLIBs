@@ -34,7 +34,11 @@ Algunas de las formas en las que la función Hipervínculo puede ser útil son:
 
 En resumen, la función Hipervínculo en Google Sheets es una herramienta valiosa que mejora la experiencia de usuario, facilita la organización de datos y permite un acceso rápido a recursos externos, convirtiéndola en una función poderosa dentro de la suite de Google Sheets.
 
-[<p align="right">![Volver al ](https://img.shields.io/badge/Volver_al_-Índice-lightgrey)](#índice)</p>
+<p align="right">
+  <a href="#índice">
+    <img src="https://img.shields.io/badge/Volver_al_-Índice-lightgrey" alt="Volver al Índice">
+  </a>
+</p>
 
 ## Sintaxis de la función:
 La función Hipervínculo en Google Sheets tiene la siguiente sintaxis:
@@ -57,7 +61,11 @@ Una vez que se aplique esta fórmula en la celda `B1`, se creará un hipervíncu
 
 Recuerda que la función `Hipervínculo` puede usarse en cualquier celda de la hoja de cálculo para crear enlaces interactivos que faciliten la navegación y el acceso a recursos externos o internos.
 
-[<p align="right">![Volver al ](https://img.shields.io/badge/Volver_al_-Índice-lightgrey)](#índice)</p>
+<p align="right">
+  <a href="#índice">
+    <img src="https://img.shields.io/badge/Volver_al_-Índice-lightgrey" alt="Volver al Índice">
+  </a>
+</p>
 
 ## Fuentes consultadas:
 - [Función Hipervinculo 8 formas de uso](https://sites.google.com/view/ofimaticaparaemprendedores/Hojas-de-Calculo/funci%C3%B3n-hiperv%C3%ADnculo-8-formas-de-uso)
@@ -68,4 +76,8 @@ Recuerda que la función `Hipervínculo` puede usarse en cualquier celda de la h
 - [Creando y gestionando Hipervinculos y enlaces en Google Sheets](https://www.youtube.com/watch?v=l__n4u2_VuA)
 - [Cómo obtener la URL para compartir cualquier hoja de Google Sheets](https://botize.com/es/app/gspreadsheet/share-sheet-url)
 
-[<p align="right">![Volver al ](https://img.shields.io/badge/Volver_al_-Índice-lightgrey)](#índice)</p>
+<p align="right">
+  <a href="#índice">
+    <img src="https://img.shields.io/badge/Volver_al_-Índice-lightgrey" alt="Volver al Índice">
+  </a>
+</p>
