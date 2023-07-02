@@ -1,10 +1,18 @@
-# Hipervinculos
+# Hipervínculos
 
 ![Estado: Investigando](https://img.shields.io/badge/Estado-Investigando-brightgreen)
 ![Versión: 1.3](https://img.shields.io/badge/Versión-1.3-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
+## Índice
+
+1. [Descripción](#descripción)
+2. [Sintaxis de la función](#sintaxis-de-la-función)
+   1. [Ejemplo de uso](#ejemplo-de-uso)
+3. [Fuentes consultadas](#fuentes-consultadas)
+
+   
 ## Descripción
 La función Hipervínculo en Google Sheets permite crear enlaces interactivos dentro de las hojas de cálculo. Estos enlaces pueden ser utilizados para navegar entre diferentes hojas en el mismo libro, acceder a recursos externos en línea o organizar datos complejos en una hoja separada.
 
@@ -37,7 +45,7 @@ Donde:
 
 - `[etiqueta] (opcional)`: Es el texto que se mostrará como el hipervínculo en la celda. Si no se proporciona este argumento, la función mostrará el enlace completo.
 
-Ejemplo de uso:
+### Ejemplo de uso:
 
 Supongamos que en la celda `A1` tenemos la `URL` "https://www.google.com" y en la celda `B1` queremos crear un hipervínculo que dirija a esa dirección web y se muestre como "Visitar Google". La función Hipervínculo se usaría de la siguiente manera:
 ```python
