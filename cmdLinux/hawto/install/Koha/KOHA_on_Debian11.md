@@ -25,8 +25,7 @@ TIC - UTN FR La Rioja
 
 ```bash
 clear && \
-sudo apt update -y && sudo apt full-upgrade -y && \
-[ -f /var/run/reboot-required ] && sudo reboot
+sudo apt update -y && sudo apt full-upgrade -y && [ -f /var/run/reboot-required ] && sudo reboot
 ```
 2. Importar una clave GPG (GnuPG) desde el servidor de claves de Ubuntu/Debian.
 
@@ -101,3 +100,4 @@ echo -e "Ahora debes continuar la instalación a través de la interfaz web.\n\n
 ```
 10. Continuar la instalación a través de la interfaz web.
 
+instalación
