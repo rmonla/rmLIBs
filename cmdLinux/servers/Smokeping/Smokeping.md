@@ -1,13 +1,24 @@
 # Smokeping
 
 ![Estado: Analizando](https://img.shields.io/badge/Estado-Analizando-brightgreen)
-![Versión: 1.1](https://img.shields.io/badge/Versión-1.1-blue)
+![Versión: 1.2](https://img.shields.io/badge/Versión-1.2-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
-## Fuentes de estudio.
+## Fuente de estudio y análisis.
 
-- [ Monitorizando e interpretando la salud de una red con Smokeping ](https://www.youtube.com/watch?v=lZfhO_jTv84)
+- [Monitorizando e interpretando la salud de una red con Smokeping](https://www.youtube.com/watch?v=lZfhO_jTv84)
+
+**Monitorizando e interpretando la salud de una red con Smokeping, Francisco José Montilla Blanco** (Francisco José Montilla Blanco, Spain). Veremos cómo esta potente herramienta open source nos posibilita seguir con precisión la "salud" de una red de forma estructurada y cómo implantarla en beneficio de un (W)ISP:
+
+1. Estrategias de implantación de Smokeping sobre una red WISP
+2. Cómo "educar" la vista para identificar problemas y patrones anómalos al instante, y
+3. Cómo aislarlos mediante estos mismos gráficos
+
+con ejemplos reales.
+
+PDF: [http://mum.mikrotik.com/presentations](http://mum.mikrotik.com/presentations)
+
 
 ## Descripción
 Smokeping es una herramienta de monitoreo de red de código abierto que se utiliza para medir y visualizar el rendimiento y la disponibilidad de una red. Proporciona información sobre el tiempo de respuesta y la pérdida de paquetes de los dispositivos y servicios en una red.
