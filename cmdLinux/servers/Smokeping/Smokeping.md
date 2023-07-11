@@ -15,7 +15,9 @@
 2. Cómo "educar" la vista para identificar problemas y patrones anómalos al instante, y
 3. Cómo aislarlos mediante estos mismos gráficos con ejemplos reales.
 
-PDF: [http://mum.mikrotik.com/presentations](http://mum.mikrotik.com/presentations)
+PDF: [Ver el PDF](https://docs.google.com/viewer?url=https://github.com/rmonla/rmLIBs/blob/master/cmdLinux/servers/Smokeping/presentation_3915_1474361765.pdf)
+
+
 
 
 ## Descripción
