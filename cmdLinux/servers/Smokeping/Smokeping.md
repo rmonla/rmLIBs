@@ -7,7 +7,7 @@
 
 ## Fuente de estudio y análisis
 
-- [Monitorizando e interpretando la salud de una red con Smokeping](https://www.youtube.com/watch?v=lZfhO_jTv84){:target="_blank"}
+- [Monitorizando e interpretando la salud de una red con Smokeping](https://www.youtube.com/watch?v=lZfhO_jTv84)
 
 **Monitorizando e interpretando la salud de una red con Smokeping, Francisco José Montilla Blanco** (Francisco José Montilla Blanco, Spain). Veremos cómo esta potente herramienta open source nos posibilita seguir con precisión la "salud" de una red de forma estructurada y cómo implantarla en beneficio de un (W)ISP:
 
@@ -15,10 +15,7 @@
 2. Cómo "educar" la vista para identificar problemas y patrones anómalos al instante, y
 3. Cómo aislarlos mediante estos mismos gráficos con ejemplos reales.
 
-PDF: [Ver el PDF](https://docs.google.com/viewer?url=https://github.com/rmonla/rmLIBs/blob/master/cmdLinux/servers/Smokeping/presentation_3915_1474361765.pdf)
-
-
-
+- Ver el PDF: [presentation_3915_1474361765.pdf](presentation_3915_1474361765.pdf)
 
 ## Descripción
 Smokeping es una herramienta de monitoreo de red de código abierto que se utiliza para medir y visualizar el rendimiento y la disponibilidad de una red. Proporciona información sobre el tiempo de respuesta y la pérdida de paquetes de los dispositivos y servicios en una red.
