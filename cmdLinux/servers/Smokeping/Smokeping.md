@@ -6,8 +6,9 @@
 --------------  
 
 ## Fuente de estudio y análisis
+- <a href="https://www.youtube.com/watch?v=lZfhO_jTv84" target="_blank">Monitorizando e interpretando la salud de una red con Smokeping</a>
 
-- [Monitorizando e interpretando la salud de una red con Smokeping](https://www.youtube.com/watch?v=lZfhO_jTv84)
+
 
 **Monitorizando e interpretando la salud de una red con Smokeping, Francisco José Montilla Blanco** (Francisco José Montilla Blanco, Spain). Veremos cómo esta potente herramienta open source nos posibilita seguir con precisión la "salud" de una red de forma estructurada y cómo implantarla en beneficio de un (W)ISP:
 
