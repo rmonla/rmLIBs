@@ -1,3 +1,8 @@
+![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
+![Versión: 2.1](https://img.shields.io/badge/Versión-2.1-blue)
+[![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
+--------------  
+
 # COPIA ENTRE SERVERS
 
 ## Copiar VM desde un server a otro por SSH 
@@ -6,12 +11,16 @@ Fuente: [backup - Use SSHFS on XenServer 6.1 - Server Fault](https://serverfault
 NOTA: La VM debe estar en modo apagada o suspendida.
 
 ### Descargar imagen de una VM desde un server.
-    DST_NOM='SRV_VNS06_SysACAD-Web_WS2008' \
-    UUID_VM='2f49e4bf-2c44-2676-4a31-a74773fe3ae5' \
-    IP_XenS='10.0.10.24' \
-    DST_DIR='/home/rmonla/Documentos/BakupXenCenter/' \
 
-    ssh root@$IP_XenS "xe vm-export vm=$UUID_VM filename=" > $DST_DIR$DST_NOM.xva
+
+```bash
+clear && \
+DST_NOM='SRV_MAURIK_WS19_VNS14' && \
+UUID_VM='21c5567b-c4c5-14b5-c70c-9b4e8b506c4c' && \
+IP_XenS='10.0.10.23' && \
+DST_DIR='/home/rmonla/Documentos/BakupXenCenter/' && \
+ssh root@$IP_XenS 'xe vm-export vm=$UUID_VM filename=' > $DST_DIR$DST_NOM.xva
+```
 
 ### Copiar VM desde un server a otro.
 
