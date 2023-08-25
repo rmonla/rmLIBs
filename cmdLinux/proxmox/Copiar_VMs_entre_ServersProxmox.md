@@ -1,6 +1,6 @@
 # Copiar VM de un Proxmox a Otro
 
-![Estado: Estable](https://img.shields.io/badge/Estado-En%20Estudio-green)
+![Estado: Estable](https://img.shields.io/badge/Estado-Estable-green)
 ![Versión: 1.1](https://img.shields.io/badge/Versión-1.1-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@gmail.com)
 
@@ -25,7 +25,7 @@ El objetivo principal es permitir a los usuarios migrar máquinas virtuales entr
 2. Generar una copia de seguridad en el servidor de origen.
 3. Transferir la copia mediante SCP o herramientas similares desde el servidor de origen al destino, utilizando el directorio `/var/lib/vz/dump` en ambos servidores.
 ```
-scp vzdump-qemu-101-2023_08_25* root@10.0.10.200:/var/lib/vz/dump
+rmonla@ns9-pmox1:/var/lib/vz/dump$ scp vzdump-qemu-101-2023_08_25* root@10.0.10.200:/var/lib/vz/dump
 ```
 
 ## Referencias
