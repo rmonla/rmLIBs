@@ -1,18 +1,19 @@
 # MaySQL Server
 
 ![Estado: EnPruebas](https://img.shields.io/badge/Estado-EnPruebas-brightgreen)
-![Versión: 0.1](https://img.shields.io/badge/Versión-0.1-blue)
+![Versión: 0.2](https://img.shields.io/badge/Versión-0.2-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
-A). [**WebMIN Downloading and Installing**](https://webmin.com/download/) 
-  1. Ejecuto el configurador del repositorio
+A). [**How To Install MySQL on Ubuntu 20.04**](https://www.devart.com/dbforge/mysql/how-to-install-mysql-on-ubuntu/](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04))
+
+  1. Instalar el paquete mysql-server:
 ~~~bash
-curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh && sudo sh setup-repos.sh
+sudo apt install mysql-server -y
 ~~~
-  2. Instalar el aplicativo.
+  2. Verificar estado del servicio.
 ~~~bash
-sudo apt-get install webmin --install-recommends -y
+sudo systemctl start mysql.service
 ~~~
 
 ### La instalación se probó con éxito y funcionó en Ubuntu Server 22.
