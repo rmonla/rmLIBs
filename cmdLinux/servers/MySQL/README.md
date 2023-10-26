@@ -1,7 +1,7 @@
-# Webmin
+# MaySQL Server
 
-![Estado: Funcionando](https://img.shields.io/badge/Estado-Funcionando-brightgreen)
-![Versión: 1.2](https://img.shields.io/badge/Versión-1.4-blue)
+![Estado: EnPruebas](https://img.shields.io/badge/Estado-EnPruebas-brightgreen)
+![Versión: 0.1](https://img.shields.io/badge/Versión-0.1-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
