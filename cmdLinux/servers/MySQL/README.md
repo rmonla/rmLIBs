@@ -11,7 +11,7 @@ A). [**How To Install MySQL on Ubuntu 20.04**](https://www.devart.com/dbforge/my
 ~~~bash
 sudo apt install mysql-server -y
 ~~~
-  2. Verificar estado del servicio.
+  2. Inicio el srvicio.
 ~~~bash
 sudo systemctl start mysql.service
 ~~~
