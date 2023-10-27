@@ -13,7 +13,7 @@ sudo apt update -y
 ~~~
   2. Instalar paquetes iniciales:
 ~~~bash
-sudo apt install -y apt-transport-https lsb-release ca-certificates curl dirmngr gnupg
+sudo apt install -y apt-transport-https lsb-release ca-certificates curl dirmngr gnupg lsb-release wget
 ~~~
   3. Inicio el srvicio.
 ~~~bash
