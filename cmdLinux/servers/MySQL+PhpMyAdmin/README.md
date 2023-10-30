@@ -28,14 +28,16 @@ sudo apt update -y && sudo apt install -y mysql-server mysql-client
 
 B). [PhpMyAdmin en Linux: instalación paso a paso](https://www.arsys.es/blog/instalar-phpmyadmin-linux)
 
-  1. Instalar el paquete mysql-server:
+  1. Instalar el aplicativo phpmyadmin:
 ~~~bash
-sudo apt install mysql-server -y
+sudo apt-get install -y phpmyadmin
 ~~~
-  2. Inicio el srvicio.
+  2. Reinicio el servidor apache.
 ~~~bash
-sudo systemctl start mysql.service
+sudo systemctl stop mysql.service && sudo systemctl start mysql.service
 ~~~
+  3. Accedo por web al phpmyadmin.
+  --> http://YOUR_SERVER_IP/phpmyadmin
 
 
 B). [**How To Install MySQL on Ubuntu 20.04**](https://www.devart.com/dbforge/mysql/how-to-install-mysql-on-ubuntu/](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04))
