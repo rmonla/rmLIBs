@@ -1,7 +1,7 @@
 # MaySQL Server
 
 ![Estado: Operativo](https://img.shields.io/badge/Estado-Operativo-brightgreen)
-![Versión: 1.2](https://img.shields.io/badge/Versión-1.2-blue)
+![Versión: 1.3](https://img.shields.io/badge/Versión-1.3-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
@@ -40,15 +40,24 @@ sudo systemctl stop mysql.service && sudo systemctl start mysql.service
   --> http://YOUR_SERVER_IP/phpmyadmin
 
 
-B). [**How To Install MySQL on Ubuntu 20.04**](https://www.devart.com/dbforge/mysql/how-to-install-mysql-on-ubuntu/](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04))
+C). [How to Install Webmin on Debian 12](https://www.howtoforge.com/how-to-install-webmin-on-debian-12/)
 
-  1. Instalar el paquete mysql-server:
+  1. Instalar aplcativos requeridos.
 ~~~bash
-sudo apt install mysql-server -y
+sudo apt install gnupg2 curl -y
 ~~~
-  2. Inicio el srvicio.
+  2. Descarga, agrega la clave GPG y añade el repositorio de Webmin.
 ~~~bash
-sudo systemctl start mysql.service
+curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh && sudo sh setup-repos.sh
+~~~
+  3. Actualizar el repositorio e instala Webmin.
+~~~bash
+apt update -y && apt install webmin --install-recommends -y
+~~~
+  4. Verificar el estado del servicio de Webmin.
+~~~bash
+service webmin status
 ~~~
 
-### La instalación se probó con éxito y funcionó en Ubuntu Server 22.
+
+### La instalación se probó con éxito y funcionó en Debian 12.
