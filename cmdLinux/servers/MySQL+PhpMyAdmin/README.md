@@ -1,7 +1,7 @@
 # MaySQL Server
 
 ![Estado: EnPruebas](https://img.shields.io/badge/Estado-EnPruebas-brightgreen)
-![Versión: 1.1](https://img.shields.io/badge/Versión-1.1-blue)
+![Versión: 1.](https://img.shields.io/badge/Versión-1.1-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
