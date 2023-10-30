@@ -15,12 +15,19 @@ sudo apt update -y
 ~~~bash
 sudo apt install -y apt-transport-https lsb-release ca-certificates curl dirmngr gnupg lsb-release wget
 ~~~
-  3. Inicio el srvicio.
+  3. Descargo y despliego el configurador del repositorio.
 ~~~bash
-sudo systemctl start mysql.service
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.18-1_all.deb && sudo dpkg -i mysql-apt-config_0.8.18-1_all.deb
+~~~
+  4. Actualizar información de repositorios e instalo.
+~~~bash
+sudo apt update -y && sudo apt install -y mysql-server mysql-client
 ~~~
 
 ### La instalación se probó con éxito y funcionó en Ubuntu Server 22.
+
+
+
 
 B). [**How To Install MySQL on Ubuntu 20.04**](https://www.devart.com/dbforge/mysql/how-to-install-mysql-on-ubuntu/](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04))
 
