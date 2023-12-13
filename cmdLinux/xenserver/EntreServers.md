@@ -18,7 +18,7 @@ clear && \
 DST_NOM='SRV_MAURIK_WS19_VNS14' && \
 UUID_VM='21c5567b-c4c5-14b5-c70c-9b4e8b506c4c' && \
 IP_XenS='10.0.10.23' && \
-DST_DIR='/home/rmonla/Documentos/BakupXenCenter/' && \
+DST_DIR='/media/rmonla/ticFiles/ticBKPs/Servers/' && \
 ssh root@$IP_XenS 'xe vm-export vm=$UUID_VM filename=' > $DST_DIR$DST_NOM.xva
 ```
 
