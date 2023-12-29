@@ -1,5 +1,5 @@
 ![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
-![Versión: 2.1](https://img.shields.io/badge/Versión-2.1-blue)
+![Versión: 2.2](https://img.shields.io/badge/Versión-2.2-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
@@ -15,12 +15,19 @@ NOTA: La VM debe estar en modo apagada o suspendida.
 
 ```bash
 clear && \
-DST_NOM='SRV_MAURIK_WS19_VNS14' && \
+DST_NOM='srv-MauriK_231229-1225' && \
 UUID_VM='21c5567b-c4c5-14b5-c70c-9b4e8b506c4c' && \
 IP_XenS='10.0.10.23' && \
 DST_DIR='/media/rmonla/ticFiles/ticBKPs/Servers/' && \
 ssh root@$IP_XenS 'xe vm-export vm=$UUID_VM filename=' > $DST_DIR$DST_NOM.xva
 ```
+
+clear && \
+DST_NOM='srv-MauriK_231229-1225' && \
+UUID_VM='21c5567b-c4c5-14b5-c70c-9b4e8b506c4c' && \
+IP_XenS='10.0.10.23' && \
+DST_DIR='/media/rmonla/ticFiles/ticBKPs/Servers/' && \
+ssh root@$IP_XenS 'xe vm-export vm=$UUID_VM filename=' > $DST_DIR$DST_NOM.xva
 
 ### Copiar VM desde un server a otro.
 
