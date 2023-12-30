@@ -15,10 +15,10 @@ NOTA: La VM debe estar en modo apagada o suspendida.
 ```bash
 VM_NOM="srv-MauriK"
 VM_UUID="21c5567b-c4c5-14b5-c70c-9b4e8b506c4c"
-DST_SRV='10.0.10.17'
-DST_DIR="/media/rmonla/ticFiles/ticBKPs/Servers/"
+DST_SRV='rmonla@10.0.10.17'
+DST_DIR="/media/rmonla/ticFiles/ticBKPs/Servers/${VM_NOM}_$(date +'%y%m%d-%H%M').xva"
 
-xe vm-export uuid=$VM_UUID filename=- | ssh root@$DST_SRV "cat > $DST_DIR$VM_NOM$(date +'_%y%m%d-%H%M').xva"
+xe vm-export uuid=$VM_UUID filename=- | ssh $DST_SRV "cat > $DST_DIR"
 ```
 
 ### Descargar imagen de una VM desde un server.
