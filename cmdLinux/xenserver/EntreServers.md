@@ -1,5 +1,5 @@
 ![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
-![Versión: 2.2](https://img.shields.io/badge/Versión-2.2-blue)
+![Versión: 2.3](https://img.shields.io/badge/Versión-2.3-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
@@ -9,6 +9,17 @@
 Fuente: [backup - Use SSHFS on XenServer 6.1 - Server Fault](https://serverfault.com/questions/493166/use-sshfs-on-xenserver-6-1)
 
 NOTA: La VM debe estar en modo apagada o suspendida.
+
+### Parado En el Servidor.
+
+```bash
+VM_NOM="srv-MauriK"
+VM_UUID="21c5567b-c4c5-14b5-c70c-9b4e8b506c4c"
+DST_SRV='10.0.10.23'
+DST_DIR="/media/rmonla/ticFiles/ticBKPs/Servers/"
+
+xe vm-export uuid=$VM_UUID filename=- | ssh root@$DST_SRV "cat > $DST_DIR$VM_NOM$(date +'_%y%m%d-%H%M').xva"
+```
 
 ### Descargar imagen de una VM desde un server.
 
