@@ -1,5 +1,5 @@
 ![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
-![Versión: 2.3](https://img.shields.io/badge/Versión-2.3-blue)
+![Versión: 2.4](https://img.shields.io/badge/Versión-2.4-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
@@ -18,6 +18,30 @@ VM_UUID="6d54b7f3-107e-5b7e-d77d-8c4c5ef9ebc0"
 DESTINO="/media/rmonla/ticFiles/ticBKPs/Servers/${VM_NOM}_$(date +'%y%m%d-%H%M').xva"
 
 xe vm-export uuid=$VM_UUID filename= | ssh rmonla@10.0.10.17 -p 7022 "cat > $DESTINO"
+```
+### Iternado En el Servidor.
+```bash
+#!/bin/bash
+
+# Array de VMs con sus UUIDs
+vms=(
+    ["x_srv-Proxy2"]="f5ad589c-84bd-9882-fbc8-76439e937332"
+    ["srv-MauriK"]="21c5567b-c4c5-14b5-c70c-9b4e8b506c4c"
+    ["srv-Sitio1"]="6d54b7f3-107e-5b7e-d77d-8c4c5ef9ebc0"
+)
+
+# Iterar sobre el array
+for vm_nom in "${!vms[@]}"; do
+    vm_uuid="${vms[$vm_nom]}"
+    
+    # Construir el destino
+    destino="/media/rmonla/ticFiles/ticBKPs/Servers/${vm_nom}_$(date +'%y%m%d-%H%M').xva"
+    
+    # Exportar la VM y copiar a destino
+    xe vm-export uuid="$vm_uuid" filename= | ssh rmonla@10.0.10.17 -p 7022 "cat > $destino"
+    
+    echo "Iteración completada para VM: $vm_nom"
+done
 ```
 
 ### Descargar imagen de una VM desde un server.
