@@ -1,5 +1,5 @@
 ![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
-![Versión: 2.4](https://img.shields.io/badge/Versión-2.4-blue)
+![Versión: 2.5](https://img.shields.io/badge/Versión-2.5-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
@@ -19,7 +19,28 @@ DESTINO="/media/rmonla/ticFiles/ticBKPs/Servers/${VM_NOM}_$(date +'%y%m%d-%H%M')
 
 xe vm-export uuid=$VM_UUID filename= | ssh rmonla@10.0.10.17 -p 7022 "cat > $DESTINO"
 ```
-### Iternado En el Servidor.
+
+### Parado Fuera del Servidor.
+
+```bash
+VM_NOM="srv-VN10-SiGesDocs"
+VM_UUID="968e2436-f9f1-4955-32ee-3dd30714d8e7"
+SRV_C0N="root@10.0.10.24"
+
+ARCH_NOM="${VM_NOM}_$(date +'%y%m%d-%H%M').xva"
+ARCH_TMP="/home/rmonla/Downloads/${ARCH_NOM}"
+ARCH_COMP="/media/rmonla/ticFiles/ticBKPs/Servers/${ARCH_NOM}.tar.gz"
+
+clear
+echo "Descargando máquina virtual [${VM_NOM}] desde el server..."
+ssh $SRV_C0N "xe vm-export vm=${VM_UUID} filename= " > $ARCH_TMP
+echo "Comprimiendo archivo temporal [${ARCH_NOM}]..."
+tar cf - $ARCH_TMP | pv -s $(du -sb $ARCH_TMP | awk '{print $1}') | gzip > $ARCH_COMP
+rm $ARCH_TMP
+echo "Descarga, Compresión y limpieza de temporales realizado."
+echo ""
+```
+### Iterando En el Servidor.
 ```bash
 #!/bin/bash
 
