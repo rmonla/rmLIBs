@@ -1,6 +1,6 @@
-# Cómo instalar Serviio en Debian 11 "bullseye"
-![Estado: Estable](https://img.shields.io/badge/Estado-Estable-brightgreen)
-![Versión: 1.2](https://img.shields.io/badge/Versión-1.2-blue)
+# Cómo instalar     KasperskySecurityCenter en Debian
+![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
+![Versión: 1.0](https://img.shields.io/badge/Versión-1.0-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 Fuente: [How to install serviio dlna server on linux debian with ffmpeg and default-jre java howto](https://www.youtube.com/watch?v=99XzSTYO_Mw)
