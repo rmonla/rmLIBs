@@ -1,9 +1,9 @@
-# Cómo instalar     KasperskySecurityCenter en Debian
+# Cómo instalar     KasperskySecurityCenter en Ubuntu 20
 ![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
-![Versión: 1.0](https://img.shields.io/badge/Versión-1.0-blue)
+![Versión: 0.2](https://img.shields.io/badge/Versión-0.2-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
-Fuente: [How to install serviio dlna server on linux debian with ffmpeg and default-jre java howto](https://www.youtube.com/watch?v=99XzSTYO_Mw)
+Fuente: [Instalación de Kaspersky Security Center Linux ](https://support.kaspersky.com/ksclinux/14.2/es-MX/166764.htm)
 
 Serviio es un servidor de medios de comunicación gratuito que permite transmitir contenido multimedia (como videos, música y fotos) a dispositivos compatibles con DLNA (Digital Living Network Alliance), como televisores inteligentes, consolas de videojuegos y reproductores de medios. Facilita la transmisión de archivos multimedia desde una computadora a otros dispositivos en la red local.
 
