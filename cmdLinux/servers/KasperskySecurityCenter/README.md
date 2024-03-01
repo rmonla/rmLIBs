@@ -1,12 +1,25 @@
-# Cómo instalar     KasperskySecurityCenter en Ubuntu 20
+# Cómo instalar KasperskySecurityCenter en Ubuntu 20
 ![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
 ![Versión: 0.2](https://img.shields.io/badge/Versión-0.2-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 Fuente: [Instalación de Kaspersky Security Center Linux ](https://support.kaspersky.com/ksclinux/14.2/es-MX/166764.htm)
 
-Serviio es un servidor de medios de comunicación gratuito que permite transmitir contenido multimedia (como videos, música y fotos) a dispositivos compatibles con DLNA (Digital Living Network Alliance), como televisores inteligentes, consolas de videojuegos y reproductores de medios. Facilita la transmisión de archivos multimedia desde una computadora a otros dispositivos en la red local.
+Kaspersky Security Center es una plataforma de gestión de seguridad desarrollada por Kaspersky Lab, una empresa líder en ciberseguridad. Esta plataforma proporciona herramientas integrales para administrar la seguridad de los sistemas informáticos en redes empresariales y corporativas.
 
+Algunas de las funciones principales de Kaspersky Security Center incluyen:
+
+1. Gestión centralizada de la seguridad: Permite administrar de manera centralizada las políticas de seguridad, las actualizaciones de software, la monitorización de amenazas y otras funciones relacionadas con la seguridad de los sistemas informáticos en toda la red.
+
+2. Implementación y mantenimiento de antivirus: Facilita la instalación, configuración y actualización de soluciones antivirus y antimalware en todos los dispositivos de la red, lo que ayuda a proteger contra virus, malware y otras amenazas cibernéticas.
+
+3. Control de dispositivos: Permite gestionar y controlar el acceso a dispositivos externos, como unidades USB, discos duros externos y otros dispositivos de almacenamiento, con el fin de prevenir la pérdida de datos y proteger contra amenazas potenciales.
+
+4. Monitorización y generación de informes: Proporciona capacidades de monitorización en tiempo real y generación de informes detallados sobre la seguridad de la red, incluyendo actividades sospechosas, eventos de seguridad y tendencias de amenazas.
+
+En resumen, Kaspersky Security Center es una herramienta integral que ayuda a las organizaciones a gestionar y mantener la seguridad de sus sistemas informáticos de manera eficiente y centralizada.
+
+# Instalación.
 1. Actualizar el nombre del host.
 
 ```bash
