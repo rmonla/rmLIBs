@@ -35,10 +35,10 @@ clear && sudo apt update -y && sudo apt full-upgrade -y && \
 [ -f /var/run/reboot-required ] && sudo reboot
 ```
 
-3. Instalar complementos.
+3. Instalar MariaDB.
 
 ```bash
-sudo apt install ffmpeg default-jre screen -y
+sudo apt update -y && sudo apt install -y mariadb-server mariadb-client -y
 ```
 
 4. Crear el usuario serviio.
