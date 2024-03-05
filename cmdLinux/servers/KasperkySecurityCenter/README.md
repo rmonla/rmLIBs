@@ -4,15 +4,24 @@
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 Fuente: 
-- [How to install MariaDB on Ubuntu](https://www.cherryservers.com/blog/how-to-install-and-start-using-mariadb-on-ubuntu-20-04)
- 
-- [How to Install and Start Using MariaDB on Ubuntu 20.04 | Step-by-Step](https://www.cherryservers.com/blog/how-to-install-and-start-using-mariadb-on-ubuntu-20-04)
-- [How to Install MariaDB on Ubuntu [and Start Using it] Step-by-Step](https://youtu.be/QfViwTqYOGY?si=hGqxjPVp_waqs22e)
+- [Instalación de Kaspersky Security Center Linux](https://support.kaspersky.com/ksclinux/14.2/es-MX/166764.htm)
+- [Configurar el servidor MariaDB x64 para trabajar con Kaspersky Security Center Linux](https://support.kaspersky.com/ksclinux/14.2/es-MX/210277.htm)
 
 
-## Instalación
-
-1. Actualización del sistema
+## Preparación
+- *Actualización del sistema*
 ```bash
 sudo apt update -y && sudo apt full-upgrade  -y && [ -f /var/run/reboot-required ] && sudo reboot -f
 ```
+
+- *Actualizar el nombre del host (opcional)*
+```bash
+clear && \
+H_ACTUAL=$(hostname) && \
+read -p "Ingresa el nuevo nombre de host: " H_NUEVO && \
+sudo sed -i "s/$H_ACTUAL/$H_NUEVO/g" /etc/hosts /etc/hostname && \
+sudo reboot
+```
+## Instalación
+- *Instalar MariaDB*
+  + [Como Instalar MariaDB en Ubuntu](https://github.com/rmonla/rmLIBs/tree/master/cmdLinux/servers/MariaDB)
