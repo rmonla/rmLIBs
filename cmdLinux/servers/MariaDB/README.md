@@ -129,12 +129,7 @@ QUIT;
 ```
 Esta consulta proporciona una estimación inicial de los IOPS necesarios para manejar la lectura y escritura de datos en las tablas InnoDB de tu base de datos MySQL, teniendo en cuenta el tamaño total de los datos e índices.
 
- - Grabar y guardar
-11. **Reiniciar MariaDB.**
-```
-sudo systemctl restart mariadb
-```
-13. **Especificar el máximo numero de conecciones.**
+ - **Especificar el máximo numero de conecciones.**
 ```
 sudo mariadb -u admin_user -p
 PASSWORD
@@ -143,29 +138,29 @@ flush privileges;
 exit
 ```
 
-12. **Configuro uso de memoria y no del disco.**
+ - **Configuro uso de memoria y no del disco.**
 ```
 sudo sysctl -w vm.swappiness=0
 ```
  Este comando puede ser útil para mejorar el rendimiento de tu sistema si tiene suficiente memoria RAM. Sin embargo, es importante usarlo con precaución y monitorizar el uso de la memoria de tu sistema.
 
-14. **Modificar parámetros del archivo de configuración de MariaDB**
+### **Modificar parámetros del archivo de configuración de MariaDB**
 ```
 sudo nano /etc/mysql//mariadb.conf.d/50-server.cnf
 ```
- - Descomentar #skip-name-resolve 
+1. Descomentar #skip-name-resolve 
 ```
 skip-name-resolve
 ```
 La variable `skip-name-resolve` se utiliza en el servidor de base de datos MySQL para deshabilitar la resolución de nombres de host durante las conexiones de clientes. En otras palabras, en lugar de utilizar el nombre de host proporcionado por el cliente para conectarse, MySQL solo considerará la dirección IP para la autorización y el control de acceso.
 
- - Descomentar y modificar #innodb_buffer_pool_size = 8G.
+2. Descomentar y modificar #innodb_buffer_pool_size = 8G.
 ```
 innodb_buffer_pool_size = 1G
 ```
 La variable `innodb_buffer_pool_size` es una de las variables más importantes para optimizar el rendimiento de MySQL. Se refiere al tamaño del buffer pool de InnoDB, que es un área de memoria que InnoDB utiliza para almacenar datos y índices en caché.
 
-- Agregar al final del archivo luego de la línea `[mariadb-10.xx]`
+3. Agregar al final del archivo luego de la línea `[mariadb-10.xx]`
 ```
 query_cache_size = 64M
 wait_timeout = 60
