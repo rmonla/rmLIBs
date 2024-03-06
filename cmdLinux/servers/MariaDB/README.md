@@ -61,13 +61,17 @@ sudo mysql_secure_installation
 
 ```
 sudo mariadb -u root -p
-
+```
+```
 CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'secret_password';
-
+```
+```
 GRANT ALL PRIVILEGES ON *.* TO 'admin_user'@'localhost';
-
+```
+```
 FLUSH PRIVILEGES;
-
+```
+```
 EXIT;
 ```
 
