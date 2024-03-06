@@ -1,6 +1,6 @@
 # Como Instalar MariaDB en Ubuntu.
 ![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
-![Versión: 1.3](https://img.shields.io/badge/Versión-1.3-blue)
+![Versión: 1.4](https://img.shields.io/badge/Versión-1.4-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 Fuente: 
@@ -78,13 +78,17 @@ EXIT;
 8. **Verifico los datos de ususario admin.**
 ```
 sudo mariadb -u admin_user -p
-PASSWORD
-
+```
+```
 SHOW DATABASES;
-
+```
+```
 CREATE DATABASE test_db;
-
+```
+```
 SHOW DATABASES;
+```
+```
 +--------------------+
 | Database           |
 +--------------------+
@@ -95,8 +99,11 @@ SHOW DATABASES;
 | test_db            |
 +--------------------+
 5 rows in set (0,001 sec)
-
+```
+```
 SELECT host, useR FROM mysql.user;
+```
+```
 +-----------+-------------+
 | Host      | User        |
 +-----------+-------------+
@@ -106,9 +113,11 @@ SELECT host, useR FROM mysql.user;
 | localhost | root        |
 +-----------+-------------+
 4 rows in set (0,005 sec)
-
+```
+```
 FLUSH PRIVILEGES;
-
+```
+```
 QUIT;
 ```
 ## Optimización y mejoras de Performance.
@@ -116,19 +125,21 @@ QUIT;
  - **Estimar la cantidad de IOPS (operaciones de entrada/salida por segundo).**
 ```
 sudo mariadb -u admin_user -p
-PASSWORD
-
+```
+```
 SELECT CEILING(Total_InnoDB_Bytes*1.6/POWER(1024,3)) RIBPS FROM
 (SELECT SUM(data_length+index_length) Total_InnoDB_Bytes
 FROM information_schema.tables WHERE engine='InnoDB') A;
-
+```
+```
 +-------+
 | RIBPS |
 +-------+
 |     1 |
 +-------+
 1 row in set (0,041 sec)
-
+```
+```
 QUIT;
 ```
 Esta consulta proporciona una estimación inicial de los IOPS necesarios para manejar la lectura y escritura de datos en las tablas InnoDB de tu base de datos MySQL, teniendo en cuenta el tamaño total de los datos e índices.
@@ -136,10 +147,15 @@ Esta consulta proporciona una estimación inicial de los IOPS necesarios para ma
  - **Especificar el máximo numero de conecciones.**
 ```
 sudo mariadb -u admin_user -p
-PASSWORD
+```
+```
 set global max_connections=500;
+```
+```
 flush privileges;
-exit
+```
+```
+exit;
 ```
 
  - **Configuro uso de memoria y no del disco.**
