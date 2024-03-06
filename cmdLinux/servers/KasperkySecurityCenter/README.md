@@ -1,6 +1,6 @@
 # Kasperky Security Center en Ubuntu.
 ![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
-![Versión: 1.4](https://img.shields.io/badge/Versión-1.4-blue)
+![Versión: 1.5](https://img.shields.io/badge/Versión-1.5-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Preparación
@@ -21,16 +21,14 @@ clear && H_ACTUAL=$(hostname) && read -p "Ingresa el nuevo nombre de host: " H_N
   + [Configuración de la cuenta de DBMS para trabajar con MySQL y MariaDB](https://support.kaspersky.com/ksclinux/14.2/es-MX/240816.htm)
     * Ingresar con cuenta de admminitración.
     ```
-    sudo mariadb -u admin_user -p
+    sudo mariadb -u root -p
     ```
-    * Crear cuenta interna para el instalador del Servidor de administración.
+    * Crear usuario KSCAdmin y definir su contraseña.
     ```
-    /* Crear un usuario llamado KSCAdmin y definir la contraseña de KSCAdmin */
     CREATE USER 'KSCAdmin' IDENTIFIED BY '<contraseña>';
     ```
-    * Otorgar privilegios.
+    * Otorgar privilegios a KSCAdmin.
     ```
-    /* Otorgar privilegios a KSCAdmin */
     GRANT USAGE ON *.* TO 'KSCAdmin';
     GRANT ALL ON kav.* TO 'KSCAdmin';
     GRANT SELECT, SHOW VIEW ON mysql.* TO 'KSCAdmin';
@@ -41,7 +39,6 @@ clear && H_ACTUAL=$(hostname) && read -p "Ingresa el nuevo nombre de host: " H_N
     ```
     * Crear base de datos del Servidor de administración.
     ```
-    /* Crear BD kav */
     CREATE DATABASE kav
     DEFAULT CHARACTER SET utf8
     DEFAULT COLLATE utf8_general_ci;
