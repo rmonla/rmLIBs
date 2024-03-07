@@ -1,6 +1,6 @@
 # Kasperky Security Center en Ubuntu.
 ![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
-![Versión: 1.5](https://img.shields.io/badge/Versión-1.5-blue)
+![Versión: 1.6](https://img.shields.io/badge/Versión-1.6-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Preparación
@@ -46,7 +46,7 @@ clear && H_ACTUAL=$(hostname) && read -p "Ingresa el nuevo nombre de host: " H_N
   + *Configurar el servidor MariaDB x64 para KSC*
     * Abrir archivo de configuración. 
     ```
-    sudo nano /etc/mysql/my.cnf
+    sudo nano /etc/mysql//mariadb.conf.d/50-server.cnf
     ```
     * Ingrese las siguientes líneas en la sección `[mysqld]` del archivo my.cnf: 
     ```
@@ -88,9 +88,40 @@ clear && H_ACTUAL=$(hostname) && read -p "Ingresa el nuevo nombre de host: " H_N
         optimizer_switch='join_cache_hashed=on'
         optimizer_switch='join_cache_bka=on'
         ```
-   
+    * Reiniciar MariaDB.
+    ```
+    sudo systemctl restart mariadb
+    ```
+
   + [Instale el Servidor de administración](https://support.kaspersky.com/ksclinux/14.2/es-MX/166764.htm)
-    * Ingrese a DBMS con una cuenta de admminitración.
+    * Cree un grupo 'kladmins' y una cuenta sin privilegios 'ksc'. La cuenta debe ser miembro del grupo 'kladmins'. Para hacer esto, ejecute secuencialmente los siguientes comandos:
     ```
-    sudo mariadb -u admin_user -p
+    sudo adduser ksc
     ```
+    ```
+    sudo groupadd kladmins
+    ```
+    ```
+    sudo gpasswd -a ksc kladmins
+    ```
+    ```
+    sudo usermod -g kladmins ksc
+    ```
+    ```
+    sudo adduser ksc && sudo groupadd kladmins && sudo gpasswd -a ksc kladmins && sudo usermod -g kladmins ksc
+    ```
+    * Descargar el aplicativo:
+      Buscar y descargar el módulo
+        Kaspersky Security Center
+      Version 15.0.0.12912 | Debian x64 | Administration server
+      desde la direccion
+      https://latam.kaspersky.com/small-to-medium-business-security/downloads/endpoint
+    ```
+    wget https://products.s.kaspersky-labs.com/administrationkit/ksc10/15.0.0.12912/spanish-15511518-es-MX/3739313830397c44454c7c31/ksc64_15.0.0-12912_amd64.deb
+    ```
+    * Instalar el aplicativo:
+    ```
+    sudo apt install ksc64_15.0.0-12912_amd64.deb
+    ```    
+  + [Instalación de Kaspersky Security Center Web Console](https://support.kaspersky.com/ksclinux/14.2/es-MX/181968.htm)
+ 
