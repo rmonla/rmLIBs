@@ -1,7 +1,7 @@
 # MaySQL Server
 
 ![Estado: Operativo](https://img.shields.io/badge/Estado-Operativo-brightgreen)
-![Versión: 1.3](https://img.shields.io/badge/Versión-1.3-blue)
+![Versión: 1.4](https://img.shields.io/badge/Versión-1.4-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 --------------  
 
@@ -52,7 +52,7 @@ curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/se
 ~~~
   3. Actualizar el repositorio e instala Webmin.
 ~~~bash
-apt update -y && apt install webmin --install-recommends -y
+sudo apt update -y && sudo apt install webmin --install-recommends -y
 ~~~
   4. Verificar el estado del servicio de Webmin.
 ~~~bash
