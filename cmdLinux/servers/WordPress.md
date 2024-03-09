@@ -8,7 +8,21 @@
     - Actualizar del sistema.
     - Cambiar el nombre del host.
 
-## Instalación de MariaDB y configurarla para KSC
-- [Configurar el servidor MariaDB x64 para trabajar con Kaspersky Security Center Linux](https://support.kaspersky.com/ksclinux/14.2/es-MX/210277.htm)
-    
-  + 
+## Instalación
+- [Instalar y Optimizar MariaDB en Ubuntu.](https://github.com/rmonla/rmLIBs/blob/master/cmdLinux/servers/MariaDB%20en%20Ubuntu.md)
+    - Se realizan los pasos incluida la optimización.
+- Instalar Apache y PHP.
+```
+sudo apt install -y apache2 php php-{common,mysql,xml,xmlrpc,curl,gd,imagick,cli,dev,imap,mbstring,opcache,soap,zip,intl}
+```
+- Habilitar e iniciar el Apache.
+```
+sudo systemctl enable apache2
+```
+Verificar de funcionamiento del servicio.
+```
+systemctl status apache2
+```
+
+## Fuentes consultadas
+- [How to Install WordPress on Ubuntu 22.04 LTS Server](https://linux.how2shout.com/how-to-install-wordpress-on-ubuntu-22-04-lts-server/)
