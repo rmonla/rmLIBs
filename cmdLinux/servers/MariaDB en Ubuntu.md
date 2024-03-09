@@ -1,6 +1,6 @@
-# Como Instalar MariaDB en Ubuntu.
+# Instalar y Optimizar MariaDB en Ubuntu.
 ![Estado: EnProceso](https://img.shields.io/badge/Estado-EnProceso-brightgreen)
-![Versión: 1.4](https://img.shields.io/badge/Versión-1.4-blue)
+![Versión: 1.5](https://img.shields.io/badge/Versión-1.5-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 Fuente: 
