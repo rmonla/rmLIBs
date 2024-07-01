@@ -4,6 +4,13 @@
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@frlr.utn.edu.ar)
 
 
+
+## Ver la distribución instalada.
+```
+    cat /etc/*release
+```
+<p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
+
 ## *Actualizar del sistema.*
 
 ```bash
@@ -18,12 +25,6 @@ sudo apt update -y && sudo apt full-upgrade  -y && [ -f /var/run/reboot-required
 ```
 - *do-release-upgrade* es un comando diseñado específicamente para actualizar sistemas Ubuntu a la última versión disponible. .
 <p align="right"><img src="https://img.shields.io/badge/Linux-Ubuntu-orange" alt="Linux: Ubuntu"></p>
-
-## Ver la distribución instalada.
-```
-    cat /etc/*release
-```
-<p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
 
 ## *Cambiar el nombre del host.*
 ```bash
