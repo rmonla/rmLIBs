@@ -1,5 +1,5 @@
 
-# Script para Iniciar VMs o LXCs en Proxmox Basado en Paquetes WOL
+# Iniciar VMs o LXCs en Proxmox Basado en Paquetes WOL
 
 ![Estado: Completado](https://img.shields.io/badge/Estado-Completado-green)
 ![Versión: 1.0](https://img.shields.io/badge/Versión-1.0-blue)
