@@ -1,7 +1,7 @@
 # Sincronización y Procesamiento de VMs desde un Servidor Remoto
 
 ![Estado: Completado](https://img.shields.io/badge/Estado-Completado-green)
-![Versión: 1.0](https://img.shields.io/badge/Versión-1.0-blue)
+![Versión: 1.1](https://img.shields.io/badge/Versión-1.1-blue)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@gmail.com)
 
 ## Índice
@@ -16,7 +16,7 @@ Este script en Bash está diseñado para sincronizar las máquinas virtuales (VM
 
 ## Procedimiento
 
-1. Inicia sesión en tu nodo de Proxmox y abre una terminal en "Shell".
+1. Abre una terminal en "Shell".
 2. Navega a tu directorio personal y crea una carpeta para scripts:
    ```bash
    cd ~
