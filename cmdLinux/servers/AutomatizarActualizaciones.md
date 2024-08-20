@@ -80,11 +80,3 @@ sudo systemctl enable --now unattended-upgrades
 ## 🔗 Referencias
 
 - [Unattended Upgrades: cómo automatizar las actualizaciones de nuestro Linux](https://diocesanos.es/blogs/equipotic/2021/06/28/unattended-upgrades-como-automatizar-las-actualizaciones-de-nuestro-linux/)
-```
-
-### Detalles:
-1. **Instalación y Configuración**: Se detalla la instalación y configuración de `unattended-upgrades` con comandos claros.
-2. **Imágenes sugeridas**: Se sugieren imágenes para ilustrar el proceso de instalación, configuración y edición de archivos, las cuales deberías reemplazar con los enlaces a las imágenes reales que prefieras usar.
-3. **Comandos en bloque**: Los comandos se presentan en bloques separados para una lectura clara y concisa.
-
-Puedes personalizar este esquema según las necesidades específicas de tu entorno o audiencia.
