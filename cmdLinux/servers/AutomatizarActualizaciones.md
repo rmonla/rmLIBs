@@ -1,7 +1,7 @@
 # Automatizar Actualizaciones en Linux con `unattended-upgrades`
 
 ![Estado: En Producción](https://img.shields.io/badge/Estado-En%20Producción-yellow)
-![Versión: 0.1](https://img.shields.io/badge/Versión-0.1-yellow)
+![Versión: 0.2](https://img.shields.io/badge/Versión-0.1-yellow)
 [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange)](mailto:rmonla@gmail.com)
 
 ## 📋 Índice
@@ -33,8 +33,6 @@ Instala la herramienta `unattended-upgrades` utilizando el siguiente comando:
 sudo apt install unattended-upgrades -y
 ```
 
-![Instalación de unattended-upgrades](https://example.com/imagen_instalacion_unattended_upgrades.png)
-
 Una vez instalada, la herramienta estará lista para ser configurada.
 
 ## 🔧 Configuración de `unattended-upgrades`
@@ -51,7 +49,7 @@ sudo dpkg-reconfigure unattended-upgrades
 - Ejecuta el comando anterior.
 - Selecciona "Sí" para permitir las actualizaciones automáticas de seguridad.
 
-![Configuración de unattended-upgrades](https://example.com/imagen_configuracion_unattended_upgrades.png)
+![Configuración de unattended-upgrades](https://diocesanos.es/blogs/equipotic/wp-content/uploads/sites/2/2021/06/Captura-de-pantalla-2021-06-28-13-38-01.png)
 
 ### 2. Editar el archivo de configuración manualmente (Opcional)
 
