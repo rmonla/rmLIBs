@@ -7,6 +7,9 @@
 
 ## Ver la distribución instalada.
 ```
+    lsb_release -a
+```
+```
     cat /etc/*release
 ```
 <p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
