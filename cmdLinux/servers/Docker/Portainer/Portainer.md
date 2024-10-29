@@ -63,7 +63,7 @@ Una vez que el contenedor esté en ejecución, puedes acceder a la interfaz web 
 http://localhost:9000
 ```
 
-![Interfaz Web de Portainer](https://example.com/imagen_portainer_web.png)
+![Interfaz Web de Portainer](./pantalla_portainer.png)
 
 ## 🔗 Referencias
 
