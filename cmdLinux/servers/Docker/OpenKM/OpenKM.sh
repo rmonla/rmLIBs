@@ -1,5 +1,5 @@
 DK_NOM="openkm"
-DK_PRT="8080"
+DK_PRT="8180"
 
 DK_DIR="/docker/$DK_NOM"
 DK_CMP="$DK_DIR/docker-compose.yml"
@@ -7,7 +7,7 @@ DK_CMP="$DK_DIR/docker-compose.yml"
 sudo mkdir -p "$DK_DIR" 
 
 cat <<EOF | sudo tee "$DK_CMP" > /dev/null
-version: "2.rm.1"
+version: "2.rm.2"
 services:
   # Our base OpenKM service is at the localhost. If hosting these on a domain,
   # change the "localhost:8080" to your domain and optionally change the ports.
