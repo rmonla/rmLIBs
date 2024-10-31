@@ -30,6 +30,10 @@ DKR_POR="9000"                              # Puerto para acceder a Portainer
 Para evitar conflictos, detén y elimina cualquier instancia anterior de Portainer que esté utilizando la misma imagen.
 
 ```bash
+DKR_NOM="portainer"
+DKR_IMG="portainer/portainer-ce:latest"
+DKR_POR="9000"
+
 DKR_LID=$(sudo docker ps | grep $DKR_IMG | awk '{print $1}')  # Obtener ID del contenedor en ejecución
 sudo docker stop $DKR_LID                                     # Detener contenedor actual
 sudo docker rm $DKR_LID                                       # Eliminar contenedor detenido
@@ -41,6 +45,10 @@ sudo docker rmi $DKR_IMG                                      # Eliminar la imag
 Ejecuta el siguiente comando para crear y desplegar una nueva instancia de Portainer.
 
 ```bash
+DKR_NOM="portainer"
+DKR_IMG="portainer/portainer-ce:latest"
+DKR_POR="9000"
+
 sudo docker run -d -p $DKR_POR:9000 -p 9443:9443 \
     --name=$DKR_NOM --restart=always \
     -v /var/run/docker.sock:/var/run/docker.sock \
