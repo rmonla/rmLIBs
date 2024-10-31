@@ -1,13 +1,12 @@
 DK_NOM="openkm"
-DK_PRT="8180"
+DK_PRT="8080"
 
 DK_DIR="/docker/$DK_NOM"
 DK_CMP="$DK_DIR/docker-compose.yml"
 
-sudo mkdir -p "$DK_DIR" 
+sudo mkdir -p "$DK_DIR" && cat <<-EOF | sudo tee "$DK_CMP" > /dev/null
 
-cat <<EOF | sudo tee "$DK_CMP" > /dev/null
-version: "2.rm.2"
+version: "2.2"
 services:
   # Our base OpenKM service is at the localhost. If hosting these on a domain,
   # change the "localhost:8080" to your domain and optionally change the ports.
@@ -17,10 +16,10 @@ services:
     image: mbagnall/openkm:mysql
     container_name: openkm
     environment:
-      OPEN_KM_URL: http://localhost:"$DK_PRT"/OpenKM
-      OPEN_KM_BASE_URL: http://localhost:"$DK_PRT"
+      OPEN_KM_URL: http://localhost:${DK_PRT}/OpenKM
+      OPEN_KM_BASE_URL: http://localhost:${DK_PRT}
     ports:
-      - "$DK_PRT":8080
+      - ${DK_PRT}:8080
     volumes:
       - ./data:/opt/tomcat-8.5.69/repository
     depends_on:
