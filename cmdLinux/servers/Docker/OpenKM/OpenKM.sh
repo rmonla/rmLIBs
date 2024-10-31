@@ -1,5 +1,6 @@
 DK_NOM="openkm"
 DK_PRT="8080"
+
 DK_DIR="/docker/$DK_NOM"
 DK_CMP="$DK_DIR/docker-compose.yml"
 
@@ -17,9 +18,9 @@ services:
     container_name: openkm
     environment:
       OPEN_KM_URL: http://localhost:"$DK_PRT"/OpenKM
-      OPEN_KM_BASE_URL: http://localhost:8080
+      OPEN_KM_BASE_URL: http://localhost:"$DK_PRT"
     ports:
-      - 8080:8080
+      - "$DK_PRT":8080
     volumes:
       - ./data:/opt/tomcat-8.5.69/repository
     depends_on:
