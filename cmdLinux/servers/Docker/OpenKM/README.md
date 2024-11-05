@@ -3,7 +3,9 @@
 ## No se pudo hacer funcionar 
  Tire el siguiente error lugo de hacer toda la composición.
 
-![OpenKM-Error](./openkm-error.png)
+![OpenKM-Error](./OpenKM-Error.png)
+
+## inst_dkr_OpenKM.sh
 
 ```bash
 DK_NOM="openkm"
