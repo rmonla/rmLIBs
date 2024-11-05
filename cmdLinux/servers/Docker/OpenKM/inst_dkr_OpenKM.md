@@ -1,3 +1,11 @@
+# OpenKM
+
+## No se pudo hacer funcionar 
+ Tire el siguiente error lugo de hacer toda la composición.
+
+![OpenKM-Error](./openkm-error.png)
+
+```bash
 DK_NOM="openkm"
 DK_PRT="8080"
 
@@ -6,7 +14,7 @@ DK_CMP="$DK_DIR/docker-compose.yml"
 
 sudo mkdir -p "$DK_DIR" && cat <<-EOF | sudo tee "$DK_CMP" > /dev/null
 
-version: "2.2"
+version: "2"
 services:
   # Our base OpenKM service is at the localhost. If hosting these on a domain,
   # change the "localhost:8080" to your domain and optionally change the ports.
@@ -48,5 +56,5 @@ EOF
 
 sudo docker-compose -f "$DK_CMP" up -d
 
-
+```
 
