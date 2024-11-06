@@ -3,7 +3,7 @@
 ![teedy DMS - GitHub](https://github.com/sismics/docs)
 
 
-## inst_dkr.sh
+## rm_inst_dkr.sh
 
 ```bash
 # rm_inst_dkr= 1.2
