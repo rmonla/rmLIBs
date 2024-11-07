@@ -1,11 +1,6 @@
 # Teedy
-![](./captura-teedy.png)
-
-## Referencia
-![teedy DMS - GitHub](https://github.com/sismics/docs)
-
-## Descripción:
 **Teedy** es un software de código abierto para la gestión de documentos (Document Management System, DMS). Está diseñado para ayudar a las organizaciones y a los usuarios a digitalizar, organizar y gestionar de manera eficiente sus documentos y archivos electrónicos. Es ideal para pequeñas y medianas empresas, así como para usuarios que buscan una solución ligera y eficiente para la gestión documental, sin los costos asociados al software comercial.
+![](./captura-teedy.png)
 
 Además, Teedy puede ejecutarse en entornos de contenedores Docker, lo que facilita su implementación y gestión. Para desplegar Teedy en Docker, se puede utilizar el script `rm_inst_dkr.sh`, que configura automáticamente los servicios necesarios y los ejecuta con Docker Compose. Este enfoque permite una instalación rápida y una configuración sencilla, proporcionando un entorno consistente y fácil de mantener.
 
@@ -84,3 +79,7 @@ networks:
 EOF
 
 sudo docker-compose -f "$DK_CMP" up -d
+```
+## Referencia
+![teedy DMS - GitHub](https://github.com/sismics/docs)
+
