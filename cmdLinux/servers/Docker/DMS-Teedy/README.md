@@ -2,6 +2,9 @@
 
 ![teedy DMS - GitHub](https://github.com/sismics/docs)
 
+![](./captura-teedy.png)
+
+
 
 ## rm_inst_dkr.sh
 
