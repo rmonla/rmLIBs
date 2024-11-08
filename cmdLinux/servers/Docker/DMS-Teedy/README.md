@@ -1,4 +1,4 @@
-# Sismics Docs [Teedy] ![](./teedy_logo.png)
+# Sismics Docs [Teedy] ![](./teedy_logo.png)  
 ![](./teedy_488755_full.png)
 
 **Teedy** es un software de código abierto para la gestión de documentos (Document Management System, DMS). Está diseñado para ayudar a las organizaciones y a los usuarios a digitalizar, organizar y gestionar de manera eficiente sus documentos y archivos electrónicos. Es ideal para pequeñas y medianas empresas, así como para usuarios que buscan una solución ligera y eficiente para la gestión documental, sin los costos asociados al software comercial.
