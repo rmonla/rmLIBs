@@ -1,6 +1,6 @@
 # Zotero   
-![](./zotero-logo.png)
-![](./zotero-captura.png)
+![](./logo.png)
+![](./captura.png)
 
 **Zotero** es un software de código abierto diseñado para gestionar y organizar referencias bibliográficas y documentos. Es ampliamente utilizado por investigadores, estudiantes y académicos para recopilar, organizar, citar y compartir fuentes de investigación. Ofrece una solución accesible para manejar grandes cantidades de información de manera eficiente y está disponible en una versión que se puede ejecutar en contenedores Docker.
 
