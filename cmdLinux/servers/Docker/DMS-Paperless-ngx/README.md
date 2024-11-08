@@ -1,9 +1,8 @@
 # Paperless-ngx
-.
-![](./captura-paperless-ngx.png)
+![](./paperless-ngx-banner.png)
 
-## Referencia
-![Paperless-ngx - Docker Hub](https://hub.docker.com/r/linuxserver/paperless-ngx)
+**Paperless-ngx** es un sistema de gestión de documentos de código abierto diseñado para digitalizar, organizar y buscar documentos de forma eficiente. Permite a los usuarios escanear, almacenar y gestionar documentos electrónicos, proporcionando características como la indexación automática, el reconocimiento óptico de caracteres (OCR) y un sistema de búsqueda avanzado. Es ideal para individuos y organizaciones que buscan una solución accesible y personalizable para gestionar sus archivos digitales de manera ordenada y segura.
+
 
 ## rm_inst_dkr.sh:
 Este script automatiza la configuración y el despliegue en un contenedores Docker.
