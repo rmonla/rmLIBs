@@ -2,16 +2,16 @@
 ![](./zotero-logo.png)
 ![](./zotero-captura.png)
 
-**Teedy** es un software de código abierto para la gestión de documentos (Document Management System, DMS). Está diseñado para ayudar a las organizaciones y a los usuarios a digitalizar, organizar y gestionar de manera eficiente sus documentos y archivos electrónicos. Es ideal para pequeñas y medianas empresas, así como para usuarios que buscan una solución ligera y eficiente para la gestión documental, sin los costos asociados al software comercial.
+**Zotero** es un software de código abierto diseñado para gestionar y organizar referencias bibliográficas y documentos. Es ampliamente utilizado por investigadores, estudiantes y académicos para recopilar, organizar, citar y compartir fuentes de investigación. Ofrece una solución accesible para manejar grandes cantidades de información de manera eficiente y está disponible en una versión que se puede ejecutar en contenedores Docker.
 
-# rm_dkr_config
-Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+## rm_dkr_config
+Este script automatiza la configuración y el despliegue de **Zotero** en contenedores Docker, simplificando la puesta en marcha y garantizando un entorno reproducible.
 
 ```shell
-# rm_dkr_congig_v-2.2
+# rm_dkr_config_v-2.2
 
 # ![Zotero - Docker Hub](https://hub.docker.com/r/linuxserver/zotero)
-# [Iniciar --> http://localhost:3000 admin:admin
+# [Acceso --> http://localhost:3000]
 
 DKR_NOM="zotero"     # ${DKR_NOM} Nombre del contenedor
 DKR_POR="3000"       # ${DKR_POR} Puerto del contenedor
@@ -36,14 +36,13 @@ services:
       - 3001:3001
     shm_size: "1gb"
     restart: unless-stopped
-
 ---
 EOF
 )
 ```
 
-## rm_dkr_install:
-Este script automatiza la configuración y el despliegue del sistema en contenedores Docker.
+## rm_dkr_install
+Este script automatiza la creación del archivo `docker-compose` y la ejecución de Zotero en un contenedor Docker.
 
 ```shell
 # rm_dkr_install_v-3.1
@@ -56,12 +55,11 @@ sudo mkdir -p "$DKR_DIR" && echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
 
 # Ejecutar docker-compose
 sudo docker-compose -f "$DKR_YML" up -d
+
 ```
 
 # rm_dkr_clean
-
 Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
-
 ```shell
 # rm_dkr_clean_v-2.2
 
@@ -75,4 +73,5 @@ DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
 sudo docker stop $DKR_LID
 sudo docker rm $DKR_LID
 sudo docker rmi $DKR_IMG
+
 ```
