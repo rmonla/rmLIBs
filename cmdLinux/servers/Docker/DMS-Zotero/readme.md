@@ -1,6 +1,6 @@
 # Zotero   
 ![](./zotero-logo.png)
-![](./teedy_488755_full.png)
+![](./zotero-captura.png)
 
 **Teedy** es un software de código abierto para la gestión de documentos (Document Management System, DMS). Está diseñado para ayudar a las organizaciones y a los usuarios a digitalizar, organizar y gestionar de manera eficiente sus documentos y archivos electrónicos. Es ideal para pequeñas y medianas empresas, así como para usuarios que buscan una solución ligera y eficiente para la gestión documental, sin los costos asociados al software comercial.
 
@@ -58,7 +58,7 @@ Este script automatiza la tarea de detener, eliminar un contenedor Docker y remo
 ```shell
 # rm_dkr_clean_v-2.2
 
-DKR_NOM="teedydocs"
+DKR_NOM="zotero"
 
 # Obtiene el ID del contenedor basado en el nombre o imagen
 DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
