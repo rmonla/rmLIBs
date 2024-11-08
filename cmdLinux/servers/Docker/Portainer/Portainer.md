@@ -31,13 +31,18 @@ Para evitar conflictos, detén y elimina cualquier instancia anterior de Portain
 
 ```bash
 DKR_NOM="portainer"
-DKR_IMG="portainer/portainer-ce:latest"
-DKR_POR="9000"
 
-DKR_LID=$(sudo docker ps | grep $DKR_IMG | awk '{print $1}')  # Obtener ID del contenedor en ejecución
-sudo docker stop $DKR_LID                                     # Detener contenedor actual
-sudo docker rm $DKR_LID                                       # Eliminar contenedor detenido
-sudo docker rmi $DKR_IMG                                      # Eliminar la imagen de Docker
+# Obtiene el ID del contenedor basado en el nombre o imagen
+DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
+
+# Obtiene la imagen asociada al contenedor
+DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
+
+# Detiene, elimina el contenedor y elimina la imagen
+sudo docker stop $DKR_LID
+sudo docker rm $DKR_LID
+sudo docker rmi $DKR_IMG
+
 ```
 
 ### 2. Desplegar Portainer
