@@ -46,3 +46,24 @@ sudo mkdir -p "$DKR_DIR" && echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
 # Ejecutar docker-compose
 sudo docker-compose -f "$DKR_YML" up -d
 ```
+
+# rm_dkr_clean
+
+Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+
+```shell
+# rm_dkr_clean_v-2.2
+
+DKR_NOM="paperless-ngx"
+
+# Obtiene el ID del contenedor basado en el nombre o imagen
+DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
+
+# Obtiene la imagen asociada al contenedor
+DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
+
+# Detiene, elimina el contenedor y elimina la imagen
+sudo docker stop $DKR_LID
+sudo docker rm $DKR_LID
+sudo docker rmi $DKR_IMG
+```
