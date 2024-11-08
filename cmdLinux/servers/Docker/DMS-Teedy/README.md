@@ -1,26 +1,26 @@
-# Teedy
-**Teedy** es un software de código abierto para la gestión de documentos (Document Management System, DMS). Está diseñado para ayudar a las organizaciones y a los usuarios a digitalizar, organizar y gestionar de manera eficiente sus documentos y archivos electrónicos. Es ideal para pequeñas y medianas empresas, así como para usuarios que buscan una solución ligera y eficiente para la gestión documental, sin los costos asociados al software comercial.
+# Sismics Docs [Teedy]
 ![](./captura-teedy.png)
 
-Además, Teedy puede ejecutarse en entornos de contenedores Docker, lo que facilita su implementación y gestión. Para desplegar Teedy en Docker, se puede utilizar el script `rm_inst_dkr.sh`, que configura automáticamente los servicios necesarios y los ejecuta con Docker Compose. Este enfoque permite una instalación rápida y una configuración sencilla, proporcionando un entorno consistente y fácil de mantener.
+**Teedy** es un software de código abierto para la gestión de documentos (Document Management System, DMS). Está diseñado para ayudar a las organizaciones y a los usuarios a digitalizar, organizar y gestionar de manera eficiente sus documentos y archivos electrónicos. Es ideal para pequeñas y medianas empresas, así como para usuarios que buscan una solución ligera y eficiente para la gestión documental, sin los costos asociados al software comercial.
 
-## rm_inst_dkr.sh:
-Este script automatiza la configuración y el despliegue de Teedy junto con una base de datos PostgreSQL en contenedores Docker, creando un entorno de red seguro y persistente para los datos de la aplicación y la base de datos.
+## rm_dkr_install:
+Este script automatiza la configuración y el despliegue del sistema en contenedores Docker.
 
-```bash
-# rm_inst_dkr= 1.2
+```shell
+# rm_dkr_install_v-3.1
 
-# [teedy DMS - GitHub]!(https://github.com/sismics/docs)
-# ${DK_PRT}
+# ![teedy DMS - GitHub](https://github.com/sismics/docs)
+# [Iniciar --> http://localhost:8080 admin:admin
 
-DK_NOM="teedydocs"
-DK_PRT="8080"
+DKR_NOM="teedydocs"     # ${DKR_NOM} Nombre del contenedor
+DKR_POR="8080"          # ${DKR_POR} Puerto del contenedor
 
-DK_DIR="/docker/$DK_NOM"
-DK_CMP="$DK_DIR/docker-compose.yml"
+DKR_DIR="/docker/$DKR_NOM"
+DKR_YML="$DKR_DIR/docker-compose.yml"
 
-sudo mkdir -p "$DK_DIR" && cat <<-EOF | sudo tee "$DK_CMP" > /dev/null
-
+# Cadena con la configuración del archivo docker-compose
+DKR_CFG=$(cat <<-EOF
+---
 version: '3'
 services:
 # Teedy Application
@@ -75,11 +75,35 @@ networks:
     internal: true
   internet:
     driver: bridge
-    
+---
 EOF
+)
 
-sudo docker-compose -f "$DK_CMP" up -d
+# Crear directorio y archivo docker-compose con la configuración
+sudo mkdir -p "$DKR_DIR" && echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
+
+# Ejecutar docker-compose
+sudo docker-compose -f "$DKR_YML" up -d
 ```
-## Referencia
-![teedy DMS - GitHub](https://github.com/sismics/docs)
+
+# rm_dkr_clean
+
+Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+
+```shell
+# rm_dkr_clean_v-2.2
+
+DKR_NOM="teedydocs"
+
+# Obtiene el ID del contenedor basado en el nombre o imagen
+DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
+
+# Obtiene la imagen asociada al contenedor
+DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
+
+# Detiene, elimina el contenedor y elimina la imagen
+sudo docker stop $DKR_LID
+sudo docker rm $DKR_LID
+sudo docker rmi $DKR_IMG
+```
 
