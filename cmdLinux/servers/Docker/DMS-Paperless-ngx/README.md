@@ -4,7 +4,7 @@
 **Paperless-ngx** es un sistema de gestión de documentos de código abierto diseñado para digitalizar, organizar y buscar documentos de forma eficiente. Permite a los usuarios escanear, almacenar y gestionar documentos electrónicos, proporcionando características como la indexación automática, el reconocimiento óptico de caracteres (OCR) y un sistema de búsqueda avanzado. Es ideal para individuos y organizaciones que buscan una solución accesible y personalizable para gestionar sus archivos digitales de manera ordenada y segura.
 
 
-## rm_inst_dkr.sh:
+## rm_docker_installer:
 Este script automatiza la configuración y el despliegue en un contenedores Docker.
 
 ```shell
