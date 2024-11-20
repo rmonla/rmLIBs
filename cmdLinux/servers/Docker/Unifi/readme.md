@@ -1,11 +1,11 @@
-# UNIFY
+# UniFi
 ![](./logo.png)
 ![](./captura.png)
 
-**Zotero** es un software de código abierto diseñado para gestionar y organizar referencias bibliográficas y documentos. Es ampliamente utilizado por investigadores, estudiantes y académicos para recopilar, organizar, citar y compartir fuentes de investigación. Ofrece una solución accesible para manejar grandes cantidades de información de manera eficiente y está disponible en una versión que se puede ejecutar en contenedores Docker.
+Un **UniFi Controller** es un software de gestión centralizada desarrollado por Ubiquiti Networks para administrar dispositivos de la serie UniFi, como puntos de acceso Wi-Fi, switches, routers y cámaras IP. Este servidor actúa como el "cerebro" del ecosistema UniFi, permitiendo a los administradores configurar, monitorizar y gestionar todos los dispositivos conectados desde una única interfaz centralizada.
 
 ## rm_dkr_config
-Este script automatiza la configuración y el despliegue de **Zotero** en contenedores Docker, simplificando la puesta en marcha y garantizando un entorno reproducible.
+Este script automatiza la configuración y el despliegue del contenedor Docker, simplificando la puesta en marcha y garantizando un entorno reproducible.
 
   ![Zotero - Docker Hub](https://hub.docker.com/r/linuxserver/zotero)
   [Acceso --> http://localhost:3000]
@@ -55,10 +55,8 @@ Este script automatiza la creación del archivo `docker-compose` y la ejecución
 DKR_DIR="/docker/$DKR_NOM"
 DKR_YML="$DKR_DIR/docker-compose.yml"
 
-# Crear directorio y archivo docker-compose con la configuración
 sudo mkdir -p "$DKR_DIR" && echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
 
-# Ejecutar docker-compose
 sudo docker-compose -f "$DKR_YML" up -d
 
 ```
@@ -70,13 +68,10 @@ Este script automatiza la tarea de detener, eliminar un contenedor Docker y remo
 
 # Verificar $DKR_NOM está Cargado.
 
-# Obtiene el ID del contenedor basado en el nombre o imagen
 DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
 
-# Obtiene la imagen asociada al contenedor
 DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
 
-# Detiene, elimina el contenedor y elimina la imagen
 sudo docker stop $DKR_LID
 sudo docker rm $DKR_LID
 sudo docker rmi $DKR_IMG
