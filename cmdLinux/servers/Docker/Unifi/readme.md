@@ -1,33 +1,36 @@
 # UNIFY
-![](./paperless-ngx-banner.png)
+![](./logo.png)
+![](./captura.png)
 
-**Paperless-ngx** es un sistema de gestión de documentos de código abierto diseñado para digitalizar, organizar y buscar documentos de forma eficiente. Permite a los usuarios escanear, almacenar y gestionar documentos electrónicos, proporcionando características como la indexación automática, el reconocimiento óptico de caracteres (OCR) y un sistema de búsqueda avanzado. Es ideal para individuos y organizaciones que buscan una solución accesible y personalizable para gestionar sus archivos digitales de manera ordenada y segura.
+**Zotero** es un software de código abierto diseñado para gestionar y organizar referencias bibliográficas y documentos. Es ampliamente utilizado por investigadores, estudiantes y académicos para recopilar, organizar, citar y compartir fuentes de investigación. Ofrece una solución accesible para manejar grandes cantidades de información de manera eficiente y está disponible en una versión que se puede ejecutar en contenedores Docker.
 
-## rm_dkr_install:
-Este script automatiza la configuración y el despliegue del sistema en contenedores Docker.
+## rm_dkr_config
+Este script automatiza la configuración y el despliegue de **Zotero** en contenedores Docker, simplificando la puesta en marcha y garantizando un entorno reproducible.
+
+  ![Zotero - Docker Hub](https://hub.docker.com/r/linuxserver/zotero)
+  [Acceso --> http://localhost:3000]
 
 ```shell
-# rm_dkr_install 2.1
+# rm_dkr_config_v-3.1
 
-DK_NOM="unifi"
-DK_PRT="8080"
-DK_DIR="/docker/$DK_NOM"
-DK_CMP="$DK_DIR/docker-compose.yml"
+DKR_NOM="unifi"
+DKR_POR="8080"
+DKR_TMZ="America/Argentina/La_Rioja"
+# ${DKR_NOM} ${DKR_POR} ${DKR_TMZ}
 
-sudo mkdir -p "$DK_DIR" 
-
-cat <<EOF | sudo tee "$DK_CMP" > /dev/null
+DKR_CFG=$(cat <<-EOF
+---
 version: '3'
 
 services:
   unifi:
     image: ghcr.io/goofball222/unifi
-    container_name: unifi
+    container_name: ${DKR_NOM}
     restart: unless-stopped
     network_mode: bridge
     ports:
       - 3478:3478/udp
-      - "$DK_PRT":8080
+      - ${DKR_POR}:8080
       - 8443:8443
       - 8880:8880
       - 8843:8843
@@ -37,27 +40,45 @@ services:
       - ./data:/usr/lib/unifi/data
       - ./logs:/usr/lib/unifi/logs
     environment:
-      - TZ=America/Argentina/La_Rioja
+      - TZ=${DKR_TMZ}
+---
 EOF
-
-sudo docker-compose -f "$DK_CMP" up -d
+)
 ```
-# rm_dkr_clean
 
-Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+## rm_dkr_install
+Este script automatiza la creación del archivo `docker-compose` y la ejecución del contenedor Docker.
 
 ```shell
-# $DKR_NOM verificar si está cargado.
+# rm_dkr_install_v-3.1
 
-# Obtiene el ID del contenedor basado en el nombreTZ=America/Argentina/La_Rioja o imagen
+DKR_DIR="/docker/$DKR_NOM"
+DKR_YML="$DKR_DIR/docker-compose.yml"
+
+# Crear directorio y archivo docker-compose con la configuración
+sudo mkdir -p "$DKR_DIR" && echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
+
+# Ejecutar docker-compose
+sudo docker-compose -f "$DKR_YML" up -d
+
+```
+
+# rm_dkr_clean
+Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+```shell
+# rm_dkr_clean_v-3.1
+
+# Verificar $DKR_NOM está Cargado.
+
+# Obtiene el ID del contenedor basado en el nombre o imagen
 DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
 
 # Obtiene la imagen asociada al contenedor
 DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
 
-# Detiene, elimina el contenedor y elimina la imagTZ=America/Argentina/La_Riojaen
+# Detiene, elimina el contenedor y elimina la imagen
 sudo docker stop $DKR_LID
 sudo docker rm $DKR_LID
 sudo docker rmi $DKR_IMG
-```
 
+```
