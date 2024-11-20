@@ -26,7 +26,7 @@ services:
       - ./data:/usr/lib/unifi/data
       - ./logs:/usr/lib/unifi/logs
     environment:
-      - TZ=UTC
+      - TZ=America/Argentina/La_Rioja
 EOF
 
 sudo docker-compose -f "$DK_CMP" up -d
