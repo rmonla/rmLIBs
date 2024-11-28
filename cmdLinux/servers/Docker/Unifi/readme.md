@@ -14,14 +14,13 @@ Este script automatiza la configuración y el despliegue del contenedor Docker, 
 # rm_dkr_config_v-3.1
 
 DKR_NOM="unifi"
-DKR_POR="8080"
+DKR_POR=8080
 DKR_TMZ="America/Argentina/La_Rioja"
 # ${DKR_NOM} ${DKR_POR} ${DKR_TMZ}
 
 DKR_CFG=$(cat <<-EOF
 ---
 version: '3'
-
 services:
   unifi:
     image: ghcr.io/goofball222/unifi
@@ -41,7 +40,6 @@ services:
       - ./logs:/usr/lib/unifi/logs
     environment:
       - TZ=${DKR_TMZ}
----
 EOF
 )
 ```
@@ -52,6 +50,7 @@ Este script automatiza la creación del archivo `docker-compose` y la ejecución
 ```shell
 # rm_dkr_install_v-3.1
 
+DKR_NOM="unifi"
 DKR_DIR="/docker/$DKR_NOM"
 DKR_YML="$DKR_DIR/docker-compose.yml"
 
@@ -67,7 +66,7 @@ Este script automatiza la tarea de detener, eliminar un contenedor Docker y remo
 # rm_dkr_clean_v-3.1
 
 # Verificar $DKR_NOM está Cargado.
-
+DKR_NOM="unifi"
 DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
 
 DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
