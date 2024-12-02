@@ -52,7 +52,7 @@ La copia de seguridad se guardará en el directorio `/var/lib/vz/dump` del servi
 ### 3. Transferir la copia mediante SCP o herramientas similares desde el servidor de origen al destino, utilizando el directorio `/var/lib/vz/dump` en ambos servidores.
 
 ```bash
-rmonla@ns9-pmox1:/var/lib/vz/dump$ scp vzdump-qemu-101-2023_08_25* root@10.0.10.200:/var/lib/vz/dump
+scp vzdump-qemu* root@10.0.10.200:/var/lib/vz/dump
 ```
 
 ## 🔗 Referencias
