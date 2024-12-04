@@ -4,7 +4,7 @@ clear && \
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && [ -f /var/run/reboot-required ] && sudo reboot -f
 ```
 
-### rm-cambiarHostaname.sh
+### rm-cambiarHostname.sh
 ```shell
 clear && \
 H_ACTUAL=$(hostname) && \
