@@ -1,6 +1,6 @@
 ### rm-actuDistro.sh
 ```shell
-tee rm-actuDistro.sh <<EOF
+tee rm-actuDistro.sh <<SHELL
 #!/bin/bash
 # Script para actualizar y reiniciar si es necesario
 
@@ -9,7 +9,7 @@ sudo apt update -y && \
 sudo apt full-upgrade -y && \
 sudo apt autoremove -y && \
 [ -f /var/run/reboot-required ] && sudo reboot -f || echo "No se requiere reinicio"
-EOF
+SHELL
 
 # Dar permisos de ejecución al script
 chmod +x rm-actuDistro.sh
@@ -18,9 +18,9 @@ chmod +x rm-actuDistro.sh
 ./rm-actuDistro.sh
 ```
 
-### rm-cambiarHostname.sh
+### rm-cambiarNombreHost.sh
 ```shell
-tee rm-cambiarHostname.sh <<EOF
+tee rm-cambiarNombreHost.sh <<SHELL
 #!/bin/bash
 # Script para cambiar el nombre del host y reiniciar el sistema
 
@@ -39,19 +39,15 @@ if [ -z "\$H_NUEVO" ]; then
   exit 1
 fi
 
-# Cambiar el nombre del host en los archivos de configuración
-sudo sed -i "s/\$H_ACTUAL/\$H_NUEVO/g" /etc/hosts /etc/hostname && \
-
-# Aplicar el cambio y reiniciar el sistema
-echo "Nombre del host cambiado a: \$H_NUEVO"
-sudo reboot
-EOF
+# Cambiar el nombre del host en los archivos de configuración y reiniciar
+sudo sed -i "s/\$H_ACTUAL/\$H_NUEVO/g" /etc/hosts /etc/hostname && sudo reboot
+SHELL
 
 # Dar permisos de ejecución al script
-chmod +x rm-cambiarHostname.sh
+chmod +x rm-cambiarNombreHost.sh
 
 # Ejecutar el script
-./rm-cambiarHostname.sh
+./rm-cambiarNombreHost.sh
 
 ```
 ### Debian-actualizarIP
