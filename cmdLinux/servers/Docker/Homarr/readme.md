@@ -1,10 +1,16 @@
-# Homarr
-![Homarr Logo](./logo-homarr.png)
-
-## ¿Qué es Homarr?
+# <img src="./logo-homarr.png" alt="Homarr Logo" width="100"/> Homarr
 **Homarr** es un tablero simple pero poderoso diseñado para facilitar la administración de servidores. Permite centralizar accesos a servicios y monitorear recursos de manera eficiente. Una de sus características clave es la posibilidad de configurar certificados gratuitos y automáticos para cualquier servidor, sin importar si utiliza Linux, Docker o Nginx, ya que se puede poner un proxy por delante para gestionar todo.
 
-📚 Más información en la [documentación oficial de Homarr](https://homarr.dev/docs/getting-started/installation).
+- 📚 Más información en la [documentación oficial de Homarr](https://homarr.dev/docs/getting-started/installation).
+- 🎥 Videos recomendados:
+  - [**my FAVORITE Home Server Dashboard - Homarr Setup in Docker**](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) - por [**TechHut**](https://www.youtube.com/@TechHut)
+
+---
+
+### Características destacadas
+- **Facilidad de uso:** Configuración e integración simples.
+- **Gestión eficiente:** Consolida accesos a servicios en un solo lugar.
+- **Certificados automáticos:** Proxy integrado para gestionar certificados gratuitos.
 
 ---
 
