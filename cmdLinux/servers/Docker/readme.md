@@ -33,3 +33,5 @@ docker run -d \
   - [**TechHut**](https://www.youtube.com/@TechHut)
     - [my FAVORITE Home Server Dashboard - Homarr Setup in Docker](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) ☑️
     - [my NEW Proxmox Media Server - Full Walkthrough Guide Pt.2 (Jellyfin, Sonarr, Gluetun, and MORE)](https://www.youtube.com/watch?v=Uzqf0qlcQlo)
+  - [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
+    - [ DIETPI - #Sonarr + #PLEX + #Jellyfin + #Transmission + #Jackett - ACTUALIZADO ](https://www.youtube.com/watch?v=I93VHAlpRsY)
