@@ -29,3 +29,7 @@ docker run -d \
   -v /:/host \
   portainer/agent:2.21.4
 ```
+### 🎥 Videos recomendados:
+  - [**TechHut**](https://www.youtube.com/@TechHut)
+    - [my FAVORITE Home Server Dashboard - Homarr Setup in Docker](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) ☑️
+    - [my NEW Proxmox Media Server - Full Walkthrough Guide Pt.2 (Jellyfin, Sonarr, Gluetun, and MORE)](https://www.youtube.com/watch?v=Uzqf0qlcQlo)
