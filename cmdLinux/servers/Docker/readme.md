@@ -35,3 +35,5 @@ docker run -d \
     - [my NEW Proxmox Media Server - Full Walkthrough Guide Pt.2 (Jellyfin, Sonarr, Gluetun, and MORE)](https://www.youtube.com/watch?v=Uzqf0qlcQlo)
   - [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
     - [ DIETPI - #Sonarr + #PLEX + #Jellyfin + #Transmission + #Jackett - ACTUALIZADO ](https://www.youtube.com/watch?v=I93VHAlpRsY)
+- [**nanoninja**](https://github.com/nanoninja)
+    - [docker-nginx-php-mysql](https://github.com/nanoninja/docker-nginx-php-mysql)   
