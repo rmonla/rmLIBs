@@ -62,6 +62,6 @@ sudo docker-compose -f "$dkr_YML" up -d
 # Mensaje de finalización
 echo "Se ha desplegado correctamente en http://localhost:${dkr_POR}"
 
-# tee rm-comprimeXVAs.sh <<'SHELL'
+# tee rmDkrInstall_Dashdot.sh <<'SHELL'
 # SHELL
-# chmod +x rm-comprimeXVAs.sh && ./rm-comprimeXVAs.sh
+# chmod +x rmDkrInstall_Dashdot.sh && ./rmDkrInstall_Dashdot.sh
