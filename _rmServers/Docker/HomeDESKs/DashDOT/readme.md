@@ -1,6 +1,6 @@
 # <img src="./logo-Dashdot.png" alt="Dashdot Logo" width="100"/> DashDOT
 
-**DashDOT** es un panel de control moderno y altamente personalizable diseñado para monitorear el estado de tu servidor. Proporciona información clara y visualmente atractiva sobre recursos como CPU, RAM, almacenamiento y red, todo en tiempo real. Ideal para quienes buscan una solución sencilla y efectiva para supervisar su infraestructura.
+**Dashdot** es un panel de control moderno y altamente personalizable diseñado para monitorear el estado de tu servidor. Proporciona información clara y visualmente atractiva sobre recursos como CPU, RAM, almacenamiento y red, todo en tiempo real. Ideal para quienes buscan una solución sencilla y efectiva para supervisar su infraestructura.
 
 - 📚 Más información:
   -  [Home | dash.](https://getdashdot.com/)
@@ -18,10 +18,8 @@
 
 ---
 
-## Script `rmDkr_install.sh`
+## Script `rmDkrInstall_Dashdot.sh`
 Este script automatiza la configuración y el despliegue de DashDOT utilizando contenedores Docker.
-
-### Código del script:
 
 ```bash
 #!/bin/bash
