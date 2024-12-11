@@ -1,8 +1,8 @@
-# <img src="./logo-DashDOT.png" alt="DashDOT Logo" width="100"/> DashDOT
+# <img src="./logo-Dashdot.png" alt="Dashdot Logo" width="100"/> DashDOT
 
 **DashDOT** es un panel de control moderno y altamente personalizable diseñado para monitorear el estado de tu servidor. Proporciona información clara y visualmente atractiva sobre recursos como CPU, RAM, almacenamiento y red, todo en tiempo real. Ideal para quienes buscan una solución sencilla y efectiva para supervisar su infraestructura.
 
-- 📚 Más información en la [documentación oficial de DashDOT](https://DashDOT.dev/docs/getting-started/installation).
+- 📚 Más información en la [documentación oficial de DashDOT](https://dashdot.app/docs/getting-started).
 - 🎥 Videos recomendados:
   - [**How to Set Up DashDOT in Docker**](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) - por [**TechHut**](https://www.youtube.com/@TechHut)
 
