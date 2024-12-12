@@ -29,7 +29,7 @@ docker run -d \
   -v /:/host \
   portainer/agent:2.21.4
 ```
-# rmDkrClean.sh
+### rmDkrClean.sh
 ```shell
 # rmDkrClean.sh 
 # Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
