@@ -32,7 +32,8 @@ docker run -d \
 ### rmDkrClean.sh
 ```shell
 # rmDkrClean.sh 
-# Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+# Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada.
+# Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
 
 # Verifica si se ha pasado un parámetro
 if [ -z "$1" ]; then
