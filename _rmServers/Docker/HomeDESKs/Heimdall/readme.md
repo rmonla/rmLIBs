@@ -1,11 +1,11 @@
-# <img src="./logo-Dashdot.png" alt="Dashdot Logo" width="100"/> DashDOT
+# <img src="./logo-Heimdall.png" alt="Heimdall Logo" width="100"/> Heimdall
 
-**Dashdot** es un panel de control moderno y altamente personalizable diseñado para monitorear el estado de tu servidor. Proporciona información clara y visualmente atractiva sobre recursos como CPU, RAM, almacenamiento y red, todo en tiempo real. Ideal para quienes buscan una solución sencilla y efectiva para supervisar su infraestructura.
+**Heimdall** es un dashboard para todas sus aplicaciones web. Sin embargo, no tiene que limitarse a las aplicaciones, puede añadir enlaces a lo que quiera. No hay iframes aquí, no hay aplicaciones dentro de aplicaciones, ni abstracción de APIs. Si crees que algo debería funcionar de cierta manera, 
 
 - 📚 Más información:
-  -  [Home | dash.](https://getdashdot.com/)
+  -  [Heimdall Application Dashboard](https://heimdall.site/)
 - 🎥 Videos recomendados:
-  - [**How to Set Up DashDOT in Docker**](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) - por [**TechHut**](https://www.youtube.com/@TechHut)
+  - [**How to Set Up Heimdall in Docker**](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) - por [**TechHut**](https://www.youtube.com/@TechHut)
 
 ---
 
@@ -18,34 +18,36 @@
 
 ---
 
-## Script `rmDkrInstall_Dashdot.sh`
-Este script automatiza la configuración y el despliegue de DashDOT utilizando contenedores Docker.
+## Script `rmDkrInstall_Heimdall.sh`
+Este script automatiza la configuración y el despliegue de Heimdall utilizando contenedores Docker.
 
 ```bash
 #!/bin/bash
-# Script para configurar y desplegar DashDOT en Docker
+# Script para configurar y desplegar Heimdall en Docker
 
 # Variables de configuración
-dkr_NOM="dashdot"                           # Nombre del contenedor
-dkr_POR=7512                                # Puerto del contenedor
-dkr_TMZ="America/Argentina/La_Rioja"        # Zona horaria
+dkr_NOM="heimdall"                        # Nombre del contenedor
+dkr_POR=80                                # Puerto del contenedor
+dkr_TMZ="America/Argentina/La_Rioja"      # Zona horaria
 
 # Configuración del archivo docker-compose
 dkr_CFG=$(cat <<-EOF
-version: '3.8'
+
 services:
     ${dkr_NOM}:
         container_name: ${dkr_NOM}
-        ports:
-            - ${dkr_POR}:3001
-        environment:
-            - DASHDOT_ENABLE_CPU_TEMPS=true
-            - DASHDOT_OVERRIDE_OS=DSM
         volumes:
-            - /:/mnt/host:ro
-        privileged: true
-        restart: always
-        image: mauricenino/dashdot
+            - ./config:/config
+        environment:
+            - PGID=1000
+            - PUID=1000
+            - TZ=${dkr_TMZ}
+        ports:
+            - ${dkr_POR}:80
+            - 8443:443
+        restart: unless-stopped
+        image: linuxserver/heimdall
+
 EOF
 )
 
@@ -62,6 +64,6 @@ sudo docker-compose -f "$dkr_YML" up -d
 # Mensaje de finalización
 echo "Se ha desplegado correctamente en http://localhost:${dkr_POR}"
 
-# tee rmDkrInstall_Dashdot.sh <<'SHELL'
+# tee rmDkrInstall_Heimdall.sh <<'SHELL'
 # SHELL
-# chmod +x rmDkrInstall_Dashdot.sh && ./rmDkrInstall_Dashdot.sh
+# chmod +x rmDkrInstall_Heimdall.sh && ./rmDkrInstall_Heimdall.sh
