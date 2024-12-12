@@ -1,4 +1,4 @@
-# <img src="./logo-Heimdall.png" alt="Heimdall Logo" width="100"/> Heimdall
+# <img src="./logo-Heimdall.svg" alt="Heimdall Logo" width="100"/> Heimdall
 
 **Heimdall** es un dashboard para todas sus aplicaciones web. Sin embargo, no tiene que limitarse a las aplicaciones, puede añadir enlaces a lo que quiera. No hay iframes aquí, no hay aplicaciones dentro de aplicaciones, ni abstracción de APIs. Si crees que algo debería funcionar de cierta manera, 
 
