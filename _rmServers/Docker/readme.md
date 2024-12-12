@@ -36,4 +36,6 @@ docker run -d \
   - [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
     - [ DIETPI - #Sonarr + #PLEX + #Jellyfin + #Transmission + #Jackett - ACTUALIZADO ](https://www.youtube.com/watch?v=I93VHAlpRsY)
 - [**nanoninja**](https://github.com/nanoninja)
-    - [docker-nginx-php-mysql](https://github.com/nanoninja/docker-nginx-php-mysql)   
+    - [docker-nginx-php-mysql](https://github.com/nanoninja/docker-nginx-php-mysql)
+- [**Un loco y su tecnología**](https://www.youtube.com/@unlocoysutecnologia)
+    - [(3) Descubre 20 aplicaciones que puedes instalar con DOCKER... ¡te encantarán! - YouTube](https://www.youtube.com/watch?v=gqpJ7RE02Ao)   
