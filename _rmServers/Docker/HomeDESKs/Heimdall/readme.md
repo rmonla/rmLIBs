@@ -1,92 +1,67 @@
-# Heimdall
-![](./logo.png)
-![](./captura.png)
+# <img src="./logo-Dashdot.png" alt="Dashdot Logo" width="100"/> DashDOT
 
-Un **UniFi Controller** es un software de gestión centralizada desarrollado por Ubiquiti Networks para administrar dispositivos de la serie UniFi, como puntos de acceso Wi-Fi, switches, routers y cámaras IP. Este servidor actúa como el "cerebro" del ecosistema UniFi, permitiendo a los administradores configurar, monitorizar y gestionar todos los dispositivos conectados desde una única interfaz centralizada.
+**Dashdot** es un panel de control moderno y altamente personalizable diseñado para monitorear el estado de tu servidor. Proporciona información clara y visualmente atractiva sobre recursos como CPU, RAM, almacenamiento y red, todo en tiempo real. Ideal para quienes buscan una solución sencilla y efectiva para supervisar su infraestructura.
 
-## rm_dkr_config
-Este script automatiza la configuración y el despliegue del contenedor Docker, simplificando la puesta en marcha y garantizando un entorno reproducible.
+- 📚 Más información:
+  -  [Home | dash.](https://getdashdot.com/)
+- 🎥 Videos recomendados:
+  - [**How to Set Up DashDOT in Docker**](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) - por [**TechHut**](https://www.youtube.com/@TechHut)
 
-  ![Zotero - Docker Hub](https://hub.docker.com/r/linuxserver/zotero)
-  [Acceso --> http://localhost:3000]
+---
 
-```shell
-# rm_dkr_config_v-3.1
+### Características destacadas
+- **Interfaz moderna:** Diseño atractivo y minimalista con gráficos en tiempo real.
+- **Altamente personalizable:** Configura widgets para mostrar la información que más necesitas.
+- **Compatibilidad:** Funciona en múltiples plataformas y entornos gracias a Docker.
+- **Temperaturas de CPU:** Permite habilitar lecturas de temperatura para un monitoreo más detallado.
+- **Configuración sencilla:** Despliegue rápido mediante contenedores Docker.
 
-DKR_NOM="heimdall"
-DKR_POR=80
-DKR_TMZ="America/Argentina/La_Rioja"
-# ${DKR_NOM} ${DKR_POR} ${DKR_TMZ}
+---
 
-DKR_CFG=$(cat <<-EOF
+## Script `rmDkrInstall_Dashdot.sh`
+Este script automatiza la configuración y el despliegue de DashDOT utilizando contenedores Docker.
+
+```bash
+#!/bin/bash
+# Script para configurar y desplegar DashDOT en Docker
+
+# Variables de configuración
+dkr_NOM="dashdot"                           # Nombre del contenedor
+dkr_POR=7512                                # Puerto del contenedor
+dkr_TMZ="America/Argentina/La_Rioja"        # Zona horaria
+
+# Configuración del archivo docker-compose
+dkr_CFG=$(cat <<-EOF
+version: '3.8'
 services:
-  ${DKR_NOM}:
-    image: lscr.io/linuxserver/heimdall:latest
-    container_name: heimdall
-    environment:
-      - PUID=1000
-      - PGID=1000docker-compose
-      - TZ=${DKR_TMZ}
-    volumes:
-      - ./config:/config
-    ports:
-      - ${DKR_POR}:80
-      - 443:443
-    restart: unless-stopped
+    ${dkr_NOM}:
+        container_name: ${dkr_NOM}
+        ports:
+            - ${dkr_POR}:3001
+        environment:
+            - DASHDOT_ENABLE_CPU_TEMPS=true
+            - DASHDOT_OVERRIDE_OS=DSM
+        volumes:
+            - /:/mnt/host:ro
+        privileged: true
+        restart: always
+        image: mauricenino/dashdot
 EOF
 )
-```
 
-## rm_dkr_install
-Este script automatiza la creación del archivo `docker-compose` y la ejecución del contenedor Docker.
+# Crear directorio y archivo docker-compose con la configuración
+dkr_DIR="/docker/$dkr_NOM"
+dkr_YML="$dkr_DIR/docker-compose.yml"
 
-```shell
-# rm_dkr_install_v-3
-DKR_NOM="heimdall"
-DKR_DIR="/docker/$DKR_NOM"
-DKR_YML="$DKR_DIR/docker-compose.yml"
+sudo mkdir -p "$dkr_DIR" 
+echo "$dkr_CFG" | sudo tee "$dkr_YML" > /dev/null
 
-sudo mkdir -p "$DKR_DIR" && echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
+# Ejecutar docker-compose
+sudo docker-compose -f "$dkr_YML" up -d
 
-sudo docker-compose -f "$DKR_YML" up -d
+# Mensaje de finalización
+echo "Se ha desplegado correctamente en http://localhost:${dkr_POR}"
 
-```
-
-# rm_dkr_clean
-Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
-```shell
-# rm_dkr_clean_v-3.1
-
-# Verificar $DKR_NOM está Cargado.
-DKR_NOM="unifi"
-DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
-
-DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
-
-sudo docker stop $DKR_LID
-sudo docker rm $DKR_LID
-sudo docker rmi $DKR_IMG
-
-```
-
-
-```shell
-sudo mkdir -p /docker/heimdall && sudo tee /docker/heimdall/docker-compose.yml > /dev/null <<EOF
----
-services:
-  heimdall:
-    image: lscr.io/linuxserver/heimdall:latest
-    container_name: heimdall
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-    volumes:
-      - /path/to/heimdall/config:/config
-    ports:
-      - 80:80
-      - 443:443
-    restart: unless-stopped
-EOF
-
-sudo docker-compose -f /docker/heimdall/docker-compose.yml up -d
+# tee rmDkrInstall_Dashdot.sh <<'SHELL'
+# SHELL
+# chmod +x rmDkrInstall_Dashdot.sh && ./rmDkrInstall_Dashdot.sh
