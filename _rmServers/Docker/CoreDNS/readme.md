@@ -6,7 +6,7 @@
   - [Sitio oficial de CoreDNS](https://coredns.io)
   - [Manual CoreDNS: DNS and Service Discovery](https://coredns.io/manual/toc/)
 - 🎥 Videos recomendados:
-  - [**How to Set Up CoreDNS in Docker**](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) - por [**TechHut**](https://www.youtube.com/@TechHut)
+  - [**EL MEJOR DNS para Docker - CoreDNS [DNS Parte 2]**](https://youtu.be/tE9YjEV1T4E?si=KR9xqJ6ZIVuAAIhW) - por [**Pelado Nerd**](https://www.youtube.com/@PeladoNerd)
 
 ---
 
