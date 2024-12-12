@@ -29,6 +29,39 @@ docker run -d \
   -v /:/host \
   portainer/agent:2.21.4
 ```
+# rmDkrClean.sh
+```shell
+# rmDkrClean.sh 
+# Este script automatiza la tarea de detener, eliminar un contenedor Docker y remover la imagen asociada. Es útil para mantener limpio el entorno Docker y liberar espacio en el sistema.
+
+# Verifica si se ha pasado un parámetro
+if [ -z "$1" ]; then
+    echo "Uso: $0 <nombre_del_contenedor_o_imagen>"
+    exit 1
+fi
+
+DKR_NOM="$1"
+
+# Obtiene el ID del contenedor basado en el nombre o imagen
+DKR_LID=$(sudo docker ps | grep $DKR_NOM | awk '{print $1}')
+
+# Verifica si se encontró el contenedor
+if [ -z "$DKR_LID" ]; then
+    echo "No se encontró un contenedor con el nombre o imagen: $DKR_NOM"
+    exit 1
+fi
+
+# Obtiene la imagen asociada al contenedor
+DKR_IMG=$(sudo docker ps --filter "id=$DKR_LID" --format "{{.Image}}")
+
+# Detiene, elimina el contenedor y elimina la imagen
+sudo docker stop $DKR_LID
+sudo docker rm $DKR_LID
+sudo docker rmi $DKR_IMG
+
+echo "Contenedor $DKR_NOM eliminado junto con su imagen asociada."
+
+```
 ### 🎥 Videos recomendados:
   - [**TechHut**](https://www.youtube.com/@TechHut)
     - [my FAVORITE Home Server Dashboard - Homarr Setup in Docker](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) ☑️
