@@ -4,11 +4,22 @@ tee rm-actuDistro.sh <<SHELL
 #!/bin/bash
 # Script para actualizar y reiniciar si es necesario
 
+# Versión: 241213-1622
+
 clear
 sudo apt update -y && \
 sudo apt full-upgrade -y && \
 sudo apt autoremove -y && \
-[ -f /var/run/reboot-required ] && sudo reboot -f || echo "No se requiere reinicio"
+if [ -f /var/run/reboot-required ]; then
+    read -p "El sistema requiere un reinicio. ¿Deseas reiniciar ahora? (s/n): " RESPUESTA
+    if [[ "$RESPUESTA" =~ ^[sS](i|I)?$ ]]; then
+        sudo reboot -f
+    else
+        echo "No se reinició el sistema. Por favor, recuerda reiniciar más tarde."
+    fi
+else
+    echo "No se requiere reinicio."
+fi
 SHELL
 
 # Dar permisos de ejecución al script
