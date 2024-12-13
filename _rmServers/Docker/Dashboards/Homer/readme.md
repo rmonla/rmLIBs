@@ -25,44 +25,60 @@ Este script automatiza la configuración y el despliegue de Homer utilizando con
 
 ```bash
 #!/bin/bash
+
 # Script para configurar y desplegar Homer en Docker
+# Versión: 241212-0835
 
 # Variables de configuración
 dkr_NOM="homer"                        # Nombre del contenedor
 dkr_POR=7081                           # Puerto del contenedor
 dkr_TMZ="America/Argentina/La_Rioja"   # Zona horaria
+dir_CFG="config"                       # Directorio de configuración interna del contenedor
 
 # Configuración del archivo docker-compose
 dkr_CFG=$(cat <<-EOF
+version: '3.8'
 
 services:
   ${dkr_NOM}:
     image: b4bz/homer
     container_name: ${dkr_NOM}
     volumes:
-      - ./config:/www/assets # Make sure your local config directory exists
+      - ./${dir_CFG}:/www/assets # Asegúrate de que tu directorio de configuración local exista
     ports:
       - ${dkr_POR}:8080
-    user: 1000:1000 # default
+    user: 1000:1000 # Por defecto
     environment:
-      - INIT_ASSETS=1 # default, requires the config directory to be writable for the container user (see user option)
+      - INIT_ASSETS=1 # Requiere que el directorio de configuración sea escribible para el usuario del contenedor
+      - TZ=${dkr_TMZ} # Configuración de zona horaria
     restart: unless-stopped
-
 EOF
 )
 
 # Crear directorio y archivo docker-compose con la configuración
 dkr_DIR="/docker/$dkr_NOM"
-dkr_YML="$dkr_DIR/docker-compose.yml"
+sudo mkdir -p "$dkr_DIR"
 
-sudo mkdir -p "$dkr_DIR" 
+dkr_YML="$dkr_DIR/docker-compose.yml"
 echo "$dkr_CFG" | sudo tee "$dkr_YML" > /dev/null
 
+# Configuración necesaria para Homer
+dir_CFG="$dkr_DIR/$dir_CFG"
+if [ ! -d "$dir_CFG" ]; then
+    sudo mkdir -p "$dir_CFG"
+    sudo chmod -R 777 "$dir_CFG"
+fi
+
 # Ejecutar docker-compose
-sudo docker-compose -f "$dkr_YML" up -d
+sudo docker-compose -f "$dkr_YML" up -d || {
+    echo "Error al iniciar los servicios con docker-compose. Verifica los logs para más detalles."
+    exit 1
+}
 
 # Mensaje de finalización
 echo "Se ha desplegado correctamente en http://localhost:${dkr_POR}"
+
+
 
 # tee rmDkrInstall_Homer.sh <<'SHELL'
 # SHELL
