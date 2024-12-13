@@ -1,5 +1,4 @@
-# <img src="https://coredns.io/images/coredns.png" alt="CoreDNS Logo" width="100"/> CoreDNS
-
+# <img src="./logo-CoreDNS.png" alt="CoreDNS Logo">
 **CoreDNS** es un servidor DNS de código abierto, modular y altamente escalable, diseñado para gestionar la resolución de nombres en aplicaciones modernas. Es compatible con arquitecturas en contenedores, como Kubernetes, y ofrece una configuración flexible a través de sus plugins. CoreDNS puede actuar como un servidor DNS tradicional o como un proxy DNS, adaptándose a una variedad de entornos y necesidades.
 
 - 📚 Más información:
