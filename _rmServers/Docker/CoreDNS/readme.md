@@ -24,16 +24,15 @@
 Este script automatiza la configuración y el despliegue de CoreDNS utilizando contenedores Docker.
 
 ```bash
-tee rmDkrInstall_CoreDNS.sh <<'SHELL'
 #!/bin/bash
 # Script para configurar y desplegar CoreDNS en Docker
 
 # Versión: 241212-2153
 
 # Variables de configuración
-dkr_NOM="coredns"                        # Nombre del contenedor
-dkr_POR=53                                # Puerto del contenedor
-# dkr_TMZ="America/Argentina/La_Rioja"      # Zona horaria
+dkr_NOM="coredns"                        
+dkr_POR=53                                
+# dkr_TMZ="America/Argentina/La_Rioja"      
 cfg_DIR="config"      # Zona horaria
 
 # Configuración del archivo docker-compose
@@ -104,5 +103,6 @@ sudo docker-compose -f "$dkr_YML" up -d
 # Mensaje de finalización
 echo "Se ha desplegado correctamente en http://localhost:${dkr_POR}"
 
-SHELL
-chmod +x rmDkrInstall_CoreDNS.sh && ./rmDkrInstall_CoreDNS.sh
+# tee rmDkrInstall_CoreDNS.sh <<'SHELL'
+# SHELL
+# chmod +x rmDkrInstall_CoreDNS.sh && ./rmDkrInstall_CoreDNS.sh
