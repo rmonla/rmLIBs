@@ -65,11 +65,17 @@ echo "Contenedor $DKR_NOM eliminado junto con su imagen asociada."
 ```
 ### 🎥 Videos recomendados:
   - [**TechHut**](https://www.youtube.com/@TechHut)
-    - [my FAVORITE Home Server Dashboard - Homarr Setup in Docker](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5) ☑️
+    -  ☑️[my FAVORITE Home Server Dashboard - Homarr Setup in Docker](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5)
     - [my NEW Proxmox Media Server - Full Walkthrough Guide Pt.2 (Jellyfin, Sonarr, Gluetun, and MORE)](https://www.youtube.com/watch?v=Uzqf0qlcQlo)
+      
   - [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
     - [ DIETPI - #Sonarr + #PLEX + #Jellyfin + #Transmission + #Jackett - ACTUALIZADO ](https://www.youtube.com/watch?v=I93VHAlpRsY)
+    - [Uptime Kuma - Monitorización de dispositivos #Docker](https://www.youtube.com/watch?v=2dsOiz8Seoc)
+      
 - [**nanoninja**](https://github.com/nanoninja)
     - [docker-nginx-php-mysql](https://github.com/nanoninja/docker-nginx-php-mysql)
+      
 - [**Un loco y su tecnología**](https://www.youtube.com/@unlocoysutecnologia)
-    - [(3) Descubre 20 aplicaciones que puedes instalar con DOCKER... ¡te encantarán! - YouTube](https://www.youtube.com/watch?v=gqpJ7RE02Ao)   
+    -  ☑️[Descubre 20 aplicaciones que puedes instalar con DOCKER... ¡te encantarán!](https://www.youtube.com/watch?v=gqpJ7RE02Ao)
+ 
+ 
