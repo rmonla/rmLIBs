@@ -56,8 +56,6 @@ SHELL
 
 # Dar permisos de ejecución al script
 chmod +x rm-cambiarNombreHost.sh
-
-# Ejecutar el script
 ./rm-cambiarNombreHost.sh
 
 ```
