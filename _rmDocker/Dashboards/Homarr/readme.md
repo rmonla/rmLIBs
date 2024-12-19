@@ -28,43 +28,48 @@ Este script automatiza la configuración y el despliegue de Homarr utilizando co
 ```bash
 #!/bin/bash
 # Script para configurar y desplegar Homarr en Docker
+# Versión: 241219-1637
 
 # Variables de configuración
-DKR_NOM="homarr"                            # Nombre del contenedor
-DKR_POR=7575                                # Puerto del contenedor
-DKR_TMZ="America/Argentina/La_Rioja"        # Zona horaria
+dkr_NOM="homarr"                            # Nombre del contenedor
+dkr_POR=7575                                # Puerto del contenedor
+dkr_TMZ="America/Argentina/La_Rioja"        # Zona horaria
 
 # Configuración del archivo docker-compose
-DKR_CFG=$(cat <<-EOF
+dkr_CFG=$(cat <<-EOF
 version: '3'
 #---------------------------------------------------------------------#
 #     Homarr - A simple, yet powerful dashboard for your server.      #
 #---------------------------------------------------------------------#
 services:
   homarr:
-    container_name: ${DKR_NOM}
     image: ghcr.io/ajnart/homarr:latest
-    restart: unless-stopped
+    container_name: ${dkr_NOM}
+    ports:
+      - '${dkr_POR}:7575'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Integración opcional con Docker
       - ./homarr/configs:/app/data/configs
       - ./homarr/icons:/app/public/icons
       - ./homarr/data:/data
-    ports:
-      - '${DKR_POR}:7575'
+    restart: unless-stopped
 EOF
 )
 
 # Crear directorio y archivo docker-compose con la configuración
-DKR_DIR="/docker/$DKR_NOM"
-DKR_YML="$DKR_DIR/docker-compose.yml"
+dkr_DIR="/docker/$dkr_NOM"
+dkr_YML="$dkr_DIR/docker-compose.yml"
 
-sudo mkdir -p "$DKR_DIR" 
-echo "$DKR_CFG" | sudo tee "$DKR_YML" > /dev/null
+sudo mkdir -p "$dkr_DIR" 
+echo "$dkr_CFG" | sudo tee "$dkr_YML" > /dev/null
 
 # Ejecutar docker-compose
-sudo docker-compose -f "$DKR_YML" up -d
+sudo docker-compose -f "$dkr_YML" up -d
 
 # Mensaje de finalización
-echo "Homarr se ha desplegado correctamente en http://localhost:${DKR_POR}"
+echo "Homarr se ha desplegado correctamente en http://localhost:${dkr_POR}"
+
+# tee rmDkrInstall_Homarr.sh <<'SHELL'
+# SHELL
+# chmod +x rmDkrInstall_Homarr.sh && ./rmDkrInstall_Homer.sh
 ```
