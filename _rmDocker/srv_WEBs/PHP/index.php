@@ -1,4 +1,7 @@
-<?php include 'incs/header.php'; ?>
+<?php 
+include 'incs/header.php'; 
+include 'incs/versionLogs.php'; 
+?>
 <main class="main-content">
     <section class="playlist">
         <h2>>Historial de Versiones</h2>
