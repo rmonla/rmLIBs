@@ -6,12 +6,49 @@
 
 
 ## Ver la distribución instalada.
+```bash
+lsb_release -a
+
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 24.04.1 LTS
+Release:        24.04
+Codename:       noble
 ```
-    lsb_release -a
+```bash
+cat /etc/*release
+
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
+PRETTY_NAME="Ubuntu 24.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.1 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
 ```
+```bash
+inxi -Sxxx
+
+System:    Host: srv-ns7 Kernel: 4.19.0-27-amd64 x86_64 bits: 64 compiler: gcc v: 8.3.0 
+           Console: tty 0 dm: LightDM 1.26.0 Distro: Debian GNU/Linux 10 (buster) 
 ```
-    cat /etc/*release
+```bash
+uname -r
+
+4.19.0-27-amd64
 ```
+
 <p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
 
 ## *Actualizar del sistema.*
