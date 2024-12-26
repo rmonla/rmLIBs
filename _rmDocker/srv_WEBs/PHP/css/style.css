@@ -1,0 +1,131 @@
+/* General */
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #fdf7e3, #e9d8b7);
+    color: #4a3e31;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    background-color: #806d5a;
+    padding: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.header h1, .header h2, .header p {
+    margin: 5px;
+}
+
+/* Playlist */
+.playlist {
+    margin: auto;
+    width: 80%;
+    border: 2px solid #806d5a;
+    background: #f9f4ef;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.song-item {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.song-link {
+    text-decoration: none;
+    color: #4a3e31;
+    font-weight: bold;
+}
+
+.song-link:hover {
+    text-decoration: underline;
+    color: #806d5a;
+}
+
+/* WhatsApp Icon */
+.icon-whatsapp {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon-whatsapp:hover {
+    transform: scale(1.2);
+}
+
+/* Audio Player */
+audio {
+    margin-top: 20px;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.navigation-buttons a {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #4a3e31;
+    background-color: #e9d8b7;
+    border: 1px solid #806d5a;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+}
+
+.navigation-buttons a:hover {
+    background-color: #f9f4ef;
+    color: #806d5a;
+}
+
+.navigation-buttons a:active {
+    background-color: #fdf7e3;
+    color: #4a3e31;
+    transform: translateY(1px);
+}
+
+.btn-prev {
+    background-color: #e9d8b7; /* Botón "Anterior" más tenue */
+}
+
+.btn-prev:hover {
+    background-color: #f9f4ef;
+}
+
+.btn-prev:active {
+    background-color: #fdf7e3;
+}
+
+.btn-next {
+    background-color: #e9d8b7; /* Botón "Siguiente" más tenue */
+}
+
+.btn-next:hover {
+    background-color: #f9f4ef;
+}
+
+.btn-next:active {
+    background-color: #fdf7e3;
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #806d5a;
+    color: #fff;
+    font-size: 14px;
+}
