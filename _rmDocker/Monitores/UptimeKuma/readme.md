@@ -71,15 +71,20 @@ volumes:
 1. Crea un directorio para el proyecto y navega hasta él:
 
    ```bash
-   mkdir uptime_kuma && cd uptime_kuma
+   sudo mkdir uptime_kuma && cd uptime_kuma
    ```
 
 2. Crea los archivos `.env` y `docker-compose.yml` en el directorio.
-
+   ```bash
+   sudo nano .env
+   ```
+```bash
+   sudo nano docker-compose.yml
+   ```
 3. Inicia el contenedor:
 
    ```bash
-   docker-compose up -d
+   sudo docker-compose up -d
    ```
 
 4. Accede a Uptime Kuma en el navegador utilizando la dirección:
