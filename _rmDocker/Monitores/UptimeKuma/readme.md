@@ -1,11 +1,6 @@
 # <img src="https://uptime.kuma.pet/img/icon.svg" alt="Uptime Kuma Logo" width="100"/> Uptime Kuma
 
-Este documento describe la configuración de un contenedor genérico para preparar un entorno de desarrollo de sitios PHP utilizando Docker. La configuración incluye un servidor Apache con PHP 8.2, accesible a través de un puerto especificado y configurado mediante un archivo `.env`.
-
-## Requisitos Previos
-
-- Docker y Docker Compose instalados en el sistema.
-- Directorio con el código fuente del sitio PHP preparado.
+Este documento describe la configuración de un contenedor Docker para implementar **Uptime Kuma**, una herramienta de monitorización de sitios y servicios en tiempo real. Uptime Kuma es una solución autohospedada que permite supervisar el estado de servicios con un diseño moderno, intuitivo y altamente personalizable.
 
 ---
 
@@ -16,16 +11,23 @@ Este documento describe la configuración de un contenedor genérico para prepar
   - [Demo](https://demo.kuma.pet/start-demo)
 - 🎥 Videos recomendados:
   - [Uptime Kuma - Monitorización de dispositivos #Docker](https://www.youtube.com/watch?v=2dsOiz8Seoc) - por [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
- 
 
 ---
 
 ### Características destacadas
 
-- **Facilidad de uso:** Esta configuración permite crear un entorno de desarrollo funcional en minutos. Solo se requiere un archivo `.env` para parametrizar las variables principales.
-- **Compatibilidad:** Utiliza la imagen oficial de PHP con Apache, garantizando estabilidad y soporte continuo.
-- **Flexibilidad:** La configuración es adaptable, permitiendo agregar extensiones o modificar el entorno según las necesidades del proyecto.
-- **Persistencia:** Monta el directorio del proyecto local dentro del contenedor para mantener sincronizados los cambios.
+- **Monitorización en tiempo real:** Supervisa sitios, servidores y servicios con notificaciones personalizables.
+- **Fácil implementación:** Configuración sencilla utilizando Docker y Docker Compose.
+- **Interfaz moderna:** Diseño intuitivo con soporte para múltiples tipos de monitoreo, como HTTP(S), TCP, Ping, y más.
+- **Alta personalización:** Compatible con múltiples idiomas y adaptable a las necesidades del usuario.
+- **Persistencia de datos:** La configuración y los datos de monitoreo se almacenan en volúmenes Docker, asegurando su conservación entre reinicios.
+
+---
+
+## Requisitos Previos
+
+- Docker y Docker Compose instalados en el sistema.
+- Espacio suficiente en disco para almacenar datos persistentes.
 
 ---
 
@@ -35,31 +37,31 @@ El archivo `.env` contiene las variables de entorno necesarias para configurar e
 
 ```bash
 # Variables del Docker
-dkrNOM=uptime-kuma                         # Nombre del contenedor
-dkrPOR=3001                                # Puerto del contenedor
-
+dkrNOM=uptime-kuma                          # Nombre del contenedor
+dkrPOR=3001                                 # Puerto del contenedor
 ```
 
 ---
 
 ### 2. **Archivo `docker-compose.yml`**
 
-El archivo `docker-compose.yml` define el servicio Docker para el entorno PHP.
+El archivo `docker-compose.yml` define el servicio Docker para desplegar Uptime Kuma.
 
 ```yaml
+version: '3.8'
 services:
-    ${dkrNOM}:
-        container_name: ${dkrNOM}
-        image: louislam/uptime-kuma:1
-        restart: always
-        ports:
-            - ${dkrPOR}:3001
-        volumes:
-            - uptime-kuma:/app/data
+  uptime-kuma:
+    container_name: ${dkrNOM}
+    image: louislam/uptime-kuma:1
+    restart: always
+    ports:
+      - "${dkrPOR}:3001"
+    volumes:
+      - uptime-kuma:/app/data
 volumes:
-    uptime-kuma:
-        external: true
-        name: uptime-kuma
+  uptime-kuma:
+    external: true
+    name: uptime-kuma
 ```
 
 ---
@@ -69,20 +71,18 @@ volumes:
 1. Crea un directorio para el proyecto y navega hasta él:
 
    ```bash
-   mkdir php_dev && cd php_dev
+   mkdir uptime_kuma && cd uptime_kuma
    ```
 
 2. Crea los archivos `.env` y `docker-compose.yml` en el directorio.
 
-3. Asegúrate de que el código fuente del sitio PHP esté ubicado en el directorio especificado por `dkrSRC`.
-
-4. Inicia el contenedor:
+3. Inicia el contenedor:
 
    ```bash
    docker-compose up -d
    ```
 
-5. Accede al sitio en el navegador usando la dirección:
+4. Accede a Uptime Kuma en el navegador utilizando la dirección:
 
    ```
    http://localhost:<dkrPOR>
@@ -100,3 +100,10 @@ volumes:
   ```bash
   docker-compose down
   ```
+
+- **Personalización:**
+  Puedes agregar configuraciones avanzadas o integraciones según tus necesidades, como notificaciones a través de Slack, Discord, correo electrónico, entre otros.
+
+- **Persistencia:**
+  Asegúrate de que el volumen Docker definido esté correctamente configurado para evitar la pérdida de datos entre reinicios.
+
