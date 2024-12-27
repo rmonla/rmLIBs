@@ -9,11 +9,14 @@ Este documento describe la configuración de un contenedor genérico para prepar
 
 ---
 
-### Más Información
-
-- 📚 [Sitio Oficial de Uptime Kuma](https://uptime.kuma.pet/)
-- 📚 [Documentación](https://github.com/louislam/uptime-kuma/wiki)
-- 📚 [Demo](https://demo.kuma.pet/start-demo)
+### Enlaces de consulta:
+- 📚 Información del Aplicativo:
+  - [Sitio Oficial de Uptime Kuma](https://uptime.kuma.pet/)
+  - [Documentación](https://github.com/louislam/uptime-kuma/wiki)
+  - [Demo](https://demo.kuma.pet/start-demo)
+- 🎥 Videos recomendados:
+  - [Uptime Kuma - Monitorización de dispositivos #Docker](https://www.youtube.com/watch?v=2dsOiz8Seoc) - por [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
+ 
 
 ---
 
@@ -32,18 +35,10 @@ El archivo `.env` contiene las variables de entorno necesarias para configurar e
 
 ```bash
 # Variables del Docker
-dkrNOM=php_dev_site                         # Nombre del contenedor
-dkrPOR=8080                                 # Puerto del contenedor
-dkrTMZ="America/Argentina/La_Rioja"        # Zona horaria
+dkrNOM=uptime-kuma                         # Nombre del contenedor
+dkrPOR=3001                                # Puerto del contenedor
 
-# Variables del Sitio
-dkrSRC=./                                   # Ruta del código fuente
 ```
-
-- **`dkrNOM`**: Define el nombre del contenedor.
-- **`dkrPOR`**: Especifica el puerto en el que el contenedor estará disponible.
-- **`dkrTMZ`**: Configura la zona horaria dentro del contenedor.
-- **`dkrSRC`**: Ruta local al directorio que contiene los archivos del sitio PHP.
 
 ---
 
@@ -52,28 +47,20 @@ dkrSRC=./                                   # Ruta del código fuente
 El archivo `docker-compose.yml` define el servicio Docker para el entorno PHP.
 
 ```yaml
-version: '3.8'
 services:
-  php-apache:
-    image: php:8.2-apache
-    container_name: ${dkrNOM}
-    ports:
-      - "${dkrPOR}:80"
-    volumes:
-      - ${dkrSRC}:/var/www/html
-    environment:
-      - TZ=${dkrTMZ}
-    restart: always
+    ${dkrNOM}:
+        container_name: ${dkrNOM}
+        image: louislam/uptime-kuma:1
+        restart: always
+        ports:
+            - ${dkrPOR}:3001
+        volumes:
+            - uptime-kuma:/app/data
+volumes:
+    uptime-kuma:
+        external: true
+        name: uptime-kuma
 ```
-
-#### Descripción de los componentes:
-
-- **`image`**: Utiliza la imagen oficial de PHP con Apache para ejecutar el sitio.
-- **`container_name`**: Asigna un nombre al contenedor.
-- **`ports`**: Redirige el puerto especificado en el archivo `.env` al puerto 80 del contenedor.
-- **`volumes`**: Monta el código fuente en el directorio web del contenedor.
-- **`environment`**: Configura la zona horaria usando la variable definida en el archivo `.env`.
-- **`restart`**: Garantiza que el contenedor se reinicie automáticamente en caso de fallos.
 
 ---
 
@@ -113,7 +100,3 @@ services:
   ```bash
   docker-compose down
   ```
-
-- **Personalización:**
-  Puedes ajustar el archivo `docker-compose.yml` para incluir extensiones adicionales de PHP según sea necesario para tu proyecto.
-
