@@ -1,4 +1,4 @@
-# <img src="https://www.php.net/images/logos/php-logo-white.svg" alt="PHP Logo" width="100"/> Uptime Kuma
+# <img src="https://uptime.kuma.pet/img/icon.svg" alt="Uptime Kuma Logo" width="100"/> Uptime Kuma
 
 Este documento describe la configuración de un contenedor genérico para preparar un entorno de desarrollo de sitios PHP utilizando Docker. La configuración incluye un servidor Apache con PHP 8.2, accesible a través de un puerto especificado y configurado mediante un archivo `.env`.
 
@@ -11,7 +11,9 @@ Este documento describe la configuración de un contenedor genérico para prepar
 
 ### Más Información
 
-- 📚 [Documentación Oficial de Uptime Kuma](https://www.php.net/docs.php)
+- 📚 [Sitio Oficial de Uptime Kuma](https://uptime.kuma.pet/)
+- 📚 [Documentación](https://github.com/louislam/uptime-kuma/wiki)
+- 📚 [Demo](https://demo.kuma.pet/start-demo)
 
 ---
 
