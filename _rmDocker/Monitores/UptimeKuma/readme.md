@@ -78,16 +78,21 @@ volumes:
    ```bash
    sudo nano .env
    ```
-```bash
+   ```bash
    sudo nano docker-compose.yml
    ```
-3. Inicia el contenedor:
+3. Crea el volumen externo:
+
+   ```bash
+   sudo docker volume create --name=uptime-kuma
+   ```
+4. Inicia el contenedor:
 
    ```bash
    sudo docker-compose up -d
    ```
 
-4. Accede a Uptime Kuma en el navegador utilizando la dirección:
+5. Accede a Uptime Kuma en el navegador utilizando la dirección:
 
    ```
    http://localhost:<dkrPOR>
