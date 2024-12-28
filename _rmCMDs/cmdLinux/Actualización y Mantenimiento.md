@@ -15,6 +15,8 @@ Description:    Ubuntu 24.04.1 LTS
 Release:        24.04
 Codename:       noble
 ```
+<p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
+
 ```bash
 cat /etc/*release
 
@@ -37,12 +39,16 @@ UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
 
 ```
+<p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
+
 ```bash
 inxi -Sxxx
 
 System:    Host: srv-ns7 Kernel: 4.19.0-27-amd64 x86_64 bits: 64 compiler: gcc v: 8.3.0 
            Console: tty 0 dm: LightDM 1.26.0 Distro: Debian GNU/Linux 10 (buster) 
 ```
+<p align="right"><img src="https://img.shields.io/badge/Linux-All-brightgreen" alt="Linux: All"></p>
+
 ```bash
 uname -r
 
