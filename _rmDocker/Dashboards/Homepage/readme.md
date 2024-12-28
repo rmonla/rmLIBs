@@ -10,7 +10,7 @@ Este documento detalla la configuración de un contenedor Docker para implementa
   - [GitHub](https://github.com/gethomepage/homepage)
   - [Documentación oficial](https://gethomepage.dev/)
 - 🎥 Videos recomendados:
-  - [Meet Homepage - Your HomeLab Services Dashboard](https://youtu.be/oia6WqcOipU?si=Q5zA9J_Y4egr7KdD) - por [**Techno Tim**](https://www.youtube.com/@TechnoTim)
+  - [Meet Homepage - Your HomeLab Services Dashboard](https://www.youtube.com/watch?v=mC3tjysJ01E) - por [**Techno Tim**](https://www.youtube.com/@TechnoTim)
 
 ---
 
@@ -48,17 +48,25 @@ dkrVARS=$(cat <<-SHELL
 # Variables del Docker
 dkrNOM="homepage"
 dkrPORT=3000
-dkrDirCFG="./config"
+dkrDirCFG="config"
 dkrArchENV=".env"
+dkrArchDkrComp="docker-compose.yml"
+
 SHELL
 )
 
 # Procesar el contenido de dkrVARS y exportar las variables
 eval "$(echo "$dkrVARS" | grep -E '^[a-zA-Z_][a-zA-Z0-9_]*=' | sed 's/^/export /')"
 
-# Código del archivo .env
-codArchENV=$(cat <<-YAML
+# Crear el directorio de despliegue
+dirDKR="$(pwd)/$dkrNOM"
+echo "Creando el directorio de despliegue: $dirDKR"
+mkdir -p "$dirDKR" || { echo "Error al crear el directorio $dirDKR"; exit 1; }
+# ---
 
+# Archivo de variables de entorno de Docker
+archENV="$dirDKR/$dkrArchENV"
+codArchENV=$(cat <<-YAML
 ${dkrVARS}
 
 PUID=1000
@@ -84,8 +92,12 @@ HOMEPAGE_VAR_UPTIME_KUMA_URL=
 YAML
 )
 
+echo "Creando el archivo de variables de entorno $dkrArchENV"
+echo "$codArchENV" | tee "$archENV" > /dev/null || { echo "Error al escribir el archivo $archENV"; exit 1; }
+# ---
 
-# Configuración del archivo docker-compose
+# Archivo de despliegue de Docker
+archDkrComp="$dirDKR/$dkrArchDkrComp"
 codArchDkrComp=$(cat <<YAML
 version: "3.3"
 services:
@@ -97,7 +109,7 @@ services:
       - \${dkrPORT}:3000
     env_file: \${dkrArchENV}
     volumes:
-      - \${dkrDirCFG}:/app/config # Make sure your local config directory exists
+      - ./\${dkrDirCFG}:/app/config # Make sure your local config directory exists
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
     environment:
       PUID: \${PUID}
@@ -106,30 +118,127 @@ services:
 YAML
 )
 
-# Variables del Despliegue
+echo "Creando el archivo de despliegue de Docker: $dkrArchDkrComp"
+echo "$codArchDkrComp" | tee "$archDkrComp" > /dev/null || { echo "Error al escribir el archivo $archDkrComp"; exit 1; }
+# ---
 
-# Crear el directorio de despliegue
-dirDKR="$(pwd)/$dkrNOM"
-echo "Creando el directorio de despliegue: $dirDKR"
-mkdir -p "$dirDKR" || { echo "Error al crear el directorio $dirDKR"; exit 1; }
+# Archivo de servicios de Homepage: services.yaml
+archAppServs="$dirDKR/$dkrDirCFG/services.yaml"
+codArchAppServs=$(cat <<YAML
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+# icons found here https://github.com/walkxcode/dashboard-icons
 
-# Escribir el archivo .env
-archENV="$dirDKR/.env"
-echo "Creando el archivo docker-compose.yml en $archENV"
-echo "$codArchENV" | tee "$archENV" > /dev/null || { echo "Error al escribir el archivo .env"; exit 1; }
+- Hypervisor:
+    - Proxmox:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX1_URL}}"
+        description: pve1
+        widget:
+            type: proxmox
+            url: "{{HOMEPAGE_VAR_PROXMOX1_URL}}"
+            username:  "{{HOMEPAGE_VAR_PROXMOX1_USER}}"
+            password:  "{{HOMEPAGE_VAR_PROXMOX1_API_KEY}}"
+            node: xing-01
+    - Proxmox:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX2_URL}}"
+        description: pve2
+        widget:
+            type: proxmox
+            url: "{{HOMEPAGE_VAR_PROXMOX2_URL}}"
+            username:  "{{HOMEPAGE_VAR_PROXMOX2_USER}}"
+            password:  "{{HOMEPAGE_VAR_PROXMOX2_API_KEY}}"
+            node: xing-02
+- Containers:
+    - Portainer:
+        icon: portainer.svg
+        href: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
+        description: docker
+        widget:
+            type: portainer
+            url: "{{HOMEPAGE_VAR_PORTAINER_URL}}"
+            env: 2
+            key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}"
+- Network:
+    - UniFi:
+        icon: unifi.svg
+        href: "{{HOMEPAGE_VAR_UNIFI_NETWORK_URL}}"
+        description: network
+        widget:
+            type: unifi
+            url: "{{HOMEPAGE_VAR_UNIFI_NETWORK_URL}}"
+            username:  "{{HOMEPAGE_VAR_UNIFI_NETWORK_USERNAME}}"
+            password:  "{{HOMEPAGE_VAR_UNIFI_NETWORK_PASSWORD}}"
+    - Uptime Kuma:
+        icon: uptime-kuma.svg
+        href: "{{HOMEPAGE_VAR_UPTIME_KUMA_URL}}"
+        description: internal
+        widget:
+            type: uptimekuma
+            url: "{{HOMEPAGE_VAR_UPTIME_KUMA_URL}}"
+            slug: home
 
-# Escribir el archivo docker-compose.yaml
-archYAML="$dirDKR/docker-compose.yaml"
-echo "Creando el archivo docker-compose.yml en $archYAML"
-echo "$codArchDkrComp" | tee "$archYAML" > /dev/null || { echo "Error al escribir el archivo docker-compose.yml"; exit 1; }
+YAML
+)
+
+echo "Creando el archivo de servicios de Homepage"
+echo "$codArchAppServs" | tee "$archAppServs" > /dev/null || { echo "Error al escribir el archivo $archAppServs"; exit 1; }
+# ---
+
+# Archivo de configuraciones de Homepage: settings.yaml
+archAppConfs="$dirDKR/$dkrDirCFG/settings.yaml"
+codArchAppConfs=$(cat <<YAML
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+title: Techno Tim Homepage
+
+background:
+  image: https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+  blur: sm # sm, md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+  brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  opacity: 100 # 0-100
+
+theme: dark
+color: slate
+
+useEqualHeights: true
+
+layout:
+  Hypervisor:
+    header: true
+    style: row
+    columns: 4
+  Containers:
+    header: true
+    style: row
+    columns: 4
+  Network:
+    header: true
+    style: row
+    columns: 4
+
+YAML
+)
+
+echo "Creando el archivo de configuraciones de Homepage"
+echo "$codArchAppConfs" | tee "$archAppServs" > /dev/null || { echo "Error al escribir el archivo $archAppServs"; exit 1; }
+# ---
 
 # Ejecutar docker-compose
 echo "Iniciando el contenedor con docker-compose..."
-docker compose -f "$archYAML" up -d || { echo "Error al ejecutar docker-compose"; exit 1; }
+docker compose -f "$archDkrComp" up -d || { echo "Error al ejecutar docker-compose"; exit 1; }
 
 # Mensaje de finalización
 echo "Homarr se ha desplegado correctamente en http://localhost:${dkrPORT}"
 
+```
+```bash
+    sh rmDkr-Deploy-Homepage.sh
 ```
 
 
