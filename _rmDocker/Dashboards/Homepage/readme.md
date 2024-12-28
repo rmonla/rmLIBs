@@ -1,55 +1,64 @@
 # <img src="https://github.com/gethomepage/homepage/raw/dev/images/banner_light@2x.png" alt="Homepage Logo" /> Homepage
 
-Este documento detalla la configuración de un contenedor Docker para implementar **Homepage**, una solución versátil diseñada para centralizar y personalizar el acceso a aplicaciones, servicios y herramientas utilizadas en entornos de servidores y redes domésticas o empresariales. Con una interfaz moderna y fácil de usar, Homepage permite organizar y monitorizar eficientemente diversos sistemas y servicios.
+Este documento explica cómo configurar un contenedor Docker para implementar **Homepage**, una solución moderna y altamente personalizable diseñada para centralizar y gestionar accesos a aplicaciones, servicios y herramientas. Ideal para entornos de servidores y redes domésticas o empresariales, Homepage ofrece una interfaz intuitiva y organizada para optimizar la productividad.
 
 ---
 
-### Enlaces de consulta:
+## Enlaces de Consulta
+
 - 📚 Información del Aplicativo:
   - [Sitio Oficial de Homepage](https://gethomepage.dev/)
-  - [GitHub](https://github.com/gethomepage/homepage)
-  - [Documentación oficial](https://gethomepage.dev/)
-- 🎥 Videos recomendados:
+  - [Repositorio en GitHub](https://github.com/gethomepage/homepage)
+  - [Documentación Oficial](https://gethomepage.dev/latest)
+- 🎥 Videos Recomendados:
   - [Meet Homepage - Your HomeLab Services Dashboard](https://www.youtube.com/watch?v=mC3tjysJ01E) - por [**Techno Tim**](https://www.youtube.com/@TechnoTim)
 
 ---
 
-### Características destacadas
+## Características Destacadas
 
-- **Dashboard centralizado:** Proporciona un tablero único y personalizable para acceder a aplicaciones, servicios y herramientas.
-- **Interfaz moderna y adaptativa:** Optimizada para dispositivos móviles y navegadores, con temas claros y oscuros.
-- **Fácil implementación:** Instalación rápida con soporte para Docker, simplificando la configuración y el despliegue.
-- **Alta personalización:** Ofrece soporte para widgets, accesos directos y configuraciones personalizadas para ajustarse a cualquier necesidad.
-- **Integraciones amplias:** Compatible con una variedad de servicios como Sonarr, Radarr, Plex, y muchos más.
-- **Gestión eficiente:** Reduce la necesidad de múltiples accesos independientes al consolidarlos en una sola herramienta.
-- **Soporte multiplataforma:** Funciona en Linux, macOS, Windows y entornos virtualizados o en contenedores Docker.
+- **Dashboard centralizado:** Consolida el acceso a todas tus aplicaciones y servicios en un único panel intuitivo.
+- **Interfaz moderna y adaptativa:** Diseño optimizado para dispositivos móviles y navegadores con soporte para temas claros y oscuros.
+- **Fácil implementación:** Configuración rápida y sencilla utilizando Docker y Docker Compose.
+- **Personalización avanzada:** Soporte para widgets, accesos directos y configuraciones adaptadas a tus necesidades.
+- **Amplia compatibilidad:** Compatible con servicios populares como Sonarr, Radarr, Plex, Proxmox, Portainer, Uptime Kuma y más.
+- **Gestión eficiente:** Reduce la complejidad al unificar múltiples accesos independientes.
+- **Multiplataforma:** Funciona en Linux, macOS, Windows y entornos virtualizados o en contenedores Docker.
 
 ---
 
 ## Requisitos Previos
 
 - Docker y Docker Compose instalados en el sistema.
-- Espacio en disco suficiente para almacenar datos persistentes.
+- Espacio suficiente en disco para datos persistentes.
 - Acceso al puerto definido para la interfaz web.
 
 ---
-### 1. **Archivo `rmDkr-Deploy-Homepage.sh`**
+
+## Configuración e Implementación
+
+### 1. Crear y Editar el Script `rmDkr-Deploy-Homepage.sh`
+
+Ejecuta el siguiente comando para crear el script de despliegue:
+
 ```bash
-    nano rmDkr-Deploy-Homepage.sh
+nano rmDkr-Deploy-Homepage.sh
 ```
+
+Copia y pega el siguiente contenido en el archivo:
 
 ```bash
 #!/bin/bash
 # Script para configurar y desplegar Homepage en Docker
-# Versión: 241228-1020
+# Ricardo MONLA (https://github.com/rmonla)
+# rmDocker|Homepage - Versión: 241228-1654
 
-# Definir la variable dkrVARS
-dkrVARS=$(cat <<-SHELL
 # Variables del Docker
+dkrVARS=$(cat <<SHELL
 dkrNOM="homepage"
 dkrPORT=3000
-dkrDirCFG="config"
 dkrArchENV=".env"
+appDirCFG="config"
 dkrArchDkrComp="docker-compose.yml"
 
 SHELL
@@ -64,9 +73,17 @@ echo "Creando el directorio de despliegue: $dirDKR"
 mkdir -p "$dirDKR" || { echo "Error al crear el directorio $dirDKR"; exit 1; }
 # ---
 
+# Crear el directorio de configuraciones de la aplicación
+dirAppCFG="$dirDKR/$appDirCFG"
+echo "Creando el directorio de despliegue: $dirAppCFG"
+mkdir -p "$dirAppCFG" || { echo "Error al crear el directorio $dirAppCFG"; exit 1; }
+# ---
+
 # Archivo de variables de entorno de Docker
-archENV="$dirDKR/$dkrArchENV"
-codArchENV=$(cat <<-YAML
+archENV="$dirDKR/$dkrArchENV" 
+echo "Creando el archivo de variables de entorno $archENV"
+
+tee "$archENV" <<-YAML || { echo "Error al escribir el archivo $archENV"; exit 1; }
 ${dkrVARS}
 
 PUID=1000
@@ -88,17 +105,14 @@ HOMEPAGE_VAR_UNIFI_NETWORK_USERNAME=
 HOMEPAGE_VAR_UNIFI_NETWORK_PASSWORD=
 
 HOMEPAGE_VAR_UPTIME_KUMA_URL=
-
 YAML
-)
-
-echo "Creando el archivo de variables de entorno $dkrArchENV"
-echo "$codArchENV" | tee "$archENV" > /dev/null || { echo "Error al escribir el archivo $archENV"; exit 1; }
 # ---
 
 # Archivo de despliegue de Docker
 archDkrComp="$dirDKR/$dkrArchDkrComp"
-codArchDkrComp=$(cat <<YAML
+echo "Creando el archivo de despliegue de Docker: $archDkrComp"
+
+tee "$archDkrComp" <<-YAML || { echo "Error al escribir el archivo $archDkrComp"; exit 1; }
 version: "3.3"
 services:
   homepage:
@@ -109,22 +123,19 @@ services:
       - \${dkrPORT}:3000
     env_file: \${dkrArchENV}
     volumes:
-      - ./\${dkrDirCFG}:/app/config # Make sure your local config directory exists
+      - ./\${appDirCFG}:/app/config # Make sure your local config directory exists
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
     environment:
       PUID: \${PUID}
       PGID: \${PGID}
-
 YAML
-)
-
-echo "Creando el archivo de despliegue de Docker: $dkrArchDkrComp"
-echo "$codArchDkrComp" | tee "$archDkrComp" > /dev/null || { echo "Error al escribir el archivo $archDkrComp"; exit 1; }
 # ---
 
 # Archivo de servicios de Homepage: services.yaml
-archAppServs="$dirDKR/$dkrDirCFG/services.yaml"
-codArchAppServs=$(cat <<YAML
+archAppServs="$dirAppCFG/services.yaml"
+echo "Creando el archivo de servicios de Homepage"
+
+tee "$archAppServs" <<-YAML || { echo "Error al escribir el archivo $archAppServs"; exit 1; }
 ---
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
@@ -179,17 +190,14 @@ codArchAppServs=$(cat <<YAML
             type: uptimekuma
             url: "{{HOMEPAGE_VAR_UPTIME_KUMA_URL}}"
             slug: home
-
 YAML
-)
-
-echo "Creando el archivo de servicios de Homepage"
-echo "$codArchAppServs" | tee "$archAppServs" > /dev/null || { echo "Error al escribir el archivo $archAppServs"; exit 1; }
 # ---
 
 # Archivo de configuraciones de Homepage: settings.yaml
-archAppConfs="$dirDKR/$dkrDirCFG/settings.yaml"
-codArchAppConfs=$(cat <<YAML
+archAppConfs="$dirAppCFG/settings.yaml"
+echo "Creando el archivo de configuraciones de Homepage"
+
+tee "$archAppConfs" <<-YAML || { echo "Error al escribir el archivo $archAppConfs"; exit 1; }
 ---
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/settings
@@ -223,10 +231,6 @@ layout:
     columns: 4
 
 YAML
-)
-
-echo "Creando el archivo de configuraciones de Homepage"
-echo "$codArchAppConfs" | tee "$archAppServs" > /dev/null || { echo "Error al escribir el archivo $archAppServs"; exit 1; }
 # ---
 
 # Ejecutar docker-compose
@@ -234,31 +238,37 @@ echo "Iniciando el contenedor con docker-compose..."
 docker compose -f "$archDkrComp" up -d || { echo "Error al ejecutar docker-compose"; exit 1; }
 
 # Mensaje de finalización
-echo "Homarr se ha desplegado correctamente en http://localhost:${dkrPORT}"
+echo "${dkrNOM} se ha desplegado correctamente en http://0.0.0.0:${dkrPORT}/"
 
 ```
+
+### 2. Ejecutar el Script de Despliegue
+
+Guarda el archivo y ejecuta el script:
+
 ```bash
-    sh rmDkr-Deploy-Homepage.sh
+sh rmDkr-Deploy-Homepage.sh
 ```
 
+---
 
-### Notas Adicionales
+## Notas Adicionales
 
 - **Detener el Contenedor:**
   Para detener y eliminar el contenedor, utiliza el comando:
 
   ```bash
-  docker-compose down
+  docker compose down
   ```
 
-- **Actualizaciones:**
-  Para actualizar Homepage a la última versión, ejecuta:
+- **Actualizar Homepage:**
+  Para actualizar a la última versión, ejecuta:
 
   ```bash
-  docker-compose pull && docker-compose up -d
+  docker compose pull && docker compose up -d
   ```
 
 - **Personalización:**
-  Explora la documentación oficial para ajustar widgets, temas y accesos directos según tus necesidades.
+  Consulta la [documentación oficial](https://gethomepage.dev/latest/configs) para ajustar widgets, temas y servicios según tus necesidades.
 
 ---
