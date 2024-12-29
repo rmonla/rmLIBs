@@ -1,17 +1,17 @@
-# <img src="https://github.com/gethomepage/homepage/raw/dev/images/banner_light@2x.png" alt="Homepage Logo" /> Portainer
+# <img src="https://www.portainer.io/hubfs/portainer-logo-white-1.svg" alt="Portainer Logo" width="50%"/>
 
-Este documento explica cómo configurar un contenedor Docker para implementar **Portainer**, una solución moderna y altamente personalizable diseñada para centralizar y gestionar accesos a aplicaciones, servicios y herramientas. Ideal para entornos de servidores y redes domésticas o empresariales, Homepage ofrece una interfaz intuitiva y organizada para optimizar la productividad.
+Este documento explica cómo configurar un contenedor Docker para implementar **Portainer**, una solución moderna y altamente personalizable diseñada para centralizar y gestionar accesos a aplicaciones, servicios y herramientas. Ideal para entornos de servidores y redes domésticas o empresariales, Portainer ofrece una interfaz intuitiva y organizada para optimizar la productividad.
 
 ---
 
 ## Enlaces de Consulta
 
 - 📚 Información del Aplicativo:
-  - [Sitio Oficial de Homepage](https://gethomepage.dev/)
-  - [Repositorio en GitHub](https://github.com/gethomepage/homepage)
-  - [Documentación Oficial](https://gethomepage.dev/latest)
+  - [Sitio Oficial de Portainer](https://www.portainer.io/)
+  - [Repositorio en GitHub](https://github.com/portainer/portainer)
+  - [Documentación Oficial](https://docs.portainer.io/)
 - 🎥 Videos Recomendados:
-  - [Meet Homepage - Your HomeLab Services Dashboard](https://www.youtube.com/watch?v=mC3tjysJ01E) - por [**Techno Tim**](https://www.youtube.com/@TechnoTim)
+  - [Meet Portainer - Your HomeLab Services Dashboard](https://www.youtube.com/watch?v=mC3tjysJ01E) - por [**Techno Tim**](https://www.youtube.com/@TechnoTim)
 
 ---
 
@@ -37,21 +37,21 @@ Este documento explica cómo configurar un contenedor Docker para implementar **
 
 ## Configuración e Implementación
 
-### 1. Crear y Editar el Script `rmDkr-Deploy-Homepage.sh`
+### 1. Crear y Editar el Script `rmDkr-Deploy-Portainer.sh`
 
 Ejecuta el siguiente comando para crear el script de despliegue:
 
 ```bash
-nano rmDkr-Deploy-Homepage.sh
+nano rmDkr-Deploy-Portainer.sh
 ```
 
 Copia y pega el siguiente contenido en el archivo:
 
 ```bash
 #!/bin/bash
-# Script para configurar y desplegar Homepage en Docker
+# Script para configurar y desplegar Portainer en Docker
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Homepage - Versión: 241228-1654
+# rmDocker|Portainer - Versión: 241229-1823
 
 # Variables del Docker
 dkrVARS=$(cat <<SHELL
