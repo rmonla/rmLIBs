@@ -63,6 +63,8 @@ sudo docker rmi $DKR_IMG
 echo "Contenedor $DKR_NOM eliminado junto con su imagen asociada."
 
 ```
+### 📚 Enlaces de consulta:
+  - [Composerize](https://www.composerize.com/)
 ### 🎥 Videos recomendados:
   - [**TechHut**](https://www.youtube.com/@TechHut)
     -  ☑️[my FAVORITE Home Server Dashboard - Homarr Setup in Docker](https://youtu.be/A6vcTIzp_Ww?si=j4d0gjg9yrzVLnv5)
@@ -89,3 +91,5 @@ seafile
 
 Monitoreo https://www.youtube.com/watch?v=PCJwJpbln6Q
  
+# Ricardo MONLA (https://github.com/rmonla)
+# rmDocker - Versión: 241229-1833
