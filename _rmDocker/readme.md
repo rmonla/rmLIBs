@@ -78,4 +78,14 @@ echo "Contenedor $DKR_NOM eliminado junto con su imagen asociada."
 - [**Un loco y su tecnología**](https://www.youtube.com/@unlocoysutecnologia)
     -  ☑️[Descubre 20 aplicaciones que puedes instalar con DOCKER... ¡te encantarán!](https://www.youtube.com/watch?v=gqpJ7RE02Ao)
  
+
+Consultas varias
+JellyFin
+gBittorret
+rancher
+grafana
+syncthing
+seafile 
+
+Monitoreo https://www.youtube.com/watch?v=PCJwJpbln6Q
  
