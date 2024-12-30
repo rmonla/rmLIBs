@@ -54,7 +54,7 @@ Copia y pega el siguiente contenido en el archivo:
 # rmDocker|Portainer - Versión: 241229-2000
 
 # Variables del Docker
-dkrVARS=$(cat <<SHELL
+dkrVRS=$(cat <<YAML
 
 dkrNOM=portainer
 dkrPOR=9000
@@ -62,9 +62,10 @@ dkrPOR=9000
 dkrArchENV=.env
 dkrArchYML=docker-compose.yml
 
-# appDirCFG=config
+appDirDAT=portainer-data
 
-SHELL
+# appDirCFG=config
+YAML
 )
 
 dkrYML=$(cat <<YAML
@@ -79,38 +80,30 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./portainer-data:/data
+      - ./\${appDirDAT}:/data
     ports:
       - \${dkrPOR}:9000
 
 YAML
-)
+)-
 
-# Procesar el contenido de dkrVARS y exportar las variables
-eval "$(echo "$dkrVARS" | grep -E '^[a-zA-Z_][a-zA-Z0-9_]*=' | sed 's/^/export /')"
+# Procesar el contenido de dkrVRS y exportar las variables
+eval "$(echo "$dkrVRS" | grep -E '^[a-zA-Z_][a-zA-Z0-9_]*=' | sed 's/^/export /')"
 
-# Crear el directorio de despliegue
-dirDKR="$(pwd)/$dkrNOM"
-echo "Creando el directorio de despliegue: $dirDKR"
-mkdir -p "$dirDKR" || { echo "Error al crear el directorio $dirDKR"; exit 1; }
-# ---
-
-# Crear el directorio de configuraciones de la aplicación
-dirAppCFG="$dirDKR/$appDirCFG"
-echo "Creando el directorio de despliegue: $dirAppCFG"
-mkdir -p "$dirAppCFG" || { echo "Error al crear el directorio $dirAppCFG"; exit 1; }
+crear_directorio() {
+    echo "Creando el directorio $1"
+    mkdir -p "$1" || { echo "Error al crear el directorio $1"; exit 1; }
+}
+crear_directorio "$(pwd)/$dkrNOM"     # Crea directorio del Docker.
+crear_directorio "$dirDKR/$appDirDAT" # Crea directorio de de configuraciones de la aplicación.
 # ---
 
 escribir_archivo() {
     echo "Creando el archivo $2"
     echo "$1" > "$2" || { echo "Error al escribir $2"; exit 1; }
 }
-
-# Archivo de variables de entorno de Docker
-escribir_archivo "${dkrVARS}" "$dirDKR/$dkrArchENV"
-# Archivo de despliegue de Docker
-escribir_archivo "${dkrYML}" "$dirDKR/$dkrArchYML"
-
+escribir_archivo "${dkrVRS}" "$dirDKR/$dkrArchENV" # Variables de entorno de Docker
+escribir_archivo "${dkrYML}" "$dirDKR/$dkrArchYML" # Archivo de despliegue de Docker
 # ---
 
 # Ejecutar docker-compose
