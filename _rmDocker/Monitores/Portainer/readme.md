@@ -11,7 +11,7 @@ Este documento describe cómo configurar e implementar **Portainer** utilizando 
   - [Repositorio en GitHub](https://github.com/portainer/portainer)
   - [Documentación Oficial](https://docs.portainer.io/)
 - 🎥 Videos Recomendados:
-  - [Introduction to Portainer - Docker Management Simplified](https://www.youtube.com/watch?v=mC3tjysJ01E) - por [**Techno Tim**](https://www.youtube.com/@TechnoTim)
+  - [NUEVA interfaz WEB para tus contenedores! - PORTAINER! / V2M](https://youtu.be/TSot5AnS-mk) - por [**Pelado Nerd**](https://www.youtube.com/@PeladoNerd)
 
 ---
 
