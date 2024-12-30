@@ -56,7 +56,7 @@ Copia y pega el siguiente contenido en el archivo:
 #!/bin/bash
 # Script para configurar e implementar Portainer en Docker
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Portainer - Versión: 241230-0059
+# rmDocker|Portainer - Versión: 241230-0151
 
 # Definición de Variables
 dkrVRS=$(cat <<YAML
@@ -152,5 +152,5 @@ sh rmDkr-Deploy-Portainer.sh
 ## Créditos
 
 **Ricardo MONLA**  
-[GitHub](https://github.com/rmonla) | **rmDocker|Portainer - Versión: 241230-0059**
+[GitHub](https://github.com/rmonla) | **rmDocker|Portainer - Versión: 241230-0151**
 ```
