@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# Mostrar los archivos .xva disponibles
+function show_menu() {
+    echo "\nArchivos disponibles para comprimir:"
+    select file in *.xva "Salir"; do
+        if [[ $REPLY -le $(ls *.xva 2>/dev/null | wc -l) ]] && [[ -f "$file" ]]; then
+            echo "\nSeleccionado: $file"
+            return
+        elif [[ $file == "Salir" ]]; then
+            echo "Saliendo del programa."
+            exit 0
+        else
+            echo "\nOpción no válida. Intenta nuevamente."
+        fi
+    done
+}
+
+# Seleccionar el directorio de destino
+function select_directory() {
+    echo "\nSelecciona el directorio de destino:"
+    select dir in $(find . -type d -maxdepth 1 -printf "%f\n") "Crear un nuevo directorio" "Salir"; do
+        if [[ "$dir" == "Salir" ]]; then
+            echo "Saliendo del programa."
+            exit 0
+        elif [[ "$dir" == "Crear un nuevo directorio" ]]; then
+            read -p "\nNombre del nuevo directorio: " new_dir
+            if [[ -z "$new_dir" ]]; then
+                echo "\nEl nombre no puede estar vacío."
+            elif [[ -d "./$new_dir" ]]; then
+                echo "\nEl directorio $new_dir ya existe. Selecciónalo de la lista."
+            else
+                mkdir -p "./$new_dir"
+                echo "\nDirectorio creado: $new_dir"
+                echo "./$new_dir"
+                return
+            fi
+        elif [[ -d "./$dir" ]]; then
+            echo "\nDirectorio seleccionado: $dir"
+            echo "./$dir"
+            return
+        else
+            echo "\nOpción no válida. Intenta nuevamente."
+        fi
+    done
+}
+
+# Confirmar eliminación del archivo original
+function confirm_delete() {
+    local input_file=$1
+    read -p "\n¿Eliminar archivo original $input_file? (s/n): " -t 30 response
+
+    if [[ $? -ne 0 ]]; then
+        echo "\nSin respuesta. El archivo no será eliminado."
+        return 1
+    fi
+
+    if [[ "$response" =~ ^[sS]$ ]]; then
+        rm -f "$input_file"
+        echo "Archivo eliminado: $input_file"
+        return 0
+    else
+        echo "Archivo no eliminado: $input_file"
+        return 1
+    fi
+}
+
+# Comprimir el archivo seleccionado
+function compress_file() {
+    local input_file=$1
+    local target_dir=$2
+    local output_file="$target_dir/${input_file%.xva}.tar.gz"
+
+    [[ ! -d "$target_dir" ]] && mkdir -p "$target_dir"
+
+    echo "\nComprimiendo $input_file a $output_file..."
+
+    tar -czf - "$input_file" | pv -s $(du -sb "$input_file" | awk '{print $1}') > "$output_file"
+
+    if [[ $? -eq 0 ]]; then
+        echo "\nCompresión completada: $output_file"
+        confirm_delete "$input_file"
+    else
+        echo "\nError durante la compresión. Verifica permisos y espacio."
+    fi
+}
+
+# Verificar archivos .xva
+while true; do
+    if [[ $(ls *.xva 2>/dev/null | wc -l) -eq 0 ]]; then
+        echo "\nNo hay archivos .xva disponibles."
+        exit 0
+    fi
+
+    show_menu
+    target_dir=$(select_directory)
+    compress_file "$file" "$target_dir"
+done
