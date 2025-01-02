@@ -1,7 +1,7 @@
 # <img src="https://homarr.dev/img/logo.png" alt="Homarr Logo" width="100"/> Homarr
 <!--  
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Homarr - Versión: 250102-1429
+# rmDocker|Homarr - Versión: 250102-1513
 -->
 Este documento explica cómo configurar un contenedor Docker para implementar **Homearr**, una solución moderna y eficiente diseñada para centralizar la gestión de servicios en redes domésticas o empresariales. Homearr optimiza la experiencia del usuario al proporcionar un dashboard intuitivo para acceder y organizar diversas aplicaciones y servicios.
 
