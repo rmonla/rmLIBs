@@ -1,6 +1,6 @@
 <!--  
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|UptimeKuma - Versión: 250102-1558
+# rmDocker|Uptime Kuma - Versión: 250102-1706
 -->
 # <img src="https://github.com/louislam/uptime-kuma/raw/master/public/icon.png" alt="Uptime Kuma Logo" width="100"/>Uptime Kuma
 
@@ -55,7 +55,7 @@ Copia y pega el siguiente contenido en el archivo:
 #!/bin/bash
 # Script para configurar y desplegar Uptime Kuma en Docker
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Uptime Kuma - Versión: 241230-0053
+# rmDocker|Uptime Kuma - Versión: 250102-1706
 
 # Variables del Docker
 dkrVRS=$(cat <<YAML
@@ -119,6 +119,10 @@ escribir_archivo "${dkrVRS}" "$dirDKR/$dkrArchENV" # Variables de entorno de Doc
 escribir_archivo "${dkrYML}" "$dirDKR/$dkrArchYML" # Archivo de despliegue de Docker
 # ---
 
+# Crea el volumen externo
+sudo docker volume create --name=uptime-kuma
+# ---
+
 # Ejecutar docker-compose
 archDkrComp="$dirDKR/$dkrArchYML"
 echo "Iniciando el contenedor con docker-compose..."
@@ -128,6 +132,7 @@ docker compose -f "$archDkrComp" up -d || { echo "Error al ejecutar docker-compo
 echo "${dkrNOM} se ha desplegado correctamente en http://0.0.0.0:${dkrPOR}/"
 
 ```
+---
 
 ### 2. Ejecutar el Script de Despliegue
 
