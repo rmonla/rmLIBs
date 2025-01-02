@@ -1,6 +1,6 @@
 <!--  
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Uptime Kuma - Versión: 250102-1706
+# rmDocker|Uptime Kuma - Versión: 250102-1827
 -->
 # <img src="https://github.com/louislam/uptime-kuma/raw/master/public/icon.png" alt="Uptime Kuma Logo" width="100"/>Uptime Kuma
 
@@ -15,7 +15,9 @@ Este documento explica cómo configurar un contenedor Docker para implementar **
   - [Documentación Oficial](https://github.com/louislam/uptime-kuma/wiki/)
   - [Demo Oficial](https://demo.kuma.pet/start-demo)
 - 🎥 Videos Recomendados:
-  - [Uptime Kuma - Monitorización de dispositivos #Docker](https://www.youtube.com/watch?v=2dsOiz8Seoc) - por [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
+  - [Uptime Kuma - Monitorización de dispositivos #Docker](https://youtu.be/2dsOiz8Seoc) - por [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
+  - [Learn Uptime Kuma in 5 Minutes (It's AMAZING!)](https://youtu.be/muZiPdH2JZ8) - por [**No Solo Hacking**](https://www.youtube.com/@NoSoloHacking)
+
 
 ---
 
@@ -55,7 +57,7 @@ Copia y pega el siguiente contenido en el archivo:
 #!/bin/bash
 # Script para configurar y desplegar Uptime Kuma en Docker
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Uptime Kuma - Versión: 250102-1706
+# rmDocker|Uptime Kuma - Versión: 250102-1827
 
 # Variables del Docker
 dkrVRS=$(cat <<YAML
@@ -66,7 +68,7 @@ dkrPOR=3001
 dkrArchENV=.env
 dkrArchYML=docker-compose.yml
 
-# appDirDAT=uptime-kuma-data
+appDirDAT=data
 YAML
 )
 
@@ -75,15 +77,11 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: \${dkrNOM}
-    restart: always
-    ports:
-      - "\${dkrPOR}:3001"
+    restart: unless-stopped
     volumes:
-      - uptime-kuma:/app/data
-volumes:
-  uptime-kuma:
-    external: true
-    name: uptime-kuma
+      - ./\${appDirDAT}:/app/data
+    ports:
+      - \${dkrPOR}:3001
 YAML
 )
 # ---
@@ -103,9 +101,7 @@ dirDKR="$(pwd)/$dkrNOM"
 
 directorios=(
     "$dirDKR"
-    # "$dirDKR/$appDirCFG"
-    # "$dirDKR/$appDirICO"
-    # "$dirDKR/$appDirDAT"
+    "$dirDKR/$appDirDAT"
 )
 
 crear_directorio "${directorios[@]}"
@@ -117,10 +113,6 @@ escribir_archivo() {
 }
 escribir_archivo "${dkrVRS}" "$dirDKR/$dkrArchENV" # Variables de entorno de Docker
 escribir_archivo "${dkrYML}" "$dirDKR/$dkrArchYML" # Archivo de despliegue de Docker
-# ---
-
-# Crea el volumen externo
-sudo docker volume create --name=uptime-kuma
 # ---
 
 # Ejecutar docker-compose
