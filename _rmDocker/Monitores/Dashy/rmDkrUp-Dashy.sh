@@ -1,7 +1,7 @@
 #!/bin/bash
-# Script para configurar y desplegar Uptime Kuma en Docker
+# Script para configurar y desplegar Dashy en Docker
 # Ricardo MONLA (https://github.com/rmonla)
-# rmDocker|Dashy|rmDkrUp-Dashy.sh - Versión: 250105-2257
+# Versión: 250105-2257 - rmDocker|Dashy|rmDkrUp-Dashy.sh
 
 # Variables del Docker
 dkrVRS=$(cat <<YAML
