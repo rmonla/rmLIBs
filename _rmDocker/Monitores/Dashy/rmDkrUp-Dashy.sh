@@ -1,31 +1,31 @@
 #!/bin/bash
 # Script para configurar y desplegar Dashy en Docker
 # Ricardo MONLA (https://github.com/rmonla)
-# Versión: 250105-2257 - rmDocker|Dashy|rmDkrUp-Dashy.sh
+# Versión: 250105-22323 - rmDocker|Dashy|rmDkrUp-Dashy.sh
 
 # Variables del Docker
 dkrVRS=$(cat <<YAML
 
-dkrNOM=uptime-kuma
-dkrPOR=3001
+dkrNOM=dashy
+dkrPOR=4000
 
 dkrArchENV=.env
 dkrArchYML=docker-compose.yml
 
-appDirDAT=data
+appArchCFG=conf.yml
 YAML
 )
 
 dkrYML=$(cat <<YAML
 services:
-  uptime-kuma:
-    image: louislam/uptime-kuma:1
-    container_name: \${dkrNOM}
-    restart: unless-stopped
-    volumes:
-      - ./\${appDirDAT}:/app/data
-    ports:
-      - \${dkrPOR}:3001
+    dashy:
+        image: lissy93/dashy:latest
+        container_name: \${dkrNOM}
+        restart: always
+        volumes:
+            - /\${appArchCFG}:/app/user-data/conf.yml
+        ports:
+            - \${dkrPOR}:8080
 YAML
 )
 # ---
@@ -45,7 +45,7 @@ dirDKR="$(pwd)/$dkrNOM"
 
 directorios=(
     "$dirDKR"
-    "$dirDKR/$appDirDAT"
+    # "$dirDKR/$appDirDAT"
 )
 
 crear_directorio "${directorios[@]}"
@@ -57,6 +57,7 @@ escribir_archivo() {
 }
 escribir_archivo "${dkrVRS}" "$dirDKR/$dkrArchENV" # Variables de entorno de Docker
 escribir_archivo "${dkrYML}" "$dirDKR/$dkrArchYML" # Archivo de despliegue de Docker
+escribir_archivo "# Versión: 250105-22323 - rmDocker|Dashy|rmDkrUp-Dashy.sh" "$dirDKR/$appArchCFG" # Archivo de despliegue de Docker
 # ---
 
 # Ejecutar docker-compose
