@@ -1,6 +1,6 @@
 <!--  
 # Ricardo MONLA (https://github.com/rmonla)
-# Versión: 250109-2358 - rmDocker|Homepage
+# Versión: 250110-0055 - rmDocker|Homepage
 -->
 # <img src="https://github.com/gethomepage/homepage/raw/dev/images/banner_light@2x.png" alt="Homepage Logo"/> Homepage
 
@@ -77,7 +77,7 @@ curl -sSL "https://github.com/rmonla/rmLIBs/raw/refs/heads/master/_rmDocker/Dash
 
 Si este proyecto te ha sido útil y deseas apoyar su desarrollo, considera invitarme un café. Cada contribución ayuda a mantener el flujo de trabajo y a mejorar herramientas como esta.  
 
-[![Invítame un café](https://img.shields.io/badge/Invítame%20un%20café-%23FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://www.buymeacoffee.com/rmonla)
+[![Invítame un café](https://img.shields.io/badge/Invítame%20un%20café-%23FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=white)](https://bit.ly/4hcukTf)
 
 ---
 
