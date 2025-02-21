@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# _rmServers - v250221-1936
+# _rmServers - v250221-1946
 -->
 
 ### rm-actuDistro.sh
@@ -35,7 +35,9 @@ chmod +x rm-actuDistro.sh
 ```
 
 ### rmCambiaNomHost.sh
-``curl -sSL https://github.com/rmonla/rmLIBs/raw/refs/heads/master/_rmServers/rmCambiaNomHost.sh | bash``
+```shell
+curl -sSL https://github.com/rmonla/rmLIBs/raw/refs/heads/master/_rmServers/rmCambiaNomHost.sh | bash
+```
 El script **rmCambiaNomHost.sh** es una herramienta para cambiar el nombre del host en un sistema Linux. Primero, muestra el nombre actual del host y solicita al usuario que ingrese un nuevo nombre. Si se proporciona un nombre válido, el script modifica los archivos de configuración del sistema (`/etc/hosts` y `/etc/hostname`) para actualizar el nombre del host y luego reinicia el sistema para aplicar los cambios. Si no se ingresa un nombre válido, el script muestra un mensaje de error y finaliza sin realizar cambios. Está diseñado para ser ejecutado con permisos de superusuario (`sudo`) debido a la modificación de archivos críticos del sistema.
 
 ### Debian-actualizarIP
