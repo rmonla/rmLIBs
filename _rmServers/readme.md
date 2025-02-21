@@ -1,3 +1,8 @@
+<!--  
+# Ricardo Monla (https://github.com/rmonla)
+# _rmServers - v250221-1936
+-->
+
 ### rm-actuDistro.sh
 ```shell
 tee rm-actuDistro.sh <<SHELL
@@ -29,36 +34,10 @@ chmod +x rm-actuDistro.sh
 ./rm-actuDistro.sh
 ```
 
-### rm-cambiarNombreHost.sh
-```shell
-tee rm-cambiarNombreHost.sh <<SHELL
-#!/bin/bash
-# Script para cambiar el nombre del host y reiniciar el sistema
+### rmCambiaNomHost.sh
+``curl -sSL https://github.com/rmonla/rmLIBs/raw/refs/heads/master/_rmServers/rmCambiaNomHost.sh | bash``
+El script **rmCambiaNomHost.sh** es una herramienta para cambiar el nombre del host en un sistema Linux. Primero, muestra el nombre actual del host y solicita al usuario que ingrese un nuevo nombre. Si se proporciona un nombre válido, el script modifica los archivos de configuración del sistema (`/etc/hosts` y `/etc/hostname`) para actualizar el nombre del host y luego reinicia el sistema para aplicar los cambios. Si no se ingresa un nombre válido, el script muestra un mensaje de error y finaliza sin realizar cambios. Está diseñado para ser ejecutado con permisos de superusuario (`sudo`) debido a la modificación de archivos críticos del sistema.
 
-clear
-
-# Mostrar el nombre del host actual
-H_ACTUAL=\$(hostname)
-echo "Nombre del host actual: \$H_ACTUAL"
-
-# Solicitar el nuevo nombre de host
-read -p "Ingresa el nuevo nombre de host: " H_NUEVO
-
-# Validar que se ingresó un nombre
-if [ -z "\$H_NUEVO" ]; then
-  echo "Error: No ingresaste un nombre de host válido."
-  exit 1
-fi
-
-# Cambiar el nombre del host en los archivos de configuración y reiniciar
-sudo sed -i "s/\$H_ACTUAL/\$H_NUEVO/g" /etc/hosts /etc/hostname && sudo reboot
-SHELL
-
-# Dar permisos de ejecución al script
-chmod +x rm-cambiarNombreHost.sh
-./rm-cambiarNombreHost.sh
-
-```
 ### Debian-actualizarIP
 ```shell
 sudo nano /etc/network/interfaces
