@@ -1,7 +1,8 @@
 #!/bin/bash
 # Script para cambiar el nombre del host y reiniciar el sistema
 # Ricardo Monla (https://github.com/rmonla)
-# rmCambiaNomHost.sh - v250221-1940
+# rmCambiaNomHost.sh - v250224-1012
+
 
 clear
 
@@ -10,7 +11,8 @@ H_ACTUAL=$(hostname)
 echo "Nombre del host actual: $H_ACTUAL"
 
 # Solicitar el nuevo nombre de host
-read -p "Ingresa el nuevo nombre de host: " H_NUEVO
+printf "Ingresa el nuevo nombre de host: "
+read H_NUEVO
 
 # Validar que se ingresó un nombre
 if [ -z "$H_NUEVO" ]; then
